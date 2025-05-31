@@ -1,5 +1,5 @@
 <!-- ملف robots.txt -->
-<!-- احفظه كـ robots.txt في الجذر -->
+<!-- احفظه  كـ robots.txt في الجذر -->
 User-agent: *
 Allow: /
 
