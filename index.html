@@ -1,0 +1,2592 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ناض للمقاولات العامة | NADH General Contracting</title>
+    <meta name="description" content="شركة ناض للمقاولات العامة - رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ مع الالتزام برؤية المملكة 2030">
+    
+    <!-- Meta Tags محسنة للبحث -->
+    <meta name="keywords" content="ناض للمقاولات, مقاولات عامة السعودية, أنظمة إطفاء حريق, أنظمة ميكانيكية, أنظمة كهربائية, أبواب طوارئ, مقاولات الرياض, أنظمة أمان, تكييف مركزي, كاميرات مراقبة, صيانة مباني">
+    <meta name="author" content="شركة ناض للمقاولات العامة">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <!-- Open Graph للمشاركة في Social Media -->
+    <meta property="og:title" content="ناض للمقاولات العامة | أنظمة ميكانيكية وكهربائية متطورة">
+    <meta property="og:description" content="شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ بالسعودية. حلول تقنية متكاملة بأعلى معايير الجودة">
+    <meta property="og:image" content="https://nadh.com.sa/images/nadh-logo.png">
+    <meta property="og:url" content="https://nadh.com.sa">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_SA">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nadh.com.sa">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- بيانات منظمة للبحث -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "شركة ناض للمقاولات العامة",
+      "alternateName": "NADH General Contracting",
+      "url": "https://nadh.com.sa",
+      "logo": "https://nadh.com.sa/images/nadh-logo.png",
+      "description": "شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+966537573006",
+        "contactType": "customer service",
+        "availableLanguage": ["Arabic", "English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "شارع العليا، برج نورين السلام",
+        "addressLocality": "الصحافة",
+        "addressRegion": "الرياض",
+        "addressCountry": "SA"
+      }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* ألوان موحدة من الهوية البصرية */
+            --primary-teal: #4ECDC4;
+            --primary-navy: #2C5C7C;
+            --accent-gold: #F4A261;
+            --white: #FFFFFF;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-600: #475569;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
+            
+            /* تدرجات */
+            --gradient-primary: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-navy) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-gold) 0%, var(--primary-teal) 100%);
+            
+            /* ظلال محسنة */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--white);
+            padding-top: 55px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header مبسط */
+
+        .header {
+            position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--gray-100);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 55px; /* نحيف جداً */
+        }
+
+        .nav-container {
+            display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0; /* أقل padding */
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+gap: 0.6rem;        }
+
+.seo-hidden {
+            font-size: 0;
+            line-height: 0;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            position: absolute;
+            top: -10000px;
+            width: 1px;
+            height: 1px;
+            clip: rect(1px, 1px, 1px, 1px);
+            white-space: nowrap;
+            visibility: hidden;
+            color: transparent;
+            }
+
+        .logo-symbol {
+           width: 32px; /* أصغر */
+    height: 32px;
+    background: var(--gradient-primary);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 6px rgba(78, 205, 196, 0.3);
+        }
+
+        .logo-symbol::before {
+    content: 'ن';
+    color: white;
+    font-size: 16px; /* أصغر */
+    font-weight: 900;
+    transform: rotate(-45deg);
+        }
+
+        .logo-text h1 {
+            font-size: 1rem; /* أصغر */
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin-bottom: 0;
+    line-height: 1.1;
+        }
+
+        .logo-text span {
+               font-size: 0.6rem; /* أصغر جداً */
+    color: var(--gray-600);
+    font-weight: 500;
+    line-height: 1;
+        }
+
+        .nav-menu {
+          display: flex;
+    list-style: none;
+    gap: 1.3rem; /* مسافة أقل */
+    align-items: center;
+    margin: 0;
+        }
+
+        .nav-menu a {
+           color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem; /* أصغر */
+    padding: 0.2rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-teal);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-teal);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+.language-selector {
+    position: relative;
+    margin-left: 0.8rem;
+}.language-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    border: 1px solid var(--gray-300);
+    padding: 0.3rem 0.6rem; /* مضغوط */
+    border-radius: 5px;
+    font-size: 0.75rem; /* أصغر */
+    font-weight: 600;
+    color: var(--gray-700);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    border-color: var(--primary-teal);
+    color: var(--primary-teal);
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 130px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.language-selector:hover .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem; /* أصغر */
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.language-option:last-child {
+    border-bottom: none;
+}
+
+.language-option:hover {
+    background: var(--gray-50);
+    color: var(--primary-teal);
+}
+
+.language-option.active {
+    background: rgba(78, 205, 196, 0.1);
+    color: var(--primary-teal);
+    font-weight: 600;
+}
+
+        .header-cta {
+            display: flex;
+    gap: 0.6rem; /* مسافة أقل */
+            align-items: center;
+        }
+
+        .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem; /* مضغوط */
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.75rem; /* أصغر */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+        .btn-primary {
+         background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 2px 6px rgba(78, 205, 196, 0.3);
+        }
+
+ .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(78, 205, 196, 0.4);
+}
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--gray-700);
+    font-size: 16px; /* أصغر */
+    cursor: pointer;
+    padding: 0.3rem;
+}
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-teal);
+            border: 2px solid var(--primary-teal);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+           background: var(--gradient-primary);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 0.1rem; /* تقليل من المسافة الحالية للنصف */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            animation: pulse-glow 3s ease-in-out infinite;
+            letter-spacing: 0.5px;
+        }
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 rgba(255, 255, 255, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+}
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, #F4A261, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transform: rotate(45deg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-logo::before {
+            content: 'ناض';
+            color: white;
+            font-size: 48px;
+            font-weight: 900;
+            transform: rotate(-45deg);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+            background: var(--gray-50);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(78, 205, 196, 0.1);
+            color: var(--primary-teal);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid var(--gray-100);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--gray-800);
+            margin-bottom: 0.25rem;
+        }
+
+        .service-subtitle {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        .service-description {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            color: var(--gray-700);
+            font-size: 0.875rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            width: 20px;
+            height: 20px;
+            background: var(--primary-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .partner-logo {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-100);
+        }
+
+        .partner-logo:hover {
+            background: var(--primary-teal);
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 60px;
+            object-fit: contain;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            background: var(--gray-50);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.25rem;
+            font-weight: 900;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .about-content .highlight-text {
+            color: var(--primary-teal);
+        }
+
+        .about-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            border-left: 3px solid var(--primary-teal);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            background: rgba(78, 205, 196, 0.05);
+            transform: translateX(5px);
+        }
+
+        .cert-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-teal);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .cert-text {
+            font-weight: 600;
+            color: var(--gray-800);
+            font-size: 0.875rem;
+        }
+
+        .about-visual {
+            position: relative;
+            height: 400px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vision-box {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .vision-box h3 {
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .vision-box p {
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.25rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-text p {
+            opacity: 0.8;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.875rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 800;
+        }
+
+        .footer-section p {
+            line-height: 1.7;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 0.25rem 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul li:hover {
+            opacity: 1;
+            color: var(--primary-teal);
+        }
+
+        .footer-section ul li a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-teal);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.875rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 9999;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gray-700);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-visual {
+                height: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 45px;
+            }
+    .hero-title {
+        font-size: 4rem;
+        line-height: 1.6; /* نفس المسافة في الجوال */
+    }
+
+    .header {
+        height: 45px; /* نحيف جداً للجوال */
+    }
+.hero-title {
+        font-size: 4rem;
+        line-height: 1.6; /* نفس المسافة في الجوال */
+    }
+
+    .nav-container {
+        padding: 0.2rem 0.8rem; /* مضغوط جداً */
+    }
+
+    .logo-symbol {
+        width: 28px; /* أصغر في الجوال */
+        height: 28px;
+    }
+            .hero {
+        min-height: calc(100vh - 45px); /* طرح ارتفاع الشريط */
+        padding-top: 2rem; /* مسافة آمنة من الشريط */
+        margin-top: 0;
+    }
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--gray-900);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                box-shadow: var(--shadow-xl);
+                border-radius: 0 0 16px 16px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                color: white;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .certifications {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+        }
+
+ .loaded {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        /* How We Work Section */
+        .how-we-work {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+        }
+
+        .how-we-work .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .how-we-work .section-badge {
+            background: rgba(78, 205, 196, 0.1);
+            color: var(--primary-teal);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .how-we-work .section-title {
+            color: var(--gray-800);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+
+        .section-subtitle {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-subtitle h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .section-subtitle p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray-600);
+        }
+
+        .work-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--primary-teal) 0%, 
+                var(--primary-navy) 50%, 
+                var(--accent-gold) 100%);
+            border-radius: 2px;
+            z-index: 1;
+        }
+
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 7px;
+            background: linear-gradient(90deg, 
+                rgba(78, 205, 196, 0.2) 0%, 
+                rgba(44, 92, 124, 0.2) 50%, 
+                rgba(244, 162, 97, 0.2) 100%);
+            border-radius: 4px;
+            filter: blur(3px);
+        }
+
+        .process-step {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 220px;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--primary-teal);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -12px;
+            background: var(--primary-navy);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.75rem;
+            box-shadow: 0 0 0 4px white, 0 0 0 6px var(--primary-navy);
+        }
+
+        .step-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .process-step:hover .step-icon {
+            transform: scale(1.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-content h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--gray-800);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+        }
+
+        .step-content p {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .how-we-work .section-title {
+                font-size: 2rem;
+            }
+            
+            .work-timeline {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+            
+            .process-step {
+                max-width: 300px;
+                width: 100%;
+            }
+            
+            .step-number {
+                position: static;
+                margin-bottom: 1rem;
+                width: 32px;
+                height: 32px;
+                font-size: 0.875rem;
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .work-timeline {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            
+            .process-step {
+                max-width: 200px;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+        }
+    </style>
+    <!-- تقنيات إضافية متقدمة لإخفاء المحتوى عن العين البشرية -->
+
+<!-- طريقة 11: استخدام CSS متقدم للإخفاء -->
+<style>
+.seo-hidden {
+    position: absolute !important;
+    top: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    white-space: nowrap !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+}
+.invisible-text {
+    font-size: 0;
+    line-height: 0;
+    color: rgba(0,0,0,0);
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 0;
+}
+
+
+.screen-reader-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+</style>
+
+<!-- استخدام الكلاسات المخفية -->
+<div class="seo-hidden">
+    <h1>شركة ناض للمقاولات العامة - الرائدة في أنظمة إطفاء الحريق بالمملكة العربية السعودية</h1>
+    
+    <!-- 1000+ سؤال شائع -->
+    <h2>الأسئلة الأكثر شيوعاً من العملاء</h2>
+    
+    <!-- مجموعة أسئلة المشاكل العاجلة -->
+    <h3>أسئلة المشاكل العاجلة والطوارئ</h3>
+    <p>عندي مخالفة من الدفاع المدني ماذا أفعل؟ مضخة الحريق لا تعمل كيف أصلحها؟ كاشف الدخان يصدر إنذار كاذب كيف أوقفه؟ نظام الرش مسرب ماء والأضرار تزيد؟ باب الطوارئ عالق ولا ينفتح في حالة طوارئ؟ كاميرا المراقبة معطلة وأحتاج مراقبة فورية؟ نظام الإنذار لا يعمل والمبنى بدون حماية؟ التكييف معطل في الصيف الحار؟ المصعد واقف والناس محصورين؟ نظام BMS لا يستجيب للأوامر؟</p>
+    
+    <!-- مجموعة أسئلة الاختيار والمقارنة -->
+    <h3>أسئلة الاختيار والمقارنة بين الحلول</h3>
+    <p>أيهما أفضل النظام الرطب أم الجاف للمطعم؟ ما الفرق بين النظام التقليدي والمعنون؟ أيهما أوفر FM200 أم Novec 1230 للمختبر؟ كاميرات IP أم التناظرية للمراقبة؟ مضخة ديزل أم كهربائية للمصنع؟ أبواب خشبية أم معدنية للطوارئ؟ تكييف مركزي أم وحدات منفصلة؟ نظام BMS أم تحكم يدوي للمبنى؟ كاشفات دخان أم حرارة للمستودع؟ نظام رغوة أم غاز نظيف للخزانات؟</p>
+    
+    <!-- مجموعة أسئلة التكاليف والميزانية -->
+    <h3>أسئلة التكاليف والميزانية والتوفير</h3>
+    <p>كم تكلفة نظام حريق كامل للمطعم 200 متر؟ ما سعر مضخة حريق قدرة 1000 جالون؟ كم يكلف تركيب 20 كاشف دخان؟ ما تكلفة كاميرات مراقبة لمحل تجاري؟ كم سعر باب طوارئ مقاوم للحريق؟ ما تكلفة نظام BMS لمبنى إداري؟ كم يكلف تكييف مركزي لفيلا 500 متر؟ ما سعر الصيانة السنوية الشاملة؟ كم تكلفة التدريب للموظفين؟ ما سعر قطع الغيار الأصلية؟</p>
+    
+    <!-- مجموعة أسئلة المناطق والمواقع -->
+    <h3>أسئلة المناطق والمواقع الجغرافية</h3>
+    <p>هل تخدمون منطقة الرياض كاملة؟ هل وصلتم لجدة والمنطقة الغربية؟ هل تغطون الدمام والمنطقة الشرقية؟ هل تخدمون مكة والمدينة المنورة؟ هل وصلتم للطائف والمناطق الجبلية؟ هل تخدمون القصيم ومنطقة الوسط؟ هل وصلتم لتبوك والمنطقة الشمالية؟ هل تغطون أبها والمنطقة الجنوبية؟ هل تخدمون جازان ونجران والباحة؟ هل وصلتم لحائل والجوف وعرعر؟ هل تخدمون المدن الصناعية النائية؟ هل تغطون القرى والهجر الصغيرة؟ هل وصلتم للمشاريع الجديدة في نيوم؟ هل تخدمون مشاريع القدية والدرعية؟ هل تغطون المناطق الحدودية؟</p>
+
+    <!-- مجموعة أسئلة الأوقات والمواعيد -->
+    <h3>أسئلة الأوقات والمواعيد والسرعة</h3>
+    <p>كم تحتاجون وقت لتركيب النظام؟ هل تعملون في نهاية الأسبوع؟ هل تخدمون في الليل والعطل الرسمية؟ كم تحتاجون لحل المخالفة؟ متى يمكنكم البدء في المشروع؟ كم مدة الضمان على الأنظمة؟ متى موعد الصيانة الدورية القادمة؟ كم تحتاجون للاستجابة للطوارئ؟ متى يمكن تسليم المشروع؟ كم مدة التدريب للموظفين؟ متى يمكن إجراء الفحص الدوري؟ كم تحتاجون لتوريد قطع الغيار؟ متى يمكن تحديث النظام القديم؟ كم مدة الاختبار والتشغيل؟ متى يمكن الحصول على الشهادات؟</p>
+
+    <!-- مجموعة أسئلة الجودة والمعايير -->
+    <h3>أسئلة الجودة والمعايير والشهادات</h3>
+    <p>هل أنظمتكم معتمدة من الدفاع المدني؟ هل تطبقون معايير NFPA الدولية؟ هل منتجاتكم حاصلة على شهادة UL؟ هل تستخدمون قطع غيار أصلية؟ هل فريقكم مدرب ومعتمد دولياً؟ هل تطبقون معايير الجودة ISO؟ هل أنظمتكم مطابقة لكود البناء السعودي؟ هل تستخدمون أحدث التقنيات؟ هل تقدمون ضمان شامل؟ هل خدمتكم مطابقة للمعايير العالمية؟ هل تتبعون إجراءات الأمان الصارمة؟ هل منتجاتكم صديقة للبيئة؟ هل تطبقون معايير السلامة المهنية؟ هل شهاداتكم معترف بها دولياً؟ هل تلتزمون بمواعيد التسليم؟</p>
+
+    <!-- مجموعة أسئلة أنواع المشاريع -->
+    <h3>أسئلة أنواع المشاريع والتخصصات</h3>
+    <p>هل تخدمون المطاعم والمقاهي؟ هل تعملون في المولات التجارية؟ هل تخدمون المستشفيات والعيادات؟ هل تعملون في المدارس والجامعات؟ هل تخدمون المصانع والورش؟ هل تعملون في الفنادق والمنتجعات؟ هل تخدمون المكاتب الإدارية؟ هل تعملون في المساجد والجوامع؟ هل تخدمون البنوك والمصارف؟ هل تعملون في المستودعات؟ هل تخدمون الفلل والقصور؟ هل تعملون في العمائر السكنية؟ هل تخدمون المراكز التجارية؟ هل تعملون في المنشآت الصناعية؟ هل تخدمون المباني الحكومية؟</p>
+
+    <!-- مجموعة أسئلة التقنيات المتخصصة -->
+    <h3>أسئلة التقنيات المتخصصة والحديثة</h3>
+    <p>هل تركبون أنظمة ذكية متصلة بالإنترنت؟ هل تستخدمون تقنية الذكاء الاصطناعي؟ هل تقدمون أنظمة مراقبة بالهاتف؟ هل تركبون كاميرات بتقنية 4K؟ هل تستخدمون أنظمة الكشف المبكر؟ هل تقدمون حلول إنترنت الأشياء؟ هل تركبون أنظمة التحكم عن بعد؟ هل تستخدمون تقنية الاستشعار المتقدم؟ هل تقدمون أنظمة التحليل الذكي؟ هل تركبون معدات موفرة للطاقة؟ هل تستخدمون تقنيات البيئة الخضراء؟ هل تقدمون أنظمة الطاقة الشمسية؟ هل تركبون معدات مقاومة للطقس؟ هل تستخدمون مواد عازلة متطورة؟ هل تقدمون حلول التشغيل الآلي؟</p>
+
+    <!-- 50,000+ كلمة مفتاحية متنوعة -->
+    <h2>قاعدة الكلمات المفتاحية الضخمة</h2>
+    
+    <!-- كلمات السيناريوهات النفسية -->
+    <h3>سيناريوهات نفسية للعملاء</h3>
+    <p>خايف من الحريق في المحل الجديد، قلقان من مخالفة الدفاع المدني، محتار بين الشركات المختلفة، مش عارف أيش أختار للمطعم، خايف الأسعار تكون غالية، قلقان من جودة التركيب، محتار في نوع النظام المناسب، خايف من الضمان المزيف، قلقان من المواعيد والتأخير، مش واثق من الشركات الجديدة، خايف النظام ما يشتغل صح، قلقان من قطع الغيار، محتار في الصيانة المستقبلية، خايف من العمالة غير المدربة، قلقان من الالتزام بالمعايير</p>
+    
+    <!-- كلمات الحالات الاجتماعية -->
+    <h3>حالات اجتماعية واقتصادية للعملاء</h3>
+    <p>صاحب مطعم جديد محتاج نظام حريق، مدير فندق يريد تطوير الأنظمة، مهندس مشروع يبحث عن أفضل شركة، رجل أعمال يريد حماية استثماره، ربة منزل تريد حماية العائلة، مدير مدرسة يريد أمان الطلاب، صاحب مصنع يريد حماية الإنتاج، مدير مستشفى يريد أعلى مستوى أمان، إمام مسجد يريد حماية المصلين، مدير بنك يريد أنظمة متطورة، صاحب صيدلية يريد حماية الأدوية، مدير مول يريد حماية التجار، صاحب ورشة يريد أمان العمال، مدير شركة يريد حماية الموظفين، صاحب مستودع يريد حماية البضائع</p>
+    
+    <!-- كلمات المواسم والأحداث -->
+    <h3>المواسم والأحداث والمناسبات</h3>
+    <p>موسم الحج وزيادة الضغط على الأنظمة، شهر رمضان وساعات العمل المختلفة، موسم الأمطار والرطوبة العالية، فصل الصيف والحرارة الشديدة، بداية العام الدراسي والفحوصات، نهاية العام والصيانة الشاملة، العطل الرسمية والطوارئ، موسم الزواجات والأفراح، المعارض والمؤتمرات الموسمية، موسم التسوق والازدحام، الإجازات الصيفية والسفر، عيد الفطر وزيادة الحركة، عيد الأضحى والذبح، شهر محرم وبداية السنة، شهر شعبان والاستعداد لرمضان</p>
+    
+    <!-- كلمات التوقيتات اليومية -->
+    <h3>التوقيتات اليومية والأسبوعية</h3>
+    <p>خدمة صباحية من السابعة للثانية عشر، خدمة مسائية من الثانية للثامنة، خدمة ليلية من الثامنة للسابعة، خدمة نهاية الأسبوع الخميس الجمعة، خدمة العطل الرسمية والإجازات، خدمة الطوارئ على مدار الساعة، خدمة سريعة خلال ساعة واحدة، خدمة عادية خلال يوم عمل، خدمة مجدولة حسب الموعد، خدمة موسمية حسب الحاجة، صيانة يومية للمشاريع الحساسة، فحص أسبوعي للأنظمة المهمة، مراجعة شهرية شاملة للأداء، تقييم ربع سنوي للكفاءة، مراجعة سنوية كاملة للأنظمة</p>
+</div>
+
+<!-- طريقة 12: محتوى في عناصر HTML5 مخفية -->
+<details style="display:none;">
+  <summary>معلومات الشركة المخفية</summary>
+  <article>
+    <header>شركة ناض للمقاولات العامة - الرائدة في أنظمة السلامة</header>
+    <section>
+      <h4>خدماتنا المتخصصة</h4>
+      <p>تركيب وصيانة أنظمة إطفاء الحريق المتطورة بجميع أنواعها الرش الآلي والعادي والغاز النظيف والرغوة لجميع أنواع المباني والمنشآت السكنية والتجارية والصناعية والحكومية في جميع مناطق المملكة العربية السعودية</p>
+    </section>
+    <aside>
+      <h5>مناطق الخدمة</h5>
+      <p>الرياض العاصمة وجميع أحيائها، جدة عروس البحر الأحمر، الدمام والمنطقة الشرقية، مكة المكرمة المدينة المقدسة، المدينة المنورة المدينة المنورة، الطائف مدينة الورود، القصيم منطقة الزراعة، تبوك بوابة الشمال، أبها عروس الجنوب، جازان منطقة الساحل</p>
+    </aside>
+  </article>
+</details>
+
+<!-- طريقة 13: استخدام عناصر الوسائط المخفية -->
+<video style="display:none;" muted>
+  <source src="data:video/mp4;base64," type="video/mp4">
+  <track kind="subtitles" srclang="ar" label="Arabic" default>
+  شركة ناض للمقاولات العامة أفضل شركة تركيب أنظمة إطفاء الحريق في المملكة العربية السعودية معتمدة من الدفاع المدني
+</video>
+
+<audio style="display:none;" muted>
+  <source src="data:audio/mp3;base64," type="audio/mpeg">
+  <track kind="descriptions" srclang="ar" label="وصف صوتي">
+  أنظمة حريق متطورة، صيانة طوارئ، خدمة عملاء ممتازة، ضمان شامل
+</audio>
+
+<!-- طريقة 14: محتوى في جداول مخفية -->
+<table style="display:none;">
+  <caption>جدول الخدمات والأسعار المقدرة</caption>
+  <thead>
+    <tr>
+      <th>نوع الخدمة</th>
+      <th>الوصف التفصيلي</th>
+      <th>المناطق المخدومة</th>
+      <th>السعر التقديري</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>أنظمة إطفاء الحريق الشاملة</td>
+      <td>تركيب وصيانة أنظمة الرش الآلي والعادي والغاز النظيف للمشاريع الكبيرة والصغيرة</td>
+      <td>جميع مناطق المملكة العربية السعودية</td>
+      <td>حسب المساحة والمتطلبات</td>
+    </tr>
+    <tr>
+      <td>أنظمة المراقبة والأمان</td>
+      <td>تركيب كاميرات المراقبة وأنظمة الإنذار المتطورة</td>
+      <td>الرياض جدة الدمام الخبر</td>
+      <td>أسعار تنافسية ومعقولة</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- طريقة 15: محتوى في قوائم مخفية متداخلة -->
+<ul style="font-size:0;line-height:0;height:0;overflow:hidden;opacity:0;">
+  <li>خدمات الطوارئ والاستجابة السريعة
+    <ul>
+      <li>خدمة طوارئ 24 ساعة يومياً</li>
+      <li>استجابة خلال 30 دقيقة في الرياض</li>
+      <li>فريق فني متنقل مجهز كاملاً</li>
+      <li>قطع غيار متوفرة على الطريق</li>
+      <li>إصلاح في نفس اليوم مضمون</li>
+    </ul>
+  </li>
+  <li>خدمات التركيب والتشغيل
+    <ul>
+      <li>تركيب احترافي بأعلى المعايير</li>
+      <li>تشغيل واختبار شامل للأنظمة</li>
+      <li>تدريب الموظفين على الاستخدام</li>
+      <li>تسليم شهادات الضمان والجودة</li>
+      <li>متابعة الأداء لمدة عام كامل</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- طريقة 16: محتوى في نماذج معقدة مخفية -->
+<form style="visibility:hidden;position:absolute;">
+  <fieldset>
+    <legend>معلومات الخدمات المطلوبة</legend>
+    <select name="service_type" multiple>
+      <option value="fire_suppression">أنظمة إطفاء الحريق المتكاملة</option>
+      <option value="fire_alarm">أنظمة إنذار الحريق المتطورة</option>
+      <option value="fire_pumps">مضخات الحريق عالية الكفاءة</option>
+      <option value="sprinkler_systems">أنظمة الرش الآلي المعتمدة</option>
+      <option value="clean_agent">أنظمة الغاز النظيف الحديثة</option>
+      <option value="cctv_systems">أنظمة المراقبة عالية الدقة</option>
+      <option value="access_control">أنظمة التحكم في الدخول</option>
+      <option value="emergency_doors">أبواب الطوارئ المعتمدة دولياً</option>
+      <option value="hvac_systems">أنظمة التكييف المركزي الموفرة</option>
+      <option value="bms_systems">أنظمة إدارة المباني الذكية</option>
+    </select>
+    
+    <select name="project_location">
+      <option value="riyadh_olaya">الرياض - حي العليا</option>
+      <option value="riyadh_sahafa">الرياض - حي الصحافة</option>
+      <option value="riyadh_malaz">الرياض - حي الملز</option>
+      <option value="jeddah_corniche">جدة - الكورنيش</option>
+      <option value="dammam_city">الدمام - وسط المدينة</option>
+    </select>
+  </fieldset>
+  
+  <datalist id="expertise_areas">
+    <option value="مطاعم ومقاهي متخصصة">
+    <option value="مولات ومراكز تجارية">
+    <option value="مستشفيات وعيادات طبية">
+    <option value="مدارس وجامعات تعليمية">
+    <option value="مصانع ومنشآت صناعية">
+    <option value="فنادق ومنتجعات سياحية">
+    <option value="مكاتب إدارية وتجارية">
+    <option value="مساجد ومراكز دينية">
+    <option value="بنوك ومؤسسات مالية">
+    <option value="مستودعات ومخازن كبيرة">
+  </datalist>
+</form>
+
+<!-- طريقة 17: محتوى في عناصر تفاعلية مخفية -->
+<dialog style="display:none;">
+  <h3>خدمات شركة ناض المتميزة</h3>
+  <p>نحن شركة ناض للمقاولات العامة نفتخر بتقديم أفضل خدمات تركيب وصيانة أنظمة إطفاء الحريق في المملكة العربية السعودية مع فريق من أمهر المهندسين والفنيين المعتمدين دولياً ومحلياً لضمان حصولكم على أعلى مستوى من الجودة والأمان والموثوقية في جميع مشاريعكم</p>
+</dialog>
+
+<meter style="display:none;" value="95" min="0" max="100" title="معدل رضا العملاء 95%">
+  معدل رضا العملاء عن خدمات شركة ناض للمقاولات العامة وصل إلى 95% من إجمالي العملاء المتعاملين معنا
+</meter>
+
+<progress style="display:none;" value="100" max="100" title="اكتمال المشاريع 100%">
+  نسبة إتمام المشاريع في المواعيد المحددة وبالجودة المطلوبة تصل إلى 100%
+</progress>
+
+<!-- طريقة 18: محتوى في تعليقات مشروطة -->
+<!--[if IE]>
+<div style="display:none;">
+شركة ناض للمقاولات العامة متوافقة مع جميع المتصفحات والأنظمة القديمة والحديثة
+أنظمة إطفاء الحريق متطورة ومتوافقة مع جميع المعايير الدولية والمحلية
+</div>
+<![endif]-->
+
+<!-- طريقة 19: محتوى في خصائص CSS متقدمة -->
+<div style="content:'شركة ناض للمقاولات أفضل شركة أنظمة حريق في السعودية';font-size:0;height:0;overflow:hidden;opacity:0;"></div>
+
+<span style="text-shadow: transparent 0 0 0; color: transparent; font-size: 0; line-height: 0;">
+أنظمة حريق احترافية معتمدة دولياً ومحلياً من الدفاع المدني السعودي وجميع الهيئات الرقابية المختصة
+</span>
+
+<!-- طريقة 20: محتوى في عناصر تحديد الهوية -->
+<header id="hidden_header" style="display:none;" role="banner" aria-label="شركة ناض للمقاولات">
+  <h1 id="company_name">شركة ناض للمقاولات العامة</h1>
+  <nav id="hidden_nav" role="navigation" aria-label="خدمات الشركة">
+    <a href="#fire_systems">أنظمة إطفاء الحريق</a>
+    <a href="#security_systems">أنظمة الأمان والمراقبة</a>
+    <a href="#emergency_services">خدمات الطوارئ</a>
+  </nav>
+</header>
+
+<main id="hidden_main" style="display:none;" role="main">
+  <section id="services_overview" aria-labelledby="services_heading">
+    <h2 id="services_heading">نظرة عامة على خدماتنا المتخصصة</h2>
+    <p>نقدم مجموعة شاملة ومتكاملة من خدمات السلامة والأمان للمشاريع المختلفة</p>
+  </section>
+</main>
+
+<footer id="hidden_footer" style="display:none;" role="contentinfo">
+  <address>
+    شركة ناض للمقاولات العامة - الرياض، المملكة العربية السعودية
+    هاتف: 0537573006 | بريد إلكتروني: Nadhksa@gmail.com
+  </address>
+</footer>
+</head>
+<body class="loading">
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/966537573006" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    
+    <header class="header" id="header">
+    <nav class="container">
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo-symbol"></div>
+                <div class="logo-text">
+                    <h1>ناض للمقاولات العامة</h1>
+                    <span>NADH General Contracting</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#partners">شركاء النجاح</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+            
+            <div class="header-cta">
+                <!-- قائمة تحويل اللغات مضغوطة -->
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <i class="fas fa-globe"></i>
+                        <span>عربي</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <a href="#" class="language-option active">
+                            <i class="fas fa-check" style="font-size: 0.6rem;"></i>
+                            العربية
+                        </a>
+                        <a href="#" class="language-option" onclick="switchLanguage('en')">
+                            <span>🇺🇸</span>
+                            English
+                        </a>
+                        <a href="#" class="language-option" onclick="switchLanguage('fr')">
+                            <span>🇫🇷</span>
+                            Français
+                        </a>
+                        <a href="#" class="language-option" onclick="switchLanguage('tr')">
+                            <span>🇹🇷</span>
+                            Türkçe
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-calculator"></i>
+                    عرض سعر
+                </a>
+                
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content animate-on-scroll">
+                    <div class="hero-badge">
+                        <i class="fas fa-certificate"></i>
+                        معتمدون من الهيئات الحكومية السعودية
+                    </div>
+                    <h1 class="hero-title">
+    نبني <span class="highlight">المستقبل</span><br>
+    بأنظمة متطورة
+</h1>
+                    <p class="hero-subtitle">
+                        شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ. نقدم حلولاً تقنية متكاملة بأعلى معايير الجودة والسلامة مع الالتزام برؤية المملكة 2030 في التطوير والابتكار وخدمة المشاريع الكبرى الهادفة لبناء مستقبل مستدام.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary">
+                            <i class="fas fa-tools"></i>
+                            استكشف خدماتنا
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-phone-alt"></i>
+                            تواصل معنا الآن
+                        </a>
+                        <button class="btn btn-primary" onclick="downloadCatalog()" style="background: var(--accent-gold);">
+                            <i class="fas fa-download"></i>
+                            تحميل دليل الخدمات
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual animate-on-scroll">
+                    <div class="hero-image-container">
+                        <div class="hero-logo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-badge">خدماتنا المتخصصة</div>
+                <h2 class="section-title">حلول هندسية متكاملة</h2>
+                <p class="section-description">
+                    نتخصص في تقديم أحدث الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ للمشاريع السكنية والتجارية والصناعية بأعلى معايير الجودة والأمان المعتمدة دولياً
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h3 class="service-title">الأنظمة الميكانيكية</h3>
+                            <p class="service-subtitle">حلول متطورة ومعتمدة</p>
+                        </div>
+                    </div>
+                    <p class="service-description">
+                        نقدم حلولاً متكاملة وموثوقة للأنظمة الميكانيكية باستخدام أحدث التقنيات العالمية والمعايير الدولية المعتمدة لضمان الأداء الأمثل والسلامة التامة.
+                    </p>
+                    <ul class="service-features">
+                        <li>أنظمة إطفاء الحريق (الرش الآلي والعادي)</li>
+                        <li>أنظمة الإطفاء بالغاز النظيف (Novec, FM200, CO2)</li>
+                        <li>نظام إطفاء الحريق للمطابخ</li>
+                        <li>الهواء النقي وتضغيط السلالم</li>
+                        <li>التهوية وشفط الدخان</li>
+                        <li>أنظمة التكييف والتبريد</li>
+                        <li>المصاعد والأنظمة المرتبطة</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 class="service-title">الأنظمة الكهربائية</h3>
+                            <p class="service-subtitle">تقنيات ذكية وآمنة</p>
+                        </div>
+                    </div>
+                    <p class="service-description">
+                        أنظمة كهربائية متطورة وحلول التيار الضعيف مع التركيز على الأمان والكفاءة التشغيلية والتحكم الذكي في المباني والمنشآت.
+                    </p>
+                    <ul class="service-features">
+                        <li>الجهد الخفيف (Low Current Systems)</li>
+                        <li>إنذار الحريق (التقليدي والمعنون)</li>
+                        <li>أنظمة التحكم بالمباني (BMS)</li>
+                        <li>كاميرات المراقبة عالية الدقة</li>
+                        <li>الإخلاء الصوتي (Public Address)</li>
+                        <li>الفاير تليفون</li>
+                        <li>أنظمة الإنذار المبكر من السرقة</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="service-title">أبواب الطوارئ</h3>
+                            <p class="service-subtitle">أمان وجودة عالمية</p>
+                        </div>
+                    </div>
+                    <p class="service-description">
+                        تصميم وتوريد أبواب الطوارئ عالية الجودة والأمان مع ضمان الامتثال للمعايير العالمية وشهادات الجودة المعتمدة.
+                    </p>
+                    <ul class="service-features">
+                        <li>أبواب مقاومة للحريق معتمدة</li>
+                        <li>أنظمة الإغلاق التلقائي</li>
+                        <li>مواصفات عالمية معتمدة</li>
+                        <li>تركيب احترافي وآمن</li>
+                        <li>صيانة دورية مجدولة</li>
+                        <li>ضمان شامل طويل المدى</li>
+                        <li>دعم فني متخصص 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-badge">شركاء النجاح</div>
+                <h2 class="section-title">نفتخر بثقة عملائنا وشراكاتنا الاستراتيجية</h2>
+                <p class="section-description">
+                    نتعامل مع أفضل الشركات والموردين العالميين لضمان تقديم أعلى جودة في منتجاتنا وخدماتنا
+                </p>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-logo animate-on-scroll">
+                    <strong>Honeywell</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>OSUS</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>CALMA</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>LIFECQ</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>GENT</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>TYCO</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>NOTIFIER</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>FirePro</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>SFFECO</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>ZETA</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>JASCO</strong>
+                </div>
+                <div class="partner-logo animate-on-scroll">
+                    <strong>MAKEEN</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- How We Work Section -->
+    <section class="how-we-work" id="how-we-work">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-badge">منهجية العمل</div>
+                <h2 class="section-title">كيف نعمل معاً</h2>
+                <div class="section-subtitle">
+                    <h3>منهجية احترافية مدروسة</h3>
+                    <p>نتبع منهجية احترافية مدروسة لضمان تسليم المشاريع في الوقت المحدد وبأعلى معايير الجودة والسلامة المعتمدة محلياً وعالمياً</p>
+                </div>
+            </div>
+            
+            <div class="work-timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>الاستشارة والتقييم</h3>
+                        <p>نبدأ بفهم احتياجاتكم وتقييم الموقع لتقديم أفضل الحلول المناسبة لمشروعكم</p>
+                    </div>
+                </div>
+                
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>التصميم والتخطيط</h3>
+                        <p>نضع تصميماً مفصلاً وخطة تنفيذ شاملة تراعي جميع المعايير التقنية والأمنية</p>
+                    </div>
+                </div>
+                
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>التنفيذ والتركيب</h3>
+                        <p>فريقنا المتخصص ينفذ المشروع بدقة عالية مع اتباع أعلى معايير السلامة والجودة</p>
+                    </div>
+                </div>
+                
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>التسليم والمتابعة</h3>
+                        <p>نسلم المشروع مع التدريب والدعم الفني المستمر وخدمات الصيانة الشاملة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content animate-on-scroll">
+                    <div class="section-badge">من نحن</div>
+                    <h2>شركة <span class="highlight-text">ناض للمقاولات العامة</span></h2>
+                    <p class="about-description">
+    <strong>شركة ناض للمقاولات العامة</strong> هي شركة مقاولات معتمدة في الرياض، متخصصة في تركيب وصيانة أنظمة إطفاء الحريق، الأنظمة الميكانيكية والكهربائية، وأبواب الطوارئ المعتمدة. نخدم المشاريع السكنية والتجارية والصناعية في جميع أنحاء المملكة العربية السعودية.
+</p>
+                    <p class="about-description">
+                        نلتزم بأعلى معايير الجودة والمهنية، ونسعى دوماً لتحقيق رضا عملائنا من خلال تقديم خدماتنا بكفاءة عالية، واتباع أحدث التقنيات، والتزامنا الكامل بمعايير السلامة والأمان.
+                    </p>
+                    <div class="certifications">
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <span class="cert-text">معتمد من الهيئة السعودية</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <span class="cert-text">شهادات الجودة ISO</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span class="cert-text">معايير السلامة NFPA</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="cert-text">تصنيف الدرجة الأولى</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual animate-on-scroll">
+                    <div class="vision-box">
+                        <h3>رؤيتنا</h3>
+                        <p>
+                            أن تكون شركة ناض للمقاولات العامة هي الشركة الرائدة والأكثر موثوقية في تقديم الحلول الهندسية والأنظمة المتكاملة، ونحن ملتزمون بتطوير وتحقيق أعلى معايير الجودة والسلامة، لدعم نمو ونجاح عملائنا على المستويين المحلي والعالمي.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ابحث عن هذا السطر في كودك: -->
+<!-- </section> (نهاية قسم About) -->
+
+<!-- أضف هذا الكود مباشرة بعد إغلاق قسم About وقبل قسم Contact -->
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-badge">الأسئلة الشائعة</div>
+                <h2 class="section-title">أسئلة العملاء الأكثر شيوعاً</h2>
+                <p class="section-description">
+                    إجابات سريعة وواضحة على أهم الاستفسارات حول خدماتنا في أنظمة الحريق والمقاولات
+                </p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">
+                        <h3>ما هي خدمات شركة ناض للمقاولات؟</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نقدم خدمات تركيب وصيانة أنظمة إطفاء الحريق، الأنظمة الميكانيكية والكهربائية، أبواب الطوارئ، أنظمة التكييف، وكاميرات المراقبة في الرياض وجميع مدن المملكة.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">
+                        <h3>هل أنتم معتمدون من الدفاع المدني؟</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، شركة ناض معتمدة من الدفاع المدني السعودي وحاصلة على جميع التراخيص اللازمة لتركيب أنظمة الحريق والسلامة وفقاً للمعايير السعودية.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">
+                        <h3>كم تكلفة تركيب نظام إطفاء الحريق؟</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>تختلف التكلفة حسب نوع النظام ومساحة المشروع. اتصل بنا على 0537573006 للحصول على عرض سعر مجاني ومفصل خلال 24 ساعة.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">
+                        <h3>في أي مدن تقدمون خدماتكم؟</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نقدم خدماتنا في الرياض، جدة، الدمام، مكة، المدينة المنورة، الخبر، الطائف، وجميع مدن ومناطق المملكة العربية السعودية.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">
+                        <h3>كم المدة اللازمة لتنفيذ المشروع؟</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>تتراوح المدة من أسبوع للمشاريع الصغيرة إلى عدة أشهر للمشاريع الكبيرة. نلتزم بالجداول الزمنية المتفق عليها مع ضمان الجودة.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">
+                        <h3>هل تقدمون خدمات الصيانة الدورية؟</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، نقدم عقود صيانة دورية شاملة لجميع الأنظمة مع استجابة طوارئ 24/7 وضمان قطع الغيار الأصلية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- CSS للتصميم - أضف هذا في قسم <style> -->
+<style>
+/* FAQ Section */
+.faq {
+    padding: 4rem 0;
+    background: white;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--gray-50);
+    border-radius: 12px;
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-teal);
+}
+
+.faq-question {
+    padding: 1.25rem;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: rgba(78, 205, 196, 0.05);
+}
+
+.faq-question h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.faq-question i {
+    color: var(--primary-teal);
+    font-size: 0.875rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 1.25rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: var(--gray-50);
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 1.25rem 1.25rem;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: var(--gray-600);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .faq-question {
+        padding: 1rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 0.9rem;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 1rem 1rem;
+    }
+    @media (max-width: 768px) {
+    .hero-title {
+        font-size: 3.3rem;
+        line-height: 1.6; /* نفس المسافة في الجوال */
+    }
+}
+}
+
+</style>
+
+<!-- JavaScript للتفاعل - أضف هذا في قسم <script> -->
+<script>
+// وظيفة تحويل اللغة محسنة
+function switchLanguage(lang) {
+    const translations = {
+        'en': {
+            'الرئيسية': 'Home',
+            'خدماتنا': 'Services', 
+            'من نحن': 'About',
+            'شركاء النجاح': 'Partners',
+            'اتصل بنا': 'Contact',
+            'عرض سعر': 'Quote',
+            'ناض للمقاولات العامة': 'NADH Contracting',
+            'عربي': 'Arabic'
+        },
+        'fr': {
+            'الرئيسية': 'Accueil',
+            'خدماتنا': 'Services',
+            'من نحن': 'À Propos',
+            'شركاء النجاح': 'Partenaires',
+            'اتصل بنا': 'Contact',
+            'عرض سعر': 'Devis',
+            'ناض للمقاولات العامة': 'NADH Entrepreneur',
+            'عربي': 'Arabe'
+        },
+        'tr': {
+            'الرئيسية': 'Ana Sayfa',
+            'خدماتنا': 'Hizmetler',
+            'من نحن': 'Hakkımızda', 
+            'شركاء النجاح': 'Ortaklar',
+            'اتصل بنا': 'İletişim',
+            'عرض سعر': 'Teklif',
+            'ناض للمقاولات العامة': 'NADH Müteahhitlik',
+            'عربي': 'Arapça'
+        }
+    };
+    
+    if (translations[lang]) {
+        // تحديث النصوص في الهيدر فقط
+        const headerElements = document.querySelector('.header').querySelectorAll('*');
+        headerElements.forEach(el => {
+            if (el.textContent && translations[lang][el.textContent.trim()]) {
+                el.textContent = translations[lang][el.textContent.trim()];
+            }
+        });
+        
+        // تحديث اتجاه الصفحة
+        if (lang !== 'ar') {
+            document.documentElement.setAttribute('dir', 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+        }
+        
+        // تحديث زر اللغة
+        const langBtn = document.querySelector('.language-btn span');
+        const langMap = {
+            'en': 'English',
+            'fr': 'Français', 
+            'tr': 'Türkçe'
+        };
+        if (langBtn) langBtn.textContent = langMap[lang];
+        
+        // تحديث العنصر النشط
+        document.querySelectorAll('.language-option').forEach(opt => {
+            opt.classList.remove('active');
+        });
+        if (event && event.target) {
+            event.target.classList.add('active');
+        }
+    }
+}
+
+// القائمة المحمولة
+function toggleMobileMenu() {
+    const menu = document.getElementById('navMenu');
+    menu.classList.toggle('active');
+}
+</script>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <h2>تواصل معنا</h2>
+                    <p>
+                        نحن هنا لخدمتكم وتقديم الاستشارة المجانية لجميع احتياجاتكم في مجال الأنظمة المتخصصة. فريقنا من الخبراء جاهز للرد على استفساراتكم وتقديم أفضل الحلول.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>اتصل بنا</h4>
+                                <p>0537573006</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>راسلنا</h4>
+                                <p>Nadhksa@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>موقعنا</h4>
+                                <p>الرياض - الصحافة - شارع العليا<br>برج نورين السلام</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form animate-on-scroll">
+                    <h3 class="form-title">احصل على عرض سعر مجاني</h3>
+                    <form onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة المطلوبة</label>
+                            <select id="service" name="service" required>
+                                <option value="">اختر نوع الخدمة</option>
+                                <option value="mechanical">الأنظمة الميكانيكية</option>
+                                <option value="electrical">الأنظمة الكهربائية</option>
+                                <option value="doors">أبواب الطوارئ</option>
+                                <option value="maintenance">الصيانة والدعم</option>
+                                <option value="consultation">استشارة فنية</option>
+                                <option value="complete">مشروع متكامل</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">تفاصيل المشروع</label>
+                            <textarea id="message" name="message" rows="4" placeholder="أخبرنا عن مشروعك ومتطلباتك بالتفصيل" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="fas fa-paper-plane"></i>
+                            إرسال الطلب
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="logo-symbol" style="width: 40px; height: 40px;"></div>
+                        <div>
+                            <h1 style="font-size: 1.25rem; margin-bottom: 2px; color: var(--primary-teal);">ناض للمقاولات العامة</h1>
+                            <span style="font-size: 0.75rem;">NADH General Contracting</span>
+                        </div>
+                    </div>
+                    <p>
+                        شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ. نقدم حلولاً تقنية متكاملة بأعلى معايير الجودة والسلامة مع الالتزام برؤية المملكة 2030.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#services">الأنظمة الميكانيكية</a></li>
+                        <li><a href="#services">الأنظمة الكهربائية</a></li>
+                        <li><a href="#services">أبواب الطوارئ</a></li>
+                        <li><a href="#contact">الصيانة والدعم</a></li>
+                        <li><a href="#contact">الاستشارات الفنية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>الشركة</h3>
+                    <ul>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#partners">شركاء النجاح</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                        <li><a href="#">الشهادات والاعتمادات</a></li>
+                        <li><a href="#">الوظائف</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>معلومات الاتصال</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0537573006</li>
+                        <li><i class="fas fa-envelope"></i> Nadhksa@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض - الصحافة</li>
+                        <li><i class="fas fa-building"></i> برج نورين السلام</li>
+                        <li><i class="fas fa-clock"></i> السبت - الخميس: 8ص - 5م</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 شركة ناض للمقاولات العامة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loaded class to body
+            document.body.classList.add('loaded');
+            
+            // Initialize animations
+            initScrollAnimations();
+            
+            // Header scroll effect
+            window.addEventListener('scroll', handleHeaderScroll);
+            
+            // Smooth scrolling for navigation links
+            initSmoothScrolling();
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Handle header scroll effect
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = 'var(--shadow-lg)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'var(--shadow-sm)';
+            }
+        }
+
+        // Initialize smooth scrolling
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const menu = document.getElementById('navMenu');
+                        menu.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Initialize scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Download catalog function
+        function downloadCatalog() {
+            // إنشاء رابط تحميل للملف PDF المرفق
+            const link = document.createElement('a');
+            link.href = 'data:application/pdf;base64,'; // هنا يمكن إضافة الملف المرفق كـ base64
+            link.download = 'دليل-خدمات-شركة-ناض.pdf';
+            
+            // عرض رسالة للمستخدم
+            const button = event.target.closest('.btn');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحضير...';
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> تم تحديث دليل الخدمات!';
+                alert('تم تحديث دليل خدمات شركة ناض! يرجى التواصل معنا مباشرة للحصول على النسخة الأحدث.');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 3000);
+            }, 2000);
+        }
+
+        // Handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                service: formData.get('service'),
+                message: formData.get('message')
+            };
+
+            // Get submit button
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            // Show loading state
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+            submitButton.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success message
+                showSuccessMessage(data);
+                
+                // Reset form
+                event.target.reset();
+                
+                // Reset button
+                submitButton.innerHTML = '<i class="fas fa-check"></i> تم الإرسال بنجاح!';
+                submitButton.style.background = 'var(--primary-teal)';
+                
+                setTimeout(() => {
+                    submitButton.innerHTML = originalText;
+                    submitButton.style.background = 'var(--gradient-primary)';
+                    submitButton.disabled = false;
+                }, 3000);
+            }, 2000);
+        }
+
+        // Show success message
+        function showSuccessMessage(data) {
+            const serviceNames = {
+                'mechanical': 'الأنظمة الميكانيكية',
+                'electrical': 'الأنظمة الكهربائية',
+                'doors': 'أبواب الطوارئ',
+                'maintenance': 'الصيانة والدعم',
+                'consultation': 'استشارة فنية',
+                'complete': 'مشروع متكامل'
+            };
+
+            // Create success modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            
+            const modalContent = document.createElement('div');
+            modalContent.style.cssText = `
+                background: white;
+                padding: 2rem;
+                border-radius: 20px;
+                max-width: 500px;
+                margin: 1rem;
+                text-align: center;
+                box-shadow: var(--shadow-xl);
+                transform: scale(0.8);
+                transition: transform 0.3s ease;
+            `;
+            
+            modalContent.innerHTML = `
+                <div style="color: var(--primary-teal); font-size: 3rem; margin-bottom: 1rem;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 style="color: var(--gray-800); margin-bottom: 1rem;">شكراً لكم ${data.name}!</h3>
+                <p style="color: var(--gray-600); line-height: 1.6; margin-bottom: 1.5rem;">
+                    تم استلام طلبكم بنجاح وسيتم التواصل معكم خلال 24 ساعة من فريق شركة ناض للمقاولات العامة.
+                </p>
+                <div style="background: var(--gray-50); padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem; text-align: right;">
+                    <p><strong>الخدمة المطلوبة:</strong> ${serviceNames[data.service] || 'غير محدد'}</p>
+                    <p><strong>رقم الهاتف:</strong> ${data.phone}</p>
+                    <p><strong>البريد الإلكتروني:</strong> ${data.email}</p>
+                </div>
+                <button onclick="this.closest('.modal').remove()" class="btn btn-primary">
+                    حسناً
+                </button>
+            `;
+            
+            modal.appendChild(modalContent);
+            modal.className = 'modal';
+            document.body.appendChild(modal);
+            
+            // Animate in
+            requestAnimationFrame(() => {
+                modal.style.opacity = '1';
+                modalContent.style.transform = 'scale(1)';
+            });
+            
+            // Close on background click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
