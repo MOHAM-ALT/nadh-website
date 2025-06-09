@@ -11,7 +11,67 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQ();
     initSmoothScrolling();
     initMobileMenu();
+    initThemeSwitcher();
 });
+
+// Theme Switcher Functions
+function initThemeSwitcher() {
+    const savedTheme = localStorage.getItem('nadhTheme') || '1';
+    setActiveTheme(savedTheme);
+    updateThemeNumber(savedTheme);
+}
+
+function toggleThemeSwitcher() {
+    const switcher = document.getElementById('themeSwitcher');
+    switcher.classList.toggle('active');
+    
+    // إغلاق عند الضغط خارج القائمة
+    document.addEventListener('click', function(e) {
+        if (!switcher.contains(e.target)) {
+            switcher.classList.remove('active');
+        }
+    });
+}
+
+function switchTheme(themeNumber) {
+    setActiveTheme(themeNumber.toString());
+    updateThemeNumber(themeNumber.toString());
+    localStorage.setItem('nadhTheme', themeNumber.toString());
+    
+    // إغلاق القائمة
+    document.getElementById('themeSwitcher').classList.remove('active');
+    
+    // إظهار رسالة
+    if (themeNumber === 1) {
+        showAlert('تم تطبيق التصميم الأول (الحالي)', 'success');
+    } else if (themeNumber === 2) {
+        showAlert('التصميم الثاني قيد التطوير - سيكون متاحاً قريباً', 'info');
+    } else if (themeNumber === 3) {
+        showAlert('التصميم الثالث قيد التطوير - سيكون متاحاً قريباً', 'info');
+    }
+}
+
+function setActiveTheme(themeNumber) {
+    // إزالة active من جميع الخيارات
+    document.querySelectorAll('.theme-option').forEach(option => {
+        option.classList.remove('active');
+        option.querySelector('small').textContent = '';
+    });
+    
+    // إضافة active للتصميم المختار
+    const activeOption = document.querySelector(`[data-theme="${themeNumber}"]`);
+    if (activeOption) {
+        activeOption.classList.add('active');
+        activeOption.querySelector('small').textContent = 'الحالي';
+    }
+}
+
+function updateThemeNumber(themeNumber) {
+    const themeNumberEl = document.getElementById('themeNumber');
+    if (themeNumberEl) {
+        themeNumberEl.textContent = themeNumber;
+    }
+}
 
 // 1. وظيفة القائمة المحمولة
 function toggleMobileMenu() {
