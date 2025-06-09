@@ -942,6 +942,9 @@ body {
 }
 /* Theme Switcher Float Button */
 /* Theme Switcher محدث ومحسن */
+/* Theme Switcher مبسط وأنيق - للإضافة في نهاية ملف css/style.css */
+
+/* Theme Switcher Float Button */
 .theme-switcher-float {
     position: fixed;
     bottom: 7rem;
@@ -1008,93 +1011,42 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-.theme-options {
-    position: absolute;
-    bottom: 60px;
-    left: 0;
-    background: white;
-    border-radius: 12px;
-    padding: 0.75rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    min-width: 180px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 .theme-switcher-float.active .theme-options {
-    opacity: 1  
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .theme-option {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 14px;
+    gap: 0.75rem;
+    padding: 0.6rem;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-bottom: 0.75rem;
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
+    margin-bottom: 0.4rem;
+    border: 1px solid transparent;
 }
 
 .theme-option:last-child {
     margin-bottom: 0;
 }
 
-.theme-option::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.theme-option:hover::before {
-    left: 100%;
-}
-
 .theme-option:hover {
-    background: rgba(102, 126, 234, 0.08);
-    transform: translateX(5px);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+    background: rgba(102, 126, 234, 0.1);
 }
 
 .theme-option.active {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    background: rgba(102, 126, 234, 0.15);
     border-color: #667eea;
-    transform: translateX(5px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
 }
 
 .theme-preview {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
     flex-shrink: 0;
-    position: relative;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-}
-
-.theme-option:hover .theme-preview {
-    transform: scale(1.1);
 }
 
 .theme-preview.theme-1 {
@@ -1109,105 +1061,54 @@ body {
     background: linear-gradient(135deg, #434343 0%, #000000 50%, #666666 100%);
 }
 
-.theme-option-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
 .theme-option span {
-    font-weight: 700;
-    color: var(--gray-800, #1F2937);
-    font-size: 0.95rem;
-    line-height: 1.2;
+    font-weight: 600;
+    color: var(--gray-800);
+    font-size: 0.8rem;
+    flex: 1;
 }
 
 .theme-option small {
-    font-size: 0.75rem;
-    color: var(--gray-500, #6B7280);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 0.7rem;
+    color: var(--gray-500);
+    font-weight: 500;
 }
 
 .theme-option.active small {
     color: #667eea;
-    font-weight: 700;
+    font-weight: 600;
 }
 
-.theme-status-badge {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #10B981;
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 9999;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    font-size: 0.6rem;
-    padding: 0.2rem 0.4rem;
-    border-radius: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    opacity: 0;
-    transform: scale(0.8);
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: var(--shadow-lg);
     transition: all 0.3s ease;
 }
 
-.theme-option.active .theme-status-badge {
-    opacity: 1;
-    transform: scale(1);
+.whatsapp-float:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-xl);
 }
 
-/* تحسينات للأجهزة المحمولة */
+/* Mobile Responsive */
 @media (max-width: 768px) {
     .theme-switcher-float {
-        bottom: 7rem;
-        left: 1rem;
-    }
-    
-    .theme-switcher-btn {
-        width: 50px;
-        height: 50px;
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    }
-    
-    .theme-switcher-btn i {
-        font-size: 18px;
-    }
-    
-    .theme-number {
-        width: 18px;
-        height: 18px;
-        font-size: 9px;
-        bottom: -2px;
-        right: -2px;
-        border-width: 2px;
-    }
-    
-    .theme-options {
-        min-width: 200px;
-        bottom: 65px;
-        padding: 1rem;
-    }
-    
-    .theme-option {
-        padding: 0.875rem;
-        gap: 0.875rem;
-    }
-    
-    .theme-preview {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .theme-option span {
-        font-size: 0.875rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .theme-switcher-float {
         bottom: 6rem;
-        left: 0.75rem;
+        left: 1rem;
     }
     
     .theme-switcher-btn {
@@ -1219,18 +1120,52 @@ body {
         font-size: 16px;
     }
     
+    .theme-number {
+        width: 14px;
+        height: 14px;
+        font-size: 8px;
+    }
+    
     .theme-options {
-        min-width: 180px;
-        bottom: 60px;
+        min-width: 160px;
+        bottom: 55px;
     }
     
-    .theme-preview {
-        width: 24px;
-        height: 24px;
+    .whatsapp-float {
+        left: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
     }
-    
 }
 
+@media (max-width: 480px) {
+    .theme-switcher-float {
+        bottom: 5.5rem;
+        left: 0.75rem;
+    }
+    
+    .theme-switcher-btn {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .theme-switcher-btn i {
+        font-size: 14px;
+    }
+    
+    .theme-options {
+        min-width: 150px;
+        bottom: 52px;
+    }
+    
+    .whatsapp-float {
+        left: 0.75rem;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
 /* Mobile Menu */
 .mobile-menu-toggle {
     display: none;
