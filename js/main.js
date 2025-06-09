@@ -88,7 +88,7 @@ ${message}`;
 function downloadCatalog() {
     // محاولة تحميل الملف أولاً
     const link = document.createElement('a');
-    link.href = 'downloads/nadh-profile-ar.pdf.pdf';
+    link.href = 'downloads/nadh-profile-ar.pdf';
     link.download = 'دليل-خدمات-ناض-للمقاولات.pdf';
     link.click();
     
@@ -292,8 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
         img.addEventListener('error', function() {
             console.warn('فشل تحميل الصورة:', this.src);
             // إضافة placeholder بدلاً من إخفاء الصورة
-            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjNEVDREM0Ii8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxMiI+TkFESA==';
-            this.alt = 'شعار ناض';
+            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjNEVDREM0Ii8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxNCIgZm9udC1mYW1pbHk9IkNhaXJvLCBzYW5zLXNlcmlmIj7Zhtin2LY8L3RleHQ+PC9zdmc+';            this.alt = 'شعار ناض';
         });
     });
 });
