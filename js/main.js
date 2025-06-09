@@ -84,10 +84,20 @@ ${message}`;
 }
 
 // 4. تحميل الكتالوج
+// 4. تحميل الكتالوج
 function downloadCatalog() {
-    const message = "مرحباً، أريد تحميل دليل خدمات شركة ناض للمقاولات";
-    const whatsappURL = `https://wa.me/966537573006?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, '_blank');
+    // محاولة تحميل الملف أولاً
+    const link = document.createElement('a');
+    link.href = 'downloads/nadh-profile-ar.pdf.pdf';
+    link.download = 'دليل-خدمات-ناض-للمقاولات.pdf';
+    link.click();
+    
+    // إذا لم يوجد الملف، إرسال رسالة واتساب
+    link.onerror = function() {
+        const message = "مرحباً، أريد تحميل دليل خدمات شركة ناض للمقاولات";
+        const whatsappURL = `https://wa.me/966537573006?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
+    };
 }
 
 // 5. تغيير اللغة
