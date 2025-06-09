@@ -281,6 +281,7 @@ window.addEventListener('error', function(e) {
 });
 
 // 12. تحسينات الصور
+// 12. تحسينات الصور
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
@@ -290,8 +291,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         img.addEventListener('error', function() {
             console.warn('فشل تحميل الصورة:', this.src);
-            // إخفاء الصورة المكسورة
-            this.style.display = 'none';
+            // إضافة placeholder بدلاً من إخفاء الصورة
+            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjNEVDREM0Ii8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxMiI+TkFESA==';
+            this.alt = 'شعار ناض';
         });
     });
 });
