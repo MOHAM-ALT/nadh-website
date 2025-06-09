@@ -1,4 +1,4 @@
-// ملف js/main.js - جميع وظائف موقع ناض للمقاولات
+// ملف js/main.js - جميع وظائف موقع ناض للمقاولات - نسخة محدثة
 
 // تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
@@ -12,42 +12,73 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initMobileMenu();
     initThemeSwitcher();
+    
+    console.log('✅ تم تحميل جميع وظائف موقع ناض للمقاولات بنجاح');
 });
 
-// Theme Switcher Functions
+// ===============================
+// Theme Switcher Functions - محدث
+// ===============================
+
 function initThemeSwitcher() {
-    const savedTheme = localStorage.getItem('nadhTheme') || '1';
-    setActiveTheme(savedTheme);
-    updateThemeNumber(savedTheme);
+    // تحديد التصميم الحالي حسب الصفحة
+    const currentPage = window.location.pathname;
+    let currentTheme = '1'; // الافتراضي
+    
+    if (currentPage.includes('theme2.html')) {
+        currentTheme = '2';
+    } else if (currentPage.includes('theme3.html')) {
+        currentTheme = '3';
+    }
+    
+    // تحديث رقم التصميم في الزر
+    updateThemeNumber(currentTheme);
+    setActiveTheme(currentTheme);
+    
+    // حفظ التصميم الحالي
+    localStorage.setItem('nadhTheme', currentTheme);
 }
 
+// تبديل قائمة الثيمات
 function toggleThemeSwitcher() {
     const switcher = document.getElementById('themeSwitcher');
-    switcher.classList.toggle('active');
-    
-    // إغلاق عند الضغط خارج القائمة
-    document.addEventListener('click', function(e) {
-        if (!switcher.contains(e.target)) {
-            switcher.classList.remove('active');
-        }
-    });
+    if (switcher) {
+        switcher.classList.toggle('active');
+        console.log('تم تفعيل/إلغاء قائمة التصميمات');
+    }
 }
 
+// التبديل بين التصميمات
 function switchTheme(themeNumber) {
-    setActiveTheme(themeNumber.toString());
-    updateThemeNumber(themeNumber.toString());
-    localStorage.setItem('nadhTheme', themeNumber.toString());
+    console.log('تم اختيار التصميم رقم:', themeNumber);
     
-    // إغلاق القائمة
-    document.getElementById('themeSwitcher').classList.remove('active');
+    // إغلاق القائمة أولاً
+    const switcher = document.getElementById('themeSwitcher');
+    if (switcher) {
+        switcher.classList.remove('active');
+    }
     
-    // إظهار رسالة
+    // تحديد المسار الصحيح
+    let targetURL = '';
+    const currentPath = window.location.pathname;
+    const isInThemeFolder = currentPath.includes('/themes/');
+    
     if (themeNumber === 1) {
-        showAlert('تم تطبيق التصميم الأول (الحالي)', 'success');
+        targetURL = isInThemeFolder ? '../index.html' : 'index.html';
     } else if (themeNumber === 2) {
-        showAlert('التصميم الثاني قيد التطوير - سيكون متاحاً قريباً', 'info');
+        targetURL = isInThemeFolder ? 'theme2.html' : 'themes/theme2.html';
     } else if (themeNumber === 3) {
+        targetURL = isInThemeFolder ? 'theme3.html' : 'themes/theme3.html';
         showAlert('التصميم الثالث قيد التطوير - سيكون متاحاً قريباً', 'info');
+        return;
+    }
+    
+    // التنقل للصفحة الجديدة
+    if (targetURL) {
+        showAlert('جاري التحويل للتصميم المحدد...', 'info');
+        setTimeout(() => {
+            window.location.href = targetURL;
+        }, 500);
     }
 }
 
@@ -55,14 +86,20 @@ function setActiveTheme(themeNumber) {
     // إزالة active من جميع الخيارات
     document.querySelectorAll('.theme-option').forEach(option => {
         option.classList.remove('active');
-        option.querySelector('small').textContent = '';
+        const smallEl = option.querySelector('small');
+        if (smallEl) {
+            smallEl.textContent = '';
+        }
     });
     
     // إضافة active للتصميم المختار
     const activeOption = document.querySelector(`[data-theme="${themeNumber}"]`);
     if (activeOption) {
         activeOption.classList.add('active');
-        activeOption.querySelector('small').textContent = 'الحالي';
+        const smallEl = activeOption.querySelector('small');
+        if (smallEl) {
+            smallEl.textContent = 'الحالي';
+        }
     }
 }
 
@@ -73,7 +110,18 @@ function updateThemeNumber(themeNumber) {
     }
 }
 
-// 1. وظيفة القائمة المحمولة
+// إغلاق قائمة التصميمات عند الضغط خارجها
+document.addEventListener('click', function(e) {
+    const switcher = document.getElementById('themeSwitcher');
+    if (switcher && !switcher.contains(e.target)) {
+        switcher.classList.remove('active');
+    }
+});
+
+// ===============================
+// Mobile Menu Functions
+// ===============================
+
 function toggleMobileMenu() {
     const navMenu = document.getElementById('navMenu');
     const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -89,7 +137,6 @@ function toggleMobileMenu() {
     }
 }
 
-// 2. تفعيل القائمة المحمولة
 function initMobileMenu() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     if (menuToggle) {
@@ -97,7 +144,10 @@ function initMobileMenu() {
     }
 }
 
-// 3. معالجة النموذج
+// ===============================
+// Form Functions
+// ===============================
+
 function handleFormSubmit(event) {
     event.preventDefault();
     
@@ -143,8 +193,10 @@ ${message}`;
     event.target.reset();
 }
 
-// 4. تحميل الكتالوج
-// 4. تحميل الكتالوج
+// ===============================
+// Download & Language Functions
+// ===============================
+
 function downloadCatalog() {
     // محاولة تحميل الملف أولاً
     const link = document.createElement('a');
@@ -160,7 +212,6 @@ function downloadCatalog() {
     };
 }
 
-// 5. تغيير اللغة
 function switchLanguage(lang) {
     const messages = {
         'en': 'English version will be available soon\nالنسخة الإنجليزية ستكون متاحة قريباً',
@@ -173,7 +224,10 @@ function switchLanguage(lang) {
     }
 }
 
-// 6. تفعيل الأنيميشن
+// ===============================
+// Animation Functions
+// ===============================
+
 function initScrollAnimations() {
     const elements = document.querySelectorAll('.animate-on-scroll');
     
@@ -191,7 +245,10 @@ function initScrollAnimations() {
     elements.forEach(el => observer.observe(el));
 }
 
-// 7. تفعيل FAQ
+// ===============================
+// FAQ Functions
+// ===============================
+
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
     
@@ -214,7 +271,10 @@ function initFAQ() {
     });
 }
 
-// 8. التمرير السلس
+// ===============================
+// Smooth Scrolling
+// ===============================
+
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
     
@@ -245,7 +305,10 @@ function initSmoothScrolling() {
     });
 }
 
-// 9. تأثيرات الهيدر عند التمرير
+// ===============================
+// Header Scroll Effects
+// ===============================
+
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
     if (header) {
@@ -259,7 +322,10 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// 10. نظام التنبيهات
+// ===============================
+// Alert System
+// ===============================
+
 function showAlert(message, type = 'info') {
     // إنشاء عنصر التنبيه
     const alert = document.createElement('div');
@@ -286,6 +352,7 @@ function showAlert(message, type = 'info') {
         max-width: 400px;
         transform: translateX(100%);
         transition: transform 0.3s ease;
+        font-family: 'Cairo', sans-serif;
     `;
     
     document.body.appendChild(alert);
@@ -335,13 +402,10 @@ function hideAlert(alert) {
     }, 300);
 }
 
-// 11. معالج الأخطاء
-window.addEventListener('error', function(e) {
-    console.error('خطأ في الموقع:', e.error);
-});
+// ===============================
+// Image Optimization
+// ===============================
 
-// 12. تحسينات الصور
-// 12. تحسينات الصور
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
@@ -352,26 +416,24 @@ document.addEventListener('DOMContentLoaded', function() {
         img.addEventListener('error', function() {
             console.warn('فشل تحميل الصورة:', this.src);
             // إضافة placeholder بدلاً من إخفاء الصورة
-            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjNEVDREM0Ii8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxNCIgZm9udC1mYW1pbHk9IkNhaXJvLCBzYW5zLXNlcmlmIj7Zhtin2LY8L3RleHQ+PC9zdmc+';            this.alt = 'شعار ناض';
+            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjNEVDREM0Ii8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxNCIgZm9udC1mYW1pbHk9IkNhaXJvLCBzYW5zLXNlcmlmIj7Zhtin2LY8L3RleHQ+PC9zdmc+';
+            this.alt = 'شعار ناض';
         });
     });
 });
 
-console.log('✅ تم تحميل جميع وظائف موقع ناض للمقاولات بنجاح');
-// إصلاح مشكلة التبديل بين التصميمات
-window.toggleThemeSwitcher = function() {
-    const switcher = document.getElementById('themeSwitcher');
-    if (switcher) {
-        switcher.classList.toggle('active');
-    }
-};
+// ===============================
+// Error Handling
+// ===============================
 
-window.switchTheme = function(themeNumber) {
-    if (themeNumber === 1) {
-        window.location.href = 'index.html';
-    } else if (themeNumber === 2) {
-        window.location.href = 'themes/theme2.html';
-    } else if (themeNumber === 3) {
-        window.location.href = 'themes/theme3.html';
-    }
-};
+window.addEventListener('error', function(e) {
+    console.error('خطأ في الموقع:', e.error);
+});
+
+// إجعل الوظائف متاحة عالمياً
+window.toggleThemeSwitcher = toggleThemeSwitcher;
+window.switchTheme = switchTheme;
+window.handleFormSubmit = handleFormSubmit;
+window.downloadCatalog = downloadCatalog;
+window.switchLanguage = switchLanguage;
+window.toggleMobileMenu = toggleMobileMenu;
