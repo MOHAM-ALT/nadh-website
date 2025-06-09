@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ناض للمقاولات العامة | التصميم الثاني</title>
+    <meta name="description" content="شركة ناض للمقاولات العامة - رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ مع الالتزام برؤية المملكة 2030">
+    
+    <!-- Meta Tags محسنة للبحث -->
+    <meta name="keywords" content="ناض للمقاولات, مقاولات عامة السعودية, أنظمة إطفاء حريق, أنظمة ميكانيكية, أنظمة كهربائية, أبواب طوارئ, مقاولات الرياض">
+    <meta name="author" content="شركة ناض للمقاولات العامة">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <!-- Open Graph للمشاركة في Social Media -->
+    <meta property="og:title" content="ناض للمقاولات العامة | أنظمة ميكانيكية وكهربائية متطورة">
+    <meta property="og:description" content="شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ بالسعودية. حلول تقنية متكاملة بأعلى معايير الجودة">
+    <meta property="og:image" content="https://nadh.com.sa/images/nadh-logo.png">
+    <meta property="og:url" content="https://nadh.com.sa">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_SA">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nadh.com.sa">
+    
+    <!-- External Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+
+    <!-- Theme 2 CSS -->
+    <link rel="stylesheet" href="../css/theme2.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="../manifest.json">
+
+    <!-- بيانات منظمة للبحث -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "شركة ناض للمقاولات العامة",
+      "alternateName": "NADH General Contracting",
+      "url": "https://nadh.com.sa",
+      "logo": "https://nadh.com.sa/images/nadh-logo.png",
+      "description": "شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+966537573006",
+        "contactType": "customer service",
+        "availableLanguage": ["Arabic", "English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "شارع العليا، برج نورين السلام",
+        "addressLocality": "الصحافة",
+        "addressRegion": "الرياض",
+        "addressCountry": "SA"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Theme Switcher Float Button -->
+    <div class="theme-switcher-float" id="themeSwitcher">
+        <div class="theme-switcher-btn" onclick="toggleThemeSwitcher()">
+            <i class="fas fa-palette"></i>
+            <span class="theme-number">2</span>
+        </div>
+        <div class="theme-options" id="themeOptions">
+            <div class="theme-option" data-theme="1" onclick="switchTheme(1)">
+                <div class="theme-preview theme-1"></div>
+                <span>التصميم الأول</span>
+                <small>كلاسيكي</small>
+            </div>
+            <div class="theme-option active" data-theme="2" onclick="switchTheme(2)">
+                <div class="theme-preview theme-2"></div>
+                <span>التصميم الثاني</span>
+                <small>الحالي</small>
+            </div>
+            <div class="theme-option" data-theme="3" onclick="switchTheme(3)">
+                <div class="theme-preview theme-3"></div>
+                <span>التصميم الثالث</span>
+                <small>مينيمال</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/966537573006" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-container">
+                        <img src="../images/logo-small.png" alt="شعار شركة ناض" class="logo-image">
+                    </div>
+                    <div class="company-info">
+                        <h1 class="company-name">ناض للمقاولات العامة</h1>
+                        <span class="company-subtitle">NADH General Contracting</span>
+                        <div class="certification-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>معتمد من الدفاع المدني السعودي</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <nav class="main-navigation">
+                    <ul class="nav-menu">
+                        <li><a href="#hero" class="nav-link">الرئيسية</a></li>
+                        <li><a href="#services" class="nav-link">خدماتنا</a></li>
+                        <li><a href="#about" class="nav-link">من نحن</a></li>
+                        <li><a href="#partners" class="nav-link">شركاء النجاح</a></li>
+                        <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="language-selector">
+                        <button class="language-btn">
+                            <i class="fas fa-globe"></i>
+                            <span>عربي</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <a href="#contact" class="cta-button primary">
+                        <i class="fas fa-calculator"></i>
+                        عرض سعر مجاني
+                    </a>
+                    
+                    <button class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-background">
+            <div class="saudi-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMDA2QzMzIi8+Cjx0ZXh0IHg9IjEyIiB5PSIxNiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+2LPYuTwvdGV4dD4KPC9zdmc+" alt="علم السعودية" class="saudi-flag">
+                        <span>رؤية المملكة 2030 | شريك في التطوير والابتكار</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line">شركة ناض للمقاولات العامة</span>
+                        <span class="title-emphasis">رائدة في الأنظمة الهندسية المتطورة</span>
+                        <span class="title-sub">نبني مستقبل آمن بتقنيات عالمية وخبرات سعودية</span>
+                    </h1>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">مشروع منجز</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">سنة خبرة</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">دعم فني</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <a href="#services" class="cta-button primary large">
+                            <i class="fas fa-cogs"></i>
+                            استكشف خدماتنا
+                        </a>
+                        <a href="#contact" class="cta-button secondary large">
+                            <i class="fas fa-phone"></i>
+                            تواصل معنا
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="logo-showcase">
+                        <div class="logo-container-large">
+                            <img src="../images/logo-large.png" alt="شعار شركة ناض" class="hero-logo">
+                        </div>
+                        <div class="showcase-details">
+                            <h3>تميز سعودي بمعايير عالمية</h3>
+                            <p>أنظمة متكاملة للمشاريع الحيوية والاستراتيجية في المملكة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">خدماتنا المتخصصة</div>
+                <h2 class="section-title">حلول هندسية متكاملة لجميع القطاعات</h2>
+                <p class="section-description">
+                    نقدم أحدث الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ للمشاريع السكنية والتجارية والصناعية 
+                    بأعلى معايير الجودة والأمان المعتمدة دولياً ومحلياً
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card featured">
+                    <div class="service-header">
+                        <div class="service-icon mechanical">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="service-title-section">
+                            <h3>الأنظمة الميكانيكية</h3>
+                            <span class="service-subtitle">حلول متطورة ومعتمدة عالمياً</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <p class="service-description">
+                            أنظمة متكاملة للحماية من الحريق والتهوية والتكييف باستخدام أحدث التقنيات 
+                            المعتمدة من الهيئات الدولية والمحلية
+                        </p>
+                        <div class="service-features">
+                            <div class="feature-category">
+                                <h4>أنظمة الحماية من الحريق</h4>
+                                <ul>
+                                    <li>أنظمة الرش الآلي (Sprinkler Systems)</li>
+                                    <li>أنظمة الإطفاء بالغاز النظيف (FM200, Novec)</li>
+                                    <li>أنظمة إطفاء المطابخ التجارية</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h4>أنظمة التهوية والتكييف</h4>
+                                <ul>
+                                    <li>أنظمة شفط الدخان والتهوية</li>
+                                    <li>الهواء النقي وتضغيط السلالم</li>
+                                    <li>أنظمة التكييف المركزي</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon electrical">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="service-title-section">
+                            <h3>الأنظمة الكهربائية</h3>
+                            <span class="service-subtitle">تقنيات ذكية وحلول متقدمة</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <p class="service-description">
+                            أنظمة كهربائية متطورة وحلول التيار الضعيف مع التركيز على الأمان والكفاءة 
+                            والتحكم الذكي في المباني والمنشآت
+                        </p>
+                        <div class="service-features">
+                            <div class="feature-category">
+                                <h4>أنظمة الإنذار والمراقبة</h4>
+                                <ul>
+                                    <li>أنظمة إنذار الحريق (التقليدي والمعنون)</li>
+                                    <li>كاميرات المراقبة عالية الدقة</li>
+                                    <li>أنظمة الإنذار المبكر من السرقة</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h4>أنظمة التحكم والاتصال</h4>
+                                <ul>
+                                    <li>أنظمة التحكم بالمباني (BMS)</li>
+                                    <li>الإخلاء الصوتي (Public Address)</li>
+                                    <li>شبكات الفاير تليفون</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon security">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-title-section">
+                            <h3>أبواب الطوارئ</h3>
+                            <span class="service-subtitle">أمان وجودة بمعايير عالمية</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <p class="service-description">
+                            تصميم وتوريد أبواب الطوارئ عالية الجودة مع ضمان الامتثال للمعايير 
+                            العالمية وشهادات الجودة المعتمدة محلياً ودولياً
+                        </p>
+                        <div class="service-features">
+                            <div class="feature-category">
+                                <h4>أنواع الأبواب المتخصصة</h4>
+                                <ul>
+                                    <li>أبواب مقاومة للحريق معتمدة</li>
+                                    <li>أبواب الطوارئ الذكية</li>
+                                    <li>أنظمة الإغلاق التلقائي</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h4>خدمات الدعم والصيانة</h4>
+                                <ul>
+                                    <li>التركيب الاحترافي والآمن</li>
+                                    <li>الصيانة الدورية المجدولة</li>
+                                    <li>الدعم الفني المتخصص 24/7</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section" id="partners">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">شركاء النجاح</div>
+                <h2 class="section-title">شراكات استراتيجية مع أفضل الشركات العالمية</h2>
+                <p class="section-description">
+                    نتعامل مع أفضل الشركات والموردين العالميين لضمان تقديم أعلى جودة في منتجاتنا وخدماتنا
+                </p>
+            </div>
+            
+            <div class="partners-showcase">
+                <div class="partners-grid">
+                    <div class="partner-card premium">
+                        <div class="partner-logo">
+                            <strong>Honeywell</strong>
+                        </div>
+                        <span class="partner-category">أنظمة الأمان والحماية</span>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <strong>TYCO</strong>
+                        </div>
+                        <span class="partner-category">أنظمة الحريق</span>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <strong>NOTIFIER</strong>
+                        </div>
+                        <span class="partner-category">أنظمة الإنذار</span>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <strong>FirePro</strong>
+                        </div>
+                        <span class="partner-category">الإطفاء بالغاز</span>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <strong>GENT</strong>
+                        </div>
+                        <span class="partner-category">حلول متقدمة</span>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <strong>ZETA</strong>
+                        </div>
+                        <span class="partner-category">تقنيات ذكية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-badge">من نحن</div>
+                    <h2 class="section-title">
+                        شركة ناض للمقاولات العامة
+                        <span class="highlight">رائدة في الحلول الهندسية</span>
+                    </h2>
+                    <div class="about-description">
+                        <p>
+                            <strong>شركة ناض للمقاولات العامة</strong> هي شركة مقاولات معتمدة في الرياض، 
+                            متخصصة في تركيب وصيانة أنظمة إطفاء الحريق، الأنظمة الميكانيكية والكهربائية، 
+                            وأبواب الطوارئ المعتمدة.
+                        </p>
+                        <p>
+                            نخدم المشاريع السكنية والتجارية والصناعية في جميع أنحاء المملكة العربية السعودية، 
+                            ونلتزم بأعلى معايير الجودة والمهنية لتحقيق رضا عملائنا.
+                        </p>
+                    </div>
+                    
+                    <div class="certifications-grid">
+                        <div class="cert-card">
+                            <div class="cert-icon saudi">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="cert-info">
+                                <h4>معتمد من الدفاع المدني السعودي</h4>
+                                <p>تراخيص معتمدة لجميع أنواع الأنظمة</p>
+                            </div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon iso">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="cert-info">
+                                <h4>شهادات الجودة الدولية</h4>
+                                <p>ISO 9001 و ISO 14001 معتمدة</p>
+                            </div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon nfpa">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="cert-info">
+                                <h4>معايير السلامة NFPA</h4>
+                                <p>التزام كامل بالمعايير العالمية</p>
+                            </div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-icon vision">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="cert-info">
+                                <h4>رؤية المملكة 2030</h4>
+                                <p>شريك في التطوير والابتكار</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="vision-card">
+                        <div class="vision-header">
+                            <div class="vision-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>رؤيتنا</h3>
+                        </div>
+                        <p>
+                            أن نكون الشركة الرائدة والأكثر موثوقية في تقديم الحلول الهندسية والأنظمة المتكاملة، 
+                            ملتزمين بتطوير وتحقيق أعلى معايير الجودة والسلامة، لدعم نمو ونجاح عملائنا 
+                            على المستويين المحلي والعالمي.
+                        </p>
+                        <div class="vision-values">
+                            <div class="value-item">
+                                <i class="fas fa-handshake"></i>
+                                <span>الثقة والشراكة</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-gem"></i>
+                                <span>الجودة والتميز</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>الابتكار والتطوير</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="section-badge light">تواصل معنا</div>
+                    <h2 class="section-title light">نحن هنا لخدمتكم</h2>
+                    <p class="contact-description">
+                        فريقنا من الخبراء جاهز لتقديم الاستشارة المجانية وأفضل الحلول لجميع احتياجاتكم 
+                        في مجال الأنظمة المتخصصة
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>اتصل بنا مباشرة</h4>
+                                <p class="contact-value">0537573006</p>
+                                <span class="contact-note">متوفر 24/7 لحالات الطوارئ</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>راسلنا إلكترونياً</h4>
+                                <p class="contact-value">Nadhksa@gmail.com</p>
+                                <span class="contact-note">رد سريع خلال ساعات العمل</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>موقعنا الرئيسي</h4>
+                                <p class="contact-value">الرياض - الصحافة - شارع العليا</p>
+                                <span class="contact-note">برج نورين السلام</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-section">
+                    <div class="form-container">
+                        <h3 class="form-title">احصل على عرض سعر مجاني خلال 24 ساعة</h3>
+                        <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">الاسم الكامل</label>
+                                    <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">رقم الهاتف</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="05xxxxxxxx" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">البريد الإلكتروني</label>
+                                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="service">نوع الخدمة المطلوبة</label>
+                                    <select id="service" name="service" required>
+                                        <option value="">اختر نوع الخدمة</option>
+                                        <option value="mechanical">الأنظمة الميكانيكية</option>
+                                        <option value="electrical">الأنظمة الكهربائية</option>
+                                        <option value="doors">أبواب الطوارئ</option>
+                                        <option value="maintenance">الصيانة والدعم</option>
+                                        <option value="consultation">استشارة فنية</option>
+                                        <option value="complete">مشروع متكامل</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">تفاصيل المشروع</label>
+                                <textarea id="message" name="message" rows="4" placeholder="أخبرنا عن مشروعك ومتطلباتك بالتفصيل..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="cta-button primary large full-width">
+                                <i class="fas fa-paper-plane"></i>
+                                إرسال الطلب والحصول على عرض سعر
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="company-section">
+                        <div class="footer-logo">
+                            <img src="../images/logo-large.png" alt="شعار شركة ناض" class="footer-logo-image">
+                            <div class="footer-company-info">
+                                <h3>ناض للمقاولات العامة</h3>
+                                <span>NADH General Contracting</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ. 
+                            نقدم حلولاً تقنية متكاملة بأعلى معايير الجودة والسلامة مع الالتزام برؤية المملكة 2030.
+                        </p>
+                        <div class="saudi-pride">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAzMiAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjI0IiBmaWxsPSIjMDA2QzMzIi8+Cjx0ZXh0IHg9IjE2IiB5PSIxNiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+2LPYuTwvdGV4dD4KPC9zdmc+" alt="علم السعودية">
+                            <span>فخورون بخدمة المملكة العربية السعودية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>خدماتنا الرئيسية</h4>
+                            <ul>
+                                <li><a href="#services">الأنظمة الميكانيكية</a></li>
+                                <li><a href="#services">الأنظمة الكهربائية</a></li>
+                                <li><a href="#services">أبواب الطوارئ</a></li>
+                                <li><a href="#contact">الصيانة والدعم</a></li>
+                                <li><a href="#contact">الاستشارات الفنية</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>معلومات الشركة</h4>
+                            <ul>
+                                <li><a href="#about">من نحن</a></li>
+                                <li><a href="#partners">شركاء النجاح</a></li>
+                                <li><a href="#contact">اتصل بنا</a></li>
+                                <li><a href="#">الشهادات والاعتمادات</a></li>
+                                <li><a href="#">فرص العمل</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>معلومات الاتصال</h4>
+                            <div class="footer-contact">
+                                <div class="footer-contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>0537573006</span>
+                                </div>
+                                <div class="footer-contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Nadhksa@gmail.com</span>
+                                </div>
+                                <div class="footer-contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>الرياض - الصحافة - برج نورين السلام</span>
+                                </div>
+                                <div class="footer-contact-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>السبت - الخميس: 8ص - 5م</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-bottom-content">
+                        <p>&copy; 2025 شركة ناض للمقاولات العامة. جميع الحقوق محفوظة.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    
+    <!-- Android Chrome -->
+    <link rel="icon" type="image/png" sizes="192x192" href="../images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../images/android-chrome-512x512.png">
+
+    <!-- JavaScript -->
+    <script>
+        // Theme Switcher Functions
+        function toggleThemeSwitcher() {
+            const switcher = document.getElementById('themeSwitcher');
+            switcher.classList.toggle('active');
+        }
+
+        function switchTheme(themeNumber) {
+            if (themeNumber === 1) {
+                window.location.href = '../index.html';
+            } else if (themeNumber === 2) {
+                // already on theme 2
+                showAlert('أنت بالفعل في التصميم الثاني', 'info');
+            } else if (themeNumber === 3) {
+                window.location.href = 'theme3.html';
+            }
+        }
+
+        // Form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const service = formData.get('service');
+            const message = formData.get('message');
+            
+            if (!name || !email || !phone || !service || !message) {
+                showAlert('يرجى ملء جميع الحقول المطلوبة', 'error');
+                return;
+            }
+            
+            const serviceNames = {
+                'mechanical': 'الأنظمة الميكانيكية',
+                'electrical': 'الأنظمة الكهربائية',
+                'doors': 'أبواب الطوارئ',
+                'maintenance': 'الصيانة والدعم',
+                'consultation': 'استشارة فنية',
+                'complete': 'مشروع متكامل'
+            };
+            
+            const whatsappMessage = `مرحباً، أريد عرض سعر من شركة ناض للمقاولات:
+
+الاسم: ${name}
+البريد الإلكتروني: ${email}
+رقم الهاتف: ${phone}
+نوع الخدمة: ${serviceNames[service] || service}
+
+تفاصيل المشروع:
+${message}`;
+            
+            const whatsappURL = `https://wa.me/966537573006?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappURL, '_blank');
+            
+            showAlert('تم إرسال طلبك بنجاح! سيتم تحويلك لواتساب.', 'success');
+            event.target.reset();
+        }
+
+        // Alert system
+        function showAlert(message, type = 'info') {
+            const alert = document.createElement('div');
+            alert.className = `custom-alert alert-${type}`;
+            alert.innerHTML = `
+                <div class="alert-content">
+                    <i class="fas fa-${getAlertIcon(type)}"></i>
+                    <span>${message}</span>
+                    <button class="alert-close">&times;</button>
+                </div>
+            `;
+            
+            alert.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: ${getAlertColor(type)};
+                color: white;
+                padding: 1rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                max-width: 400px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            `;
+            
+            document.body.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                hideAlert(alert);
+            }, 5000);
+            
+            alert.querySelector('.alert-close').addEventListener('click', () => {
+                hideAlert(alert);
+            });
+        }
+
+        function getAlertIcon(type) {
+            const icons = {
+                'success': 'check-circle',
+                'error': 'exclamation-circle',
+                'warning': 'exclamation-triangle',
+                'info': 'info-circle'
+            };
+            return icons[type] || 'info-circle';
+        }
+
+        function getAlertColor(type) {
+            const colors = {
+                'success': '#10B981',
+                'error': '#EF4444', 
+                'warning': '#F59E0B',
+                'info': '#3B82F6'
+            };
+            return colors[type] || '#3B82F6';
+        }
+
+        function hideAlert(alert) {
+            alert.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (alert.parentNode) {
+                    alert.parentNode.removeChild(alert);
+                }
+            }, 300);
+        }
+
+        // Smooth scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    
+                    if (target) {
+                        const header = document.querySelector('.header');
+                        const headerHeight = header ? header.offsetHeight : 80;
+                        const targetPos = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPos,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        console.log('✅ Theme 2 تم تحميله بنجاح');
+    </script>
+</body>
+</html>

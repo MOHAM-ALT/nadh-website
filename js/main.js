@@ -358,3 +358,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('✅ تم تحميل جميع وظائف موقع ناض للمقاولات بنجاح');
+// إصلاح مشكلة التبديل بين التصميمات
+window.toggleThemeSwitcher = function() {
+    const switcher = document.getElementById('themeSwitcher');
+    if (switcher) {
+        switcher.classList.toggle('active');
+    }
+};
+
+window.switchTheme = function(themeNumber) {
+    if (themeNumber === 1) {
+        window.location.href = 'index.html';
+    } else if (themeNumber === 2) {
+        window.location.href = 'themes/theme2.html';
+    } else if (themeNumber === 3) {
+        window.location.href = 'themes/theme3.html';
+    }
+};
