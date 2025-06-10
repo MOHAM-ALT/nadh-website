@@ -1015,4 +1015,693 @@ body {
     }
 
     .nav-menu a {
-        color: white
+       color: white;
+    }
+
+    .nav-menu a:hover {
+        color: var(--primary-gold);
+    }
+
+    .header-cta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .certifications {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .partners-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .work-timeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .timeline-line {
+        display: none;
+    }
+    
+    .process-step {
+        max-width: 300px;
+        width: 100%;
+    }
+    
+    .step-number {
+        position: static;
+        margin-bottom: 1rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+        box-shadow: none;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .faq-question {
+        padding: 1rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 0.9rem;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 1rem 1rem;
+    }
+
+    .theme-switcher-float {
+        bottom: 6rem;
+        left: 1rem;
+    }
+    
+    .theme-switcher-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .theme-switcher-btn i {
+        font-size: 16px;
+    }
+    
+    .theme-number {
+        width: 14px;
+        height: 14px;
+        font-size: 8px;
+    }
+    
+    .theme-options {
+        min-width: 160px;
+        bottom: 55px;
+    }
+    
+    .whatsapp-float {
+        left: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 42px;
+    }
+    
+    .header {
+        height: 42px;
+    }
+
+    .hero {
+        padding-top: 0.3rem;
+        min-height: calc(100vh - 42px);
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+    
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .nav-container {
+        padding: 0.15rem 0.6rem;
+    }
+
+    .logo-symbol {
+        width: 25px;
+        height: 25px;
+    }
+
+    .logo-text h1 {
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.65rem;
+    }
+
+    .language-btn {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.65rem;
+    }
+
+    .theme-switcher-float {
+        bottom: 5.5rem;
+        left: 0.75rem;
+    }
+    
+    .theme-switcher-btn {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .theme-switcher-btn i {
+        font-size: 14px;
+    }
+    
+    .theme-options {
+        min-width: 150px;
+        bottom: 52px;
+    }
+    
+    .whatsapp-float {
+        left: 0.75rem;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+/* إضافات خاصة بالتصميم الرابع مستوحاة من شموس الشرق */
+
+/* Header محسن بالذهبي */
+.nav-container {
+    border-bottom: 2px solid var(--primary-gold);
+}
+
+.nav-menu a.active {
+    color: var(--primary-gold);
+    background: rgba(190, 146, 45, 0.1);
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+}
+
+/* Hero Section محسن */
+.hero-content {
+    padding: 2rem 0;
+}
+
+.hero-visual {
+    background: radial-gradient(circle at center, rgba(190, 146, 45, 0.15) 0%, transparent 70%);
+    border-radius: 30px;
+    padding: 2rem;
+}
+
+.hero-logo {
+    background: var(--gradient-gold);
+    color: white;
+    box-shadow: 
+        0 0 30px rgba(190, 146, 45, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Services Section محسن */
+.service-card {
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 2px solid rgba(190, 146, 45, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(190, 146, 45, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.service-card:hover {
+    border-color: var(--primary-gold);
+    box-shadow: 
+        0 15px 35px rgba(190, 146, 45, 0.15),
+        0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* خط ذهبي متحرك */
+.service-card::before {
+    background: linear-gradient(90deg, 
+        var(--primary-gold) 0%, 
+        var(--secondary-gold) 50%, 
+        var(--accent-gold) 100%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; transform: scaleX(1.1); }
+}
+
+/* Contact Section محسن */
+.contact {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 15% 20%, rgba(190, 146, 45, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.contact .container {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-form {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.15), 
+        rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(190, 146, 45, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 2px rgba(190, 146, 45, 0.2);
+}
+
+/* Stats Section */
+.stats {
+    background: linear-gradient(135deg, 
+        var(--primary-blue) 0%, 
+        var(--primary-gold) 50%, 
+        var(--primary-teal) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.stat-card {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.6s ease;
+}
+
+.stat-card:hover::before {
+    transform: scale(1);
+}
+
+.counter-number {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+/* Footer محسن */
+.footer {
+    background: linear-gradient(135deg, 
+        var(--text-dark) 0%, 
+        #1a1f2e 50%, 
+        var(--text-dark) 100%);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-gold);
+}
+
+.footer-section h3 {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--primary-gold);
+    border-radius: 1px;
+}
+
+.social-link {
+    position: relative;
+    overflow: hidden;
+    background: rgba(190, 146, 45, 0.1);
+    border: 1px solid rgba(190, 146, 45, 0.3);
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.social-link:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.social-link:hover {
+    color: white;
+    border-color: var(--primary-gold);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.social-link i {
+    position: relative;
+    z-index: 2;
+}
+
+/* Partners Section محسن */
+.partner-logo {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 2px solid rgba(190, 146, 45, 0.1);
+}
+
+.partner-logo::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0deg,
+        rgba(190, 146, 45, 0.1) 90deg,
+        transparent 180deg,
+        rgba(190, 146, 45, 0.1) 270deg,
+        transparent 360deg
+    );
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.partner-logo:hover::before {
+    animation: rotate 2s linear infinite;
+    opacity: 1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* FAQ Section محسن */
+.faq-item {
+    border: 2px solid rgba(190, 146, 45, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background: var(--gradient-gold);
+    transition: height 0.3s ease;
+}
+
+.faq-item.active::before {
+    height: 100%;
+}
+
+.faq-question {
+    position: relative;
+}
+
+.faq-question::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary-gold);
+    transition: width 0.3s ease;
+}
+
+.faq-item:hover .faq-question::after {
+    width: 100%;
+}
+
+/* Certifications محسن */
+.cert-item {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.9), 
+        rgba(248, 250, 252, 0.9));
+    border: 2px solid rgba(190, 146, 45, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(190, 146, 45, 0.2), 
+        transparent);
+    transition: left 0.5s ease;
+}
+
+.cert-item:hover::before {
+    left: 100%;
+}
+
+/* تحسينات إضافية للأيقونات */
+.service-icon,
+.cert-icon,
+.contact-icon {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-icon::after,
+.cert-icon::after,
+.contact-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.service-card:hover .service-icon::after,
+.cert-item:hover .cert-icon::after,
+.contact-item:hover .contact-icon::after {
+    width: 80%;
+    height: 80%;
+}
+
+/* تأثيرات الحركة المتقدمة */
+@keyframes pulse-gold {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(190, 146, 45, 0.4); 
+    }
+    50% { 
+        box-shadow: 0 0 0 10px rgba(190, 146, 45, 0); 
+    }
+}
+
+.btn-primary {
+    animation: pulse-gold 3s infinite;
+}
+
+.btn-primary:hover {
+    animation: none;
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* تدرجات ذهبية متقدمة */
+.section-badge {
+    background: linear-gradient(135deg, 
+        rgba(190, 146, 45, 0.15), 
+        rgba(212, 175, 55, 0.15), 
+        rgba(255, 215, 0, 0.15));
+    border: 1px solid var(--primary-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    transition: left 0.8s ease;
+}
+
+.section-badge:hover::before {
+    left: 100%;
+}
+
+/* تحسينات نهائية للجودة */
+img {
+    transition: all 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+/* تأثيرات التمرير */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* تحسين الأداء */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.hero, .services, .contact, .footer {
+    will-change: transform;
+}
+
+/* تأثيرات الماوس المتقدمة */
+.service-card,
+.cert-item,
+.partner-logo,
+.faq-item {
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* تحسينات نهائية للذهبي */
+.highlight,
+.hero-title .highlight {
+    background: linear-gradient(135deg, 
+        var(--primary-gold), 
+        var(--secondary-gold), 
+        var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.highlight::after,
+.hero-title .highlight::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, 
+        rgba(190, 146, 45, 0.3), 
+        rgba(212, 175, 55, 0.3), 
+        rgba(255, 215, 0, 0.3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    z-index: -1;
+    transform: translate(2px, 2px);
+    opacity: 0.5;
+    pointer-events: none;
+}
