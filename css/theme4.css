@@ -798,43 +798,585 @@
     box-sizing: border-box;
 }
 
+/* إصلاح الألوان والتباين */
 :root {
-    /* ألوان محسنة لتناسب الشعار ذو الذهبي والأسود */
-    --primary-gold: #D4AF37;      /* ذهبي أفتح */
-    --secondary-gold: #FFD700;    /* ذهبي لامع */
-    --accent-gold: #FFA500;       /* برتقالي ذهبي */
-    --dark-gold: #B8860B;         /* ذهبي داكن */
-    --royal-gold: #CFB53B;        /* ذهبي ملكي */
+    /* ألوان محسنة حسب الشعار الجديد */
+    --primary-blue: #1B4F72;        /* أزرق الشعار */
+    --secondary-blue: #2E86AB;      /* أزرق فاتح */
+    --primary-teal: #4ECDC4;        /* تيل الشعار */
+    --accent-teal: #48CAE4;         /* تيل فاتح */
     
-    --primary-black: #1C1C1C;     /* أسود عميق */
-    --secondary-black: #2D2D2D;   /* أسود متوسط */
-    --accent-black: #0F0F0F;      /* أسود نقي */
+    --primary-gold: #D4AF37;        /* ذهبي رئيسي */
+    --secondary-gold: #FFD700;      /* ذهبي لامع */
+    --accent-gold: #F39C12;         /* برتقالي ذهبي */
+    --dark-gold: #B8860B;           /* ذهبي داكن */
     
-    --primary-blue: #2C5C7C;
-    --primary-teal: #4ECDC4;
-    --accent-orange: #F4A261;
+    --primary-black: #1C1C1C;       /* أسود عميق */
+    --secondary-black: #2D2D2D;     /* أسود متوسط */
     
-    /* ألوان محايدة محسنة */
+    /* ألوان محايدة مع تباين جيد */
     --white: #FFFFFF;
     --light-gray: #F8FAFC;
     --medium-gray: #E5E7EB;
     --dark-gray: #475569;
-    --text-dark: #1C1C1C;
-    --text-medium: #2D2D2D;
+    --text-dark: #1C1C1C;           /* نص أسود واضح */
+    --text-medium: #374151;         /* نص رمادي متوسط */
+    --text-light: #6B7280;          /* نص رمادي فاتح */
     
-    /* تدرجات ذهبية فاخرة */
-    --gradient-gold: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 50%, var(--royal-gold) 100%);
-    --gradient-gold-dark: linear-gradient(135deg, var(--dark-gold) 0%, var(--primary-gold) 100%);
-    --gradient-black-gold: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 50%, var(--primary-gold) 100%);
-    --gradient-hero: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 30%, var(--primary-gold) 100%);
-    --gradient-royal: linear-gradient(45deg, var(--royal-gold), var(--secondary-gold), var(--accent-gold));
+    /* تدرجات محسنة */
+    --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
+    --gradient-gold: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+    --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 50%, var(--primary-gold) 100%);
+    --gradient-logo: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--primary-teal) 100%);
     
-    /* ظلال ذهبية فاخرة */
-    --shadow-gold-sm: 0 2px 8px rgba(212, 175, 55, 0.15);
-    --shadow-gold-md: 0 6px 20px rgba(212, 175, 55, 0.2);
-    --shadow-gold-lg: 0 15px 35px rgba(212, 175, 55, 0.25);
-    --shadow-gold-xl: 0 25px 50px rgba(212, 175, 55, 0.3);
-    --shadow-black: 0 8px 25px rgba(28, 28, 28, 0.15);
+    /* ظلال محسنة */
+    --shadow-sm: 0 1px 3px rgba(27, 79, 114, 0.1);
+    --shadow-md: 0 4px 6px rgba(27, 79, 114, 0.15);
+    --shadow-lg: 0 10px 15px rgba(27, 79, 114, 0.2);
+    --shadow-xl: 0 20px 25px rgba(27, 79, 114, 0.25);
+}
+
+/* إصلاح Theme Switcher مع تباين أفضل */
+.theme-options {
+    background: var(--white);
+    border: 2px solid var(--primary-blue);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 8px 25px rgba(27, 79, 114, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.theme-option {
+    color: var(--text-dark);
+    border: 2px solid transparent;
+}
+
+.theme-option:hover {
+    background: linear-gradient(135deg, 
+        rgba(27, 79, 114, 0.1),
+        rgba(78, 205, 196, 0.05));
+    border-color: var(--primary-blue);
+    color: var(--text-dark);
+}
+
+.theme-option.active {
+    background: linear-gradient(135deg, 
+        rgba(27, 79, 114, 0.15),
+        rgba(78, 205, 196, 0.1));
+    border-color: var(--primary-blue);
+    color: var(--text-dark);
+}
+
+.theme-option span {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.theme-option small {
+    color: var(--text-medium);
+    font-weight: 600;
+}
+
+.theme-option.active small {
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+/* تحديث الشعار الجديد */
+.logo-container {
+    background: var(--gradient-logo);
+    border: 2px solid var(--primary-blue);
+    box-shadow: 
+        var(--shadow-md),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.logo-container .logo-image {
+    /* إزالة الخلفية واستخدام الشعار الجديد */
+    background-image: none;
+    background: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-indent: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* إضافة الشعار الجديد كـ pseudo-element */
+.logo-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNMjAgNEwzMiAxMlYyOEwyMCAzNkw4IDI4VjEyTDIwIDRaIiBmaWxsPSIjNEVDREM0Ii8+CiAgPHBhdGggZD0iTTIwIDhMMjggMTRWMjZMMjAgMzJMMTIgMjZWMTRMMjAgOFoiIGZpbGw9IiMxQjRGNzIiLz4KICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI0IiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo=');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* تحديث Hero Logo */
+.hero-logo {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.2),
+        rgba(27, 79, 114, 0.1));
+    border: 4px solid var(--primary-teal);
+    position: relative;
+}
+
+.hero-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTYwIDEyTDk2IDM2Vjg0TDYwIDEwOEwyNCA4NFYzNkw2MCAxMloiIGZpbGw9IiM0RUNEQUM0Ii8+CiAgPHBhdGggZD0iTTYwIDI0TDg0IDQyVjc4TDYwIDk2TDM2IDc4VjQyTDYwIDI0WiIgZmlsbD0iIzFCNEY3MiIvPgogIDxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjEyIiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo=');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* تحديث ألوان Header */
+.header {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 3px solid var(--primary-blue);
+    box-shadow: 
+        0 2px 10px rgba(27, 79, 114, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.company-name {
+    background: var(--gradient-logo);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.company-subtitle {
+    color: var(--text-medium);
+}
+
+.certification-badge {
+    background: linear-gradient(135deg, 
+        rgba(27, 79, 114, 0.1),
+        rgba(78, 205, 196, 0.1));
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* تحديث Navigation */
+.nav-link {
+    color: var(--text-dark);
+}
+
+.nav-link:hover {
+    color: var(--primary-blue);
+    background: rgba(27, 79, 114, 0.1);
+}
+
+.nav-link::after {
+    background: var(--primary-teal);
+}
+
+/* تحديث CTA Buttons */
+.cta-button.primary {
+    background: var(--gradient-primary);
+    border: 2px solid var(--primary-blue);
+    color: white;
+}
+
+.cta-button.primary:hover {
+    border-color: var(--primary-teal);
+    box-shadow: 
+        0 8px 25px rgba(27, 79, 114, 0.3),
+        0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تحديث Hero Section */
+.hero-section {
+    background: var(--gradient-hero);
+}
+
+.hero-title .highlight {
+    background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* تحديث Service Cards */
+.service-card::before {
+    background: var(--gradient-primary);
+}
+
+.service-icon {
+    background: var(--gradient-logo);
+    border: 2px solid var(--primary-teal);
+}
+
+.service-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 
+        0 15px 35px rgba(27, 79, 114, 0.2),
+        0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* تحديث Section Badges */
+.section-badge {
+    background: linear-gradient(135deg, 
+        rgba(27, 79, 114, 0.1),
+        rgba(78, 205, 196, 0.1));
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.section-title .highlight {
+    color: var(--primary-teal);
+}
+
+/* تحديث About Icons */
+.about-icon,
+.cert-icon {
+    background: var(--gradient-logo);
+    border: 2px solid var(--primary-teal);
+}
+
+/* تحديث Contact */
+.contact-icon {
+    background: var(--gradient-primary);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* تحديث Footer */
+.footer::before {
+    background: var(--gradient-primary);
+}
+
+.footer-section h3 {
+    color: var(--primary-teal);
+}
+
+/* تحسين تباين النصوص */
+.service-title,
+.section-title,
+.about-description,
+.service-description {
+    color: var(--text-dark);
+}
+
+.service-subtitle,
+.section-description {
+    color: var(--text-medium);
+}
+
+/* إصلاح مشكلة فتح الخيارات */
+.theme-switcher-float {
+    position: fixed;
+    bottom: 7rem;
+    left: 1.5rem;
+    z-index: 9999; /* زيادة z-index */
+}
+
+.theme-options {
+    z-index: 10000; /* z-index عالي للقائمة */
+    pointer-events: auto;
+}
+
+.theme-switcher-float.active .theme-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* تحسين التباين للموبايل */
+@media (max-width: 768px) {
+    .theme-options {
+        background: var(--white);
+        border: 2px solid var(--primary-blue);
+        min-width: 180px;
+    }
+    
+    .theme-option {
+        color: var(--text-dark);
+    }
+    
+    .theme-option span {
+        color: var(--text-dark);
+    }
+    
+    .theme-option small {
+        color: var(--text-medium);
+    }
+}
+
+/* JavaScript لإصلاح Theme Switcher - يوضع في نهاية HTML */
+/* 
+<script>
+// إصلاح مشكلة Theme Switcher
+function toggleThemeSwitcher() {
+    const switcher = document.getElementById('themeSwitcher');
+    if (switcher) {
+        switcher.classList.toggle('active');
+        console.log('Theme switcher toggled:', switcher.classList.contains('active'));
+    }
+}
+
+function switchTheme(themeNumber) {
+    console.log('Switching to theme:', themeNumber);
+    
+    const switcher = document.getElementById('themeSwitcher');
+    if (switcher) {
+        switcher.classList.remove('active');
+    }
+    
+    // إزالة active من جميع الخيارات
+    document.querySelectorAll('.theme-option').forEach(option => {
+        option.classList.remove('active');
+        const smallEl = option.querySelector('small');
+        if (smallEl) {
+            smallEl.textContent = '';
+        }
+    });
+    
+    // إضافة active للتصميم المختار
+    const activeOption = document.querySelector(`[data-theme="${themeNumber}"]`);
+    if (activeOption) {
+        activeOption.classList.add('active');
+        const smallEl = activeOption.querySelector('small');
+        if (smallEl) {
+            smallEl.textContent = 'الحالي';
+        }
+    }
+    
+    // تحديث رقم التصميم
+    const themeNumberEl = document.getElementById('themeNumber');
+    if (themeNumberEl) {
+        themeNumberEl.textContent = themeNumber;
+    }
+    
+    if (themeNumber === 1) {
+        window.location.href = '../index.html';
+    } else if (themeNumber === 2) {
+        window.location.href = 'theme2.html';
+    } else if (themeNumber === 3) {
+        window.location.href = 'theme3.html';
+    } else if (themeNumber === 4) {
+        showAlert('أنت بالفعل في التصميم الرابع - المحدث', 'info');
+    } else if (themeNumber === 5) {
+        showAlert('التصميم الخامس قيد التطوير - سيكون متاحاً قريباً', 'info');
+    }
+}
+
+// إغلاق القائمة عند الضغط خارجها
+document.addEventListener('click', function(e) {
+    const switcher = document.getElementById('themeSwitcher');
+    if (switcher && !switcher.contains(e.target)) {
+        switcher.classList.remove('active');
+    }
+});
+
+// تفعيل Theme Switcher عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    const themeNumberEl = document.getElementById('themeNumber');
+    if (themeNumberEl) {
+        themeNumberEl.textContent = '4';
+    }
+    
+    // تعيين التصميم الرابع كـ active
+    const theme4Option = document.querySelector('[data-theme="4"]');
+    if (theme4Option) {
+        theme4Option.classList.add('active');
+        const smallEl = theme4Option.querySelector('small');
+        if (smallEl) {
+            smallEl.textContent = 'الحالي';
+        }
+    }
+});
+
+function showAlert(message, type = 'info') {
+    const alert = document.createElement('div');
+    alert.className = `custom-alert alert-${type}`;
+    alert.innerHTML = `
+        <div class="alert-content">
+            <i class="fas fa-${getAlertIcon(type)}"></i>
+            <span>${message}</span>
+            <button class="alert-close">&times;</button>
+        </div>
+    `;
+    
+    alert.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${getAlertColor(type)};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        z-index: 10000;
+        max-width: 400px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        font-family: 'Cairo', sans-serif;
+        border: 2px solid rgba(255,255,255,0.2);
+    `;
+    
+    document.body.appendChild(alert);
+    
+    setTimeout(() => {
+        alert.style.transform = 'translateX(0)';
+    }, 100);
+    
+    setTimeout(() => {
+        hideAlert(alert);
+    }, 4000);
+    
+    alert.querySelector('.alert-close').addEventListener('click', () => {
+        hideAlert(alert);
+    });
+}
+
+function getAlertIcon(type) {
+    const icons = {
+        'success': 'check-circle',
+        'error': 'exclamation-circle',
+        'warning': 'exclamation-triangle',
+        'info': 'info-circle'
+    };
+    return icons[type] || 'info-circle';
+}
+
+function getAlertColor(type) {
+    const colors = {
+        'success': '#10B981',
+        'error': '#EF4444', 
+        'warning': '#F59E0B',
+        'info': '#1B4F72'
+    };
+    return colors[type] || '#1B4F72';
+}
+
+function hideAlert(alert) {
+    alert.style.transform = 'translateX(100%)';
+    setTimeout(() => {
+        if (alert.parentNode) {
+            alert.parentNode.removeChild(alert);
+        }
+    }, 300);
+}
+</script>
+*/
+
+/* تحسينات إضافية للتصميم */
+.theme-switcher-btn {
+    background: var(--gradient-primary);
+    border: 3px solid var(--primary-teal);
+    box-shadow: 
+        0 8px 25px rgba(27, 79, 114, 0.3),
+        0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-switcher-btn:hover {
+    box-shadow: 
+        0 15px 40px rgba(27, 79, 114, 0.4),
+        0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.theme-number {
+    background: linear-gradient(135deg, var(--accent-gold), #E63946);
+}
+
+/* تحسين الشعار في Footer */
+.footer-logo-section .footer-logo {
+    background: var(--gradient-logo);
+    position: relative;
+}
+
+.footer-logo-section .footer-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNMjAgNEwzMiAxMlYyOEwyMCAzNkw4IDI4VjEyTDIwIDRaIiBmaWxsPSIjNEVDREM0Ii8+CiAgPHBhdGggZD0iTTIwIDhMMjggMTRWMjZMMjAgMzJMMTIgMjZWMTRMMjAgOFoiIGZpbGw9IiNGRkZGRkYiLz4KICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI0IiBmaWxsPSIjMUI0RjcyIi8+Cjwvc3ZnPgo=');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* تحسين تباين الألوان في جميع العناصر */
+.client-logo,
+.partner-logo {
+    color: var(--text-dark);
+    border-color: var(--primary-blue);
+}
+
+.client-card:hover,
+.partner-logo:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.form-title {
+    color: var(--primary-teal);
+}
+
+/* إصلاح مشكلة الرؤية */
+body {
+    color: var(--text-dark);
+    background: var(--white);
+}
+
+.hero-content {
+    color: white;
+}
+
+.hero-subtitle {
+    color: var(--primary-teal);
+}
+
+.contact-section {
+    color: white;
+}
+
+.footer {
+    color: white;
+}
+
+.projects-section {
+    color: white;
+}
+
+.stat-number {
+    color: var(--primary-teal);
+}
+
+/* تأكيد التباين الجيد */
+.about-section,
+.services-section,
+.clients-section {
+    background: var(--light-gray);
+    color: var(--text-dark);
+}
+
+.section-title,
+.service-title,
+.about-description {
+    color: var(--text-dark);
+}
+
+.section-description,
+.service-description {
+    color: var(--text-medium);
 }
 
 /* Header محسن بالألوان الجديدة */
