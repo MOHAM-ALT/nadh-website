@@ -798,9 +798,17 @@
     box-sizing: border-box;
 }
 
-/* إصلاح التباين والألوان نهائياً */
+/* إصلاح جذري للخطوط والوضوح */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
-    /* ألوان واضحة ومتباينة */
+    /* ألوان واضحة ومقروءة */
     --primary-blue: #1B4F72;
     --secondary-blue: #2E86AB;
     --primary-teal: #4ECDC4;
@@ -809,28 +817,473 @@
     --primary-gold: #D4AF37;
     --secondary-gold: #FFD700;
     
-    /* نصوص واضحة */
-    --text-dark: #1F2937;           /* أسود قوي للنصوص */
-    --text-medium: #374151;         /* رمادي متوسط */
-    --text-light: #6B7280;          /* رمادي فاتح */
-    --text-white: #FFFFFF;          /* أبيض نقي */
+    /* نصوص فائقة الوضوح */
+    --text-black: #000000;             /* أسود نقي */
+    --text-dark: #111827;              /* أسود قوي */
+    --text-medium: #374151;            /* رمادي متوسط */
+    --text-light: #6B7280;             /* رمادي فاتح */
+    --text-white: #FFFFFF;             /* أبيض نقي */
     
-    /* خلفيات واضحة */
-    --bg-white: #FFFFFF;            /* أبيض نقي */
-    --bg-light: #F9FAFB;            /* رمادي فاتح جداً */
-    --bg-gray: #F3F4F6;             /* رمادي فاتح */
-    --bg-dark: #1F2937;             /* أسود للخلفيات المظلمة */
+    /* خلفيات نظيفة */
+    --bg-white: #FFFFFF;               /* أبيض نقي */
+    --bg-light: #F9FAFB;               /* رمادي فاتح جداً */
+    --bg-gray: #F3F4F6;                /* رمادي فاتح */
+    --bg-dark: #111827;                /* أسود للخلفيات المظلمة */
     
     /* تدرجات محسنة */
     --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
     --gradient-gold: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
     --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 50%, var(--primary-gold) 100%);
     
-    /* ظلال */
+    /* ظلال واضحة */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
     --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
     --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* إعدادات الخط الأساسية */
+body {
+    font-family: 'Cairo', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--text-black);
+    background: var(--bg-white);
+    padding-top: 80px;
+    direction: rtl;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* تحسين الخطوط العربية */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cairo', 'Amiri', 'Times New Roman', serif;
+    font-weight: 800;
+    color: var(--text-black);
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+p, span, div, a, li {
+    font-family: 'Cairo', 'Segoe UI', sans-serif;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+/* Header محسن بخطوط واضحة */
+.header {
+    background: var(--bg-white);
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid var(--primary-blue);
+    box-shadow: var(--shadow-md);
+    font-weight: 700;
+}
+
+.company-name {
+    color: var(--primary-blue);
+    font-weight: 900;
+    font-size: 1.4rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+}
+
+.company-subtitle {
+    color: var(--text-medium);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.certification-badge {
+    background: rgba(27, 79, 114, 0.1);
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-shadow: none;
+}
+
+/* Navigation بخطوط واضحة */
+.nav-link {
+    color: var(--text-black);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link:hover {
+    color: var(--primary-blue);
+    font-weight: 800;
+}
+
+/* Hero Section بخطوط فائقة الوضوح */
+.hero-section {
+    background: var(--gradient-hero);
+    color: var(--text-white);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--text-white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.hero-title .highlight {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    text-shadow: none;
+}
+
+.hero-subtitle {
+    color: var(--primary-gold);
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.hero-description {
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    line-height: 1.8;
+}
+
+/* CTA Buttons بخطوط واضحة */
+.cta-button {
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.primary {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Sections بخطوط محسنة */
+.section-badge {
+    background: rgba(27, 79, 114, 0.15);
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: none;
+}
+
+.section-title {
+    color: var(--text-black);
+    font-weight: 900;
+    font-size: 2.8rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.section-title .highlight {
+    color: var(--primary-teal);
+    font-weight: 900;
+}
+
+.section-description {
+    color: var(--text-medium);
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+/* Service Cards بخطوط واضحة */
+.service-card {
+    background: var(--bg-white);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
+}
+
+.service-title {
+    color: var(--text-black);
+    font-weight: 800;
+    font-size: 1.3rem;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+}
+
+.service-description {
+    color: var(--text-medium);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.service-button {
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+/* About Section بخطوط محسنة */
+.about-section {
+    background: var(--bg-white);
+    color: var(--text-black);
+}
+
+.about-description {
+    color: var(--text-medium);
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-icon-text {
+    color: var(--text-black);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.cert-info h4 {
+    color: var(--text-black);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.cert-info p {
+    color: var(--text-medium);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Projects Section بخطوط واضحة */
+.projects-section {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+.stat-number {
+    color: var(--primary-gold);
+    font-weight: 900;
+    font-size: 3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.stat-label {
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Clients Section بخطوط واضحة */
+.clients-section {
+    background: var(--bg-light);
+    color: var(--text-black);
+}
+
+.client-logo {
+    color: var(--text-black);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.client-card:hover .client-logo {
+    color: var(--text-white);
+    font-weight: 800;
+}
+
+/* Contact Section بخطوط واضحة */
+.contact-section {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+.contact-text h4 {
+    color: var(--text-white);
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact-text p {
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 1rem;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    color: var(--primary-gold);
+    font-weight: 800;
+    font-size: 1.6rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.form-group label {
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-white);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+/* Footer بخطوط واضحة */
+.footer {
+    background: var(--bg-dark);
+    color: var(--text-white);
+}
+
+.footer-section h3 {
+    color: var(--primary-teal);
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.footer-section p,
+.footer-section li {
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.footer-section ul li:hover {
+    color: var(--primary-teal);
+    font-weight: 700;
+}
+
+/* Theme Switcher بخطوط واضحة */
+.theme-option span {
+    color: var(--text-black);
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.theme-option small {
+    color: var(--text-medium);
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.theme-option.active span {
+    color: var(--primary-blue);
+    font-weight: 900;
+}
+
+.theme-option.active small {
+    color: var(--primary-blue);
+    font-weight: 800;
+}
+
+/* تحسينات للموبايل */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        font-weight: 900;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+        font-weight: 900;
+    }
+    
+    .company-name {
+        font-size: 1.1rem;
+        font-weight: 900;
+    }
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+        font-weight: 900;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: 900;
+    }
+    
+    .company-name {
+        font-size: 1rem;
+        font-weight: 900;
+    }
+}
+
+/* تأكيد الوضوح النهائي */
+.container * {
+    font-weight: inherit !important;
+    color: inherit !important;
+}
+
+/* إصلاح أي نصوص غير واضحة */
+.hero-content * {
+    color: var(--text-white) !important;
+    font-weight: 700 !important;
+}
+
+.services-section * {
+    color: var(--text-black) !important;
+}
+
+.about-section * {
+    color: var(--text-black) !important;
+}
+
+.clients-section * {
+    color: var(--text-black) !important;
+}
+
+/* تحسين final للخطوط */
+strong, b {
+    font-weight: 800 !important;
+}
+
+em, i {
+    font-style: normal;
+    font-weight: 700 !important;
 }
 
 /* إصلاح Theme Switcher مع تباين مثالي */
