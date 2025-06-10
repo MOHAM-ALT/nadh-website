@@ -49,16 +49,15 @@ function toggleThemeSwitcher() {
 }
 
 // التبديل بين التصميمات
+// استبدال دالة switchTheme القديمة بهذه الجديدة
 function switchTheme(themeNumber) {
     console.log('تم اختيار التصميم رقم:', themeNumber);
     
-    // إغلاق القائمة أولاً
     const switcher = document.getElementById('themeSwitcher');
     if (switcher) {
         switcher.classList.remove('active');
     }
     
-    // تحديد المسار الصحيح
     let targetURL = '';
     const currentPath = window.location.pathname;
     const isInThemeFolder = currentPath.includes('/themes/');
@@ -69,11 +68,14 @@ function switchTheme(themeNumber) {
         targetURL = isInThemeFolder ? 'theme2.html' : 'themes/theme2.html';
     } else if (themeNumber === 3) {
         targetURL = isInThemeFolder ? 'theme3.html' : 'themes/theme3.html';
-        showAlert('التصميم الثالث قيد التطوير - سيكون متاحاً قريباً', 'info');
+    } else if (themeNumber === 4) {
+        targetURL = isInThemeFolder ? 'theme4.html' : 'themes/theme4.html';
+    } else if (themeNumber === 5) {
+        targetURL = isInThemeFolder ? 'theme5.html' : 'themes/theme5.html';
+        showAlert('التصميم الخامس قيد التطوير - سيكون متاحاً قريباً', 'info');
         return;
     }
     
-    // التنقل للصفحة الجديدة
     if (targetURL) {
         showAlert('جاري التحويل للتصميم المحدد...', 'info');
         setTimeout(() => {

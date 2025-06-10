@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ناض للمقاولات العامة | التصميم الرابع - الفخامة الذهبية</title>
+    <meta name="description" content="شركة ناض للمقاولات العامة - رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ مع الالتزام برؤية المملكة 2030">
+    
+    <!-- Meta Tags محسنة للبحث -->
+    <meta name="keywords" content="ناض للمقاولات, مقاولات عامة السعودية, أنظمة إطفاء حريق, أنظمة ميكانيكية, أنظمة كهربائية, أبواب طوارئ, مقاولات الرياض">
+    <meta name="author" content="شركة ناض للمقاولات العامة">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <!-- Open Graph للمشاركة في Social Media -->
+    <meta property="og:title" content="ناض للمقاولات العامة | أنظمة ميكانيكية وكهربائية متطورة">
+    <meta property="og:description" content="شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ بالسعودية. حلول تقنية متكاملة بأعلى معايير الجودة">
+    <meta property="og:image" content="https://nadh.com.sa/images/nadh-logo.png">
+    <meta property="og:url" content="https://nadh.com.sa">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_SA">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nadh.com.sa">
+    
+    <!-- External Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Theme 4 CSS -->
+    <style>
+        /* ملف css/theme4.css - التصميم الرابع مستوحى من شموس الشرق */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* ألوان التصميم الرابع - مستوحاة من شموس الشرق */
+    --primary-gold: #D4AF37;
+    --secondary-gold: #B8860B;
+    --accent-gold: #FFD700;
+    --dark-gold: #B8860B;
+    
+    /* ألوان محايدة */
+    --white: #FFFFFF;
+    --light-gray: #F8F8F8;
+    --medium-gray: #E5E5E5;
+    --dark-gray: #666666;
+    --text-dark: #2D2D2D;
+    --text-medium: #555555;
+    
+    /* ألوان إضافية */
+    --green-whatsapp: #25D366;
+    --blue-accent: #4A90E2;
+    --orange-accent: #FF8C42;
+    
+    /* تدرجات */
+    --gradient-gold: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+    --gradient-light: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+    
+    /* ظلال */
+    --shadow-light: 0 2px 8px rgba(212, 175, 55, 0.1);
+    --shadow-medium: 0 4px 12px rgba(212, 175, 55, 0.15);
+    --shadow-heavy: 0 8px 24px rgba(212, 175, 55, 0.2);
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--white);
+    padding-top: 80px;
+    direction: rtl;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Theme Switcher */
+.theme-switcher-float {
+    position: fixed;
+    bottom: 7rem;
+    left: 1.5rem;
+    z-index: 9998;
+    font-family: 'Cairo', sans-serif;
+}
+
+.theme-switcher-btn {
+    background: var(--gradient-gold);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.theme-switcher-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.theme-switcher-btn i {
+    font-size: 18px;
+}
+
+.theme-number {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: var(--orange-accent);
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 800;
+    border: 2px solid white;
+}
+
+.theme-options {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    background: white;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--dark-gray);
+}
+
+/* Footer */
+.footer {
+    background: var(--text-dark);
+    color: white;
+    padding: 3rem 0 1.5rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--primary-gold);
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 800;
+}
+
+.footer-section p {
+    line-height: 1.7;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    padding: 0.25rem 0;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.footer-section ul li:hover {
+    opacity: 1;
+    color: var(--primary-gold);
+}
+
+.footer-section ul li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--primary-gold);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    text-align: center;
+    opacity: 0.7;
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-content,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .header {
+        padding: 0.5rem 0;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .company-name {
+        font-size: 1.2rem;
+    }
+
+    .company-subtitle {
+        font-size: 0.75rem;
+    }
+
+    .certification-badge {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.4rem;
+    }
+
+    .main-navigation {
+        order: 3;
+        flex-basis: 100%;
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .hero-section {
+        padding: 2rem 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-logo-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .section {
+        padding: 2.5rem 0;
+    }
+
+    .section-title {
+        font-size: 1.875rem;
+    }
+
+    .about-icons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .theme-switcher-float {
+        bottom: 6rem;
+        left: 1rem;
+    }
+
+    .theme-switcher-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .whatsapp-float {
+        left: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .company-name {
+        font-size: 1rem;
+    }
+
+    .certification-badge {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .projects-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .theme-switcher-float {
+        bottom: 5.5rem;
+        left: 0.75rem;
+    }
+
+    .theme-switcher-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .whatsapp-float {
+        left: 0.75rem;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+    </style>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="../manifest.json">
+
+    <!-- بيانات منظمة للبحث -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "شركة ناض للمقاولات العامة",
+      "alternateName": "NADH General Contracting",
+      "url": "https://nadh.com.sa",
+      "logo": "https://nadh.com.sa/images/nadh-logo.png",
+      "description": "شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+966537573006",
+        "contactType": "customer service",
+        "availableLanguage": ["Arabic", "English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "شارع العليا، برج نورين السلام",
+        "addressLocality": "الصحافة",
+        "addressRegion": "الرياض",
+        "addressCountry": "SA"
+      }
+    }
+    </script>
+</head>
+<body class="loading">
+  <!-- Theme Switcher Float Button - محدث للتصميمات الخمسة -->
+<div class="theme-switcher-float" id="themeSwitcher">
+    <div class="theme-switcher-btn" onclick="toggleThemeSwitcher()">
+        <i class="fas fa-palette"></i>
+        <span class="theme-number" id="themeNumber">1</span>
+    </div>
+    <div class="theme-options" id="themeOptions">
+        <div class="theme-option active" data-theme="1" onclick="switchTheme(1)">
+            <div class="theme-preview theme-1"></div>
+            <span>التصميم الأول</span>
+            <small>الحالي</small>
+        </div>
+        <div class="theme-option" data-theme="2" onclick="switchTheme(2)">
+            <div class="theme-preview theme-2"></div>
+            <span>التصميم الثاني</span>
+            <small>سعودي</small>
+        </div>
+        <div class="theme-option" data-theme="3" onclick="switchTheme(3)">
+            <div class="theme-preview theme-3"></div>
+            <span>التصميم الثالث</span>
+            <small>مينيمال</small>
+        </div>
+        <div class="theme-option" data-theme="4" onclick="switchTheme(4)">
+            <div class="theme-preview theme-4"></div>
+            <span>التصميم الرابع</span>
+            <small>ذهبي</small>
+        </div>
+        <div class="theme-option" data-theme="5" onclick="switchTheme(5)">
+            <div class="theme-preview theme-5"></div>
+            <span>التصميم الخامس</span>
+            <small>قريباً</small>
+        </div>
+    </div>
+</div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/966537573006" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-container">
+                        <div class="logo-image">ناض</div>
+                    </div>
+                    <div class="company-info">
+                        <h1 class="company-name">ناض للمقاولات العامة</h1>
+                        <span class="company-subtitle">NADH General Contracting</span>
+                        <div class="certification-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>معتمد من الدفاع المدني السعودي</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <nav class="main-navigation">
+                    <ul class="nav-menu">
+                        <li><a href="#hero" class="nav-link">الرئيسية</a></li>
+                        <li><a href="#about" class="nav-link">من نحن</a></li>
+                        <li><a href="#services" class="nav-link">خدماتنا</a></li>
+                        <li><a href="#projects" class="nav-link">مشاريعنا</a></li>
+                        <li><a href="#clients" class="nav-link">عملاؤنا</a></li>
+                        <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="language-selector">
+                        <button class="language-btn">
+                            <i class="fas fa-globe"></i>
+                            <span>عربي</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <a href="#contact" class="cta-button primary">
+                        <i class="fas fa-calculator"></i>
+                        عرض سعر مجاني
+                    </a>
+                    
+                    <button class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo-container">
+                    <div class="hero-logo">ناض</div>
+                </div>
+                
+                <h1 class="hero-title">
+                    مكتب <span class="highlight">ناض للمقاولات العامة</span><br>
+                    للاستشارات الهندسية
+                </h1>
+                
+                <p class="hero-subtitle">
+                    مكتب هندسي معتمد من الدفاع المدني
+                </p>
+                
+                <p class="hero-description">
+                    نقدم حلولاً هندسية متكاملة لحماية الأرواح والممتلكات والمنشآت، نسعى 
+                    نحو مستقبل أفضل وأكثر أماناً للجميع
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#services" class="cta-button primary large">
+                        <i class="fas fa-tools"></i>
+                        اطلب خدماتنا الآن
+                    </a>
+                    <a href="#contact" class="cta-button secondary large">
+                        <i class="fas fa-phone"></i>
+                        اتصل بنا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">معتمد من</div>
+                <h2 class="section-title">
+                    للاستشارات في مجال السلامة وتصميم <span class="highlight">أنظمة الوقاية من الحريق</span>
+                </h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        <strong>مكتب ناض للمقاولات العامة</strong> هو مكتب هندسي معتمد من الدفاع المدني، 
+                        بدأت رحلتنا مع تأسيس المكتب واضعين حجر الأساس لتميزنا واحترافنا في تقديم أفضل 
+                        الخدمات الهندسية.
+                    </p>
+                    <p class="about-description">
+                        نلتزم بالارتقاء بمستوى قطاع الحماية والوقاية من الحريق في المملكة العربية السعودية، 
+                        بما يتماشى مع رؤية المملكة 2030، لتوفير بيئة آمنة ومحمية من المخاطر.
+                    </p>
+                    <p class="about-description">
+                        كما نقدم خدمات إعداد التقارير ومخططات السلامة للفعاليات والأنشطة السياحية، 
+                        مما يعكس التزامنا بتحقيق أعلى معايير السلامة والحماية.
+                    </p>
+                    
+                    <div class="about-icons-grid">
+                        <div class="about-icon-item">
+                            <div class="about-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <span class="about-icon-text">معتمد من الدفاع المدني السعودي</span>
+                        </div>
+                        <div class="about-icon-item">
+                            <div class="about-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <span class="about-icon-text">شهادات الجودة الدولية</span>
+                        </div>
+                        <div class="about-icon-item">
+                            <div class="about-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span class="about-icon-text">معايير السلامة NFPA</span>
+                        </div>
+                        <div class="about-icon-item">
+                            <div class="about-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="about-icon-text">تصنيف الدرجة الأولى</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; width: 100%;">
+                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                                <i class="fas fa-building" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <h4 style="color: var(--text-dark); margin-bottom: 0.5rem;">المباني السكنية</h4>
+                            <p style="color: var(--text-medium); font-size: 0.9rem;">حلول متكاملة للسلامة</p>
+                        </div>
+                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                                <i class="fas fa-industry" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <h4 style="color: var(--text-dark); margin-bottom: 0.5rem;">المنشآت الصناعية</h4>
+                            <p style="color: var(--text-medium); font-size: 0.9rem;">أنظمة حماية متقدمة</p>
+                        </div>
+                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                                <i class="fas fa-store" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <h4 style="color: var(--text-dark); margin-bottom: 0.5rem;">المجمعات التجارية</h4>
+                            <p style="color: var(--text-medium); font-size: 0.9rem;">تصاميم آمنة ومبتكرة</p>
+                        </div>
+                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                                <i class="fas fa-hospital" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <h4 style="color: var(--text-dark); margin-bottom: 0.5rem;">المنشآت الطبية</h4>
+                            <p style="color: var(--text-medium); font-size: 0.9rem;">معايير سلامة عالية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">خدمات ناض</div>
+                <h2 class="section-title">أطلب <span class="highlight">خدماتنا</span> الآن ؟</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="service-title">مراجعة واعتماد وتصميم مخططات السلامة</h3>
+                    <p class="service-description">
+                        نقدم خدمات مراجعة واعتماد وتصميم مخططات السلامة وفقاً لأحدث المعايير والمواصفات 
+                        المعتمدة من الدفاع المدني السعودي.
+                    </p>
+                    <a href="#contact" class="service-button">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">تصميم أنظمة السلامة الكهربائية</h3>
+                    <p class="service-description">
+                        تصميم وتطوير أنظمة السلامة الكهربائية المتقدمة لضمان الحماية الشاملة 
+                        للمنشآت والمباني من المخاطر الكهربائية.
+                    </p>
+                    <a href="#contact" class="service-button">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <h3 class="service-title">إصدار تقرير سلامة والحصول على الاعتماد</h3>
+                    <p class="service-description">
+                        إعداد وإصدار تقارير السلامة الشاملة والحصول على الاعتمادات اللازمة 
+                        من الجهات المختصة لضمان الامتثال للوائح.
+                    </p>
+                    <a href="#contact" class="service-button">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">تركيب أنظمة الحماية من الحريق</h3>
+                    <p class="service-description">
+                        تركيب وصيانة أنظمة الحماية من الحريق المتطورة باستخدام أحدث التقنيات 
+                        والمعدات المعتمدة عالمياً.
+                    </p>
+                    <a href="#contact" class="service-button">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="service-title">إصدار تقارير حصر الكميات</h3>
+                    <p class="service-description">
+                        إعداد تقارير دقيقة لحصر الكميات والمواد المطلوبة للمشاريع 
+                        مع التقديرات التفصيلية للتكاليف.
+                    </p>
+                    <a href="#contact" class="service-button">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="service-title">إصدار تقارير السلامة الإنشائية</h3>
+                    <p class="service-description">
+                        فحص وتقييم السلامة الإنشائية للمباني والمنشآت وإصدار التقارير 
+                        المعتمدة وفقاً للمعايير الهندسية.
+                    </p>
+                    <a href="#contact" class="service-button">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">مشاريع ناض</div>
+                <h2 class="section-title">بعض من مشاريعنا المميزة في مكتب <span class="highlight">ناض</span></h2>
+            </div>
+            
+            <div class="projects-stats">
+                <div class="stat-card">
+                    <div class="stat-number">1900+</div>
+                    <div class="stat-label">مشروع مكتمل</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">سنة خبرة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4500+</div>
+                    <div class="stat-label">مخطط سلامة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">700+</div>
+                    <div class="stat-label">نظام سلامة كهربائية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">تقرير سلامة إنشائية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">900+</div>
+                    <div class="stat-label">تقرير حصر كميات</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients-section section" id="clients">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">عملاء ناض</div>
+                <h2 class="section-title">بعض من شركاء النجاح في رحلتنا الطويلة نحو تحقيق <span class="highlight">أهداف عملائنا</span></h2>
+            </div>
+            
+            <div class="clients-grid">
+                <div class="client-card">
+                    <div class="client-logo">أجياس الأثمان</div>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo">جامعة الأميرة نورة</div>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo">ديـــار</div>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo">KAFC</div>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo">فرسان</div>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo">أغينا</div>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo">المجدلة ريزيدنس</div>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo">الهيئة العامة للترفيه</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">هل تبحث عن شركة اعتماد مخططات الحريق؟</div>
+                <h2 class="section-title"><span class="highlight">تواصل</span> معنا</h2>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>عنواننا</h4>
+                            <p>شارع عبد الله بن جبير، القيروان، الرياض</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>اتصل بنا</h4>
+                            <p>0537573006</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>راسلنا</h4>
+                            <p>Nadhksa@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 class="form-title">احصل على عرض سعر مجاني</h3>
+                    <form onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">الاسم</label>
+                            <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة المطلوبة</label>
+                            <select id="service" name="service" required>
+                                <option value="">اختر نوع الخدمة</option>
+                                <option value="safety-plans">مخططات السلامة</option>
+                                <option value="electrical-safety">أنظمة السلامة الكهربائية</option>
+                                <option value="fire-protection">أنظمة الحماية من الحريق</option>
+                                <option value="safety-reports">تقارير السلامة</option>
+                                <option value="structural-reports">تقارير السلامة الإنشائية</option>
+                                <option value="consultation">استشارة فنية</option>
+                                <option value="complete">مشروع متكامل</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">رسالتك ..</label>
+                            <textarea id="message" name="message" rows="4" placeholder="أخبرنا عن مشروعك ومتطلباتك بالتفصيل" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button primary large" style="width: 100%; justify-content: center;">
+                            <i class="fas fa-paper-plane"></i>
+                            إرسال
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="logo-container" style="width: 50px; height: 50px;">
+                            <div style="background: var(--primary-gold); border-radius: 8px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">ناض</div>
+                        </div>
+                        <div>
+                            <h1 style="font-size: 1.25rem; margin-bottom: 2px; color: var(--primary-gold);">ناض للمقاولات العامة</h1>
+                            <span style="font-size: 0.75rem;">NADH General Contracting</span>
+                        </div>
+                    </div>
+                    <p>
+                        مكتب ناض للمقاولات العامة معتمد من الدفاع المدني، متخصص في مجال الوقاية وأنظمة الحماية من الحرائق. نقدم حلولًا هندسية متكاملة لحماية الأرواح والممتلكات والمنشآت من أخطار الحريق.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#services">مخططات السلامة</a></li>
+                        <li><a href="#services">أنظمة السلامة الكهربائية</a></li>
+                        <li><a href="#services">أنظمة الحماية من الحريق</a></li>
+                        <li><a href="#services">تقارير السلامة</a></li>
+                        <li><a href="#contact">الاستشارات الفنية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>الشركة</h3>
+                    <ul>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#projects">مشاريعنا</a></li>
+                        <li><a href="#clients">عملاؤنا</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                        <li><a href="#">الشهادات والاعتمادات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>معلومات الاتصال</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0537573006</li>
+                        <li><i class="fas fa-envelope"></i> Nadhksa@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض - الصحافة</li>
+                        <li><i class="fas fa-building"></i> برج نورين السلام</li>
+                        <li><i class="fas fa-clock"></i> السبت - الخميس: 8ص - 5م</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 شركة ناض للمقاولات العامة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Load state
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.remove('loading');
+            document.body.classList.add('loaded');
+            console.log('✅ Theme 4 تم تحميله بنجاح - التصميم الذهبي');
+        });
+
+        // Theme Switcher Functions
+        function toggleThemeSwitcher() {
+            const switcher = document.getElementById('themeSwitcher');
+            switcher.classList.toggle('active');
+        }
+
+        function switchTheme(themeNumber) {
+            const switcher = document.getElementById('themeSwitcher');
+            switcher.classList.remove('active');
+            
+            if (themeNumber === 1) {
+                window.location.href = '../index.html';
+            } else if (themeNumber === 2) {
+                window.location.href = 'theme2.html';
+            } else if (themeNumber === 3) {
+                window.location.href = 'theme3.html';
+            } else if (themeNumber === 4) {
+                showAlert('أنت بالفعل في التصميم الرابع - الفخامة الذهبية', 'info');
+            } else if (themeNumber === 5) {
+                showAlert('التصميم الخامس قيد التطوير - سيكون متاحاً قريباً', 'info');
+            }
+        }
+
+        // Form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const service = formData.get('service');
+            const message = formData.get('message');
+            
+            if (!name || !email || !phone || !service || !message) {
+                showAlert('يرجى ملء جميع الحقول المطلوبة', 'error');
+                return;
+            }
+            
+            const serviceNames = {
+                'safety-plans': 'مخططات السلامة',
+                'electrical-safety': 'أنظمة السلامة الكهربائية',
+                'fire-protection': 'أنظمة الحماية من الحريق',
+                'safety-reports': 'تقارير السلامة',
+                'structural-reports': 'تقارير السلامة الإنشائية',
+                'consultation': 'استشارة فنية',
+                'complete': 'مشروع متكامل'
+            };
+            
+            const whatsappMessage = `مرحباً، أريد عرض سعر من مكتب ناض للمقاولات:
+
+الاسم: ${name}
+البريد الإلكتروني: ${email}
+رقم الهاتف: ${phone}
+نوع الخدمة: ${serviceNames[service] || service}
+
+تفاصيل المشروع:
+${message}`;
+            
+            const whatsappURL = `https://wa.me/966537573006?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappURL, '_blank');
+            
+            showAlert('تم إرسال طلبك بنجاح! سيتم تحويلك لواتساب.', 'success');
+            event.target.reset();
+        }
+
+        // Smooth scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    
+                    if (target) {
+                        const header = document.querySelector('.header');
+                        const headerHeight = header ? header.offsetHeight : 80;
+                        const targetPos = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPos,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Alert system
+        function showAlert(message, type = 'info') {
+            const alert = document.createElement('div');
+            alert.className = `custom-alert alert-${type}`;
+            alert.innerHTML = `
+                <div class="alert-content">
+                    <i class="fas fa-${getAlertIcon(type)}"></i>
+                    <span>${message}</span>
+                    <button class="alert-close">&times;</button>
+                </div>
+            `;
+            
+            alert.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${getAlertColor(type)};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                max-width: 400px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                font-family: 'Cairo', sans-serif;
+                border: 1px solid rgba(255,255,255,0.2);
+            `;
+            
+            document.body.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                hideAlert(alert);
+            }, 5000);
+            
+            alert.querySelector('.alert-close').addEventListener('click', () => {
+                hideAlert(alert);
+            });
+        }
+
+        function getAlertIcon(type) {
+            const icons = {
+                'success': 'check-circle',
+                'error': 'exclamation-circle',
+                'warning': 'exclamation-triangle',
+                'info': 'info-circle'
+            };
+            return icons[type] || 'info-circle';
+        }
+
+        function getAlertColor(type) {
+            const colors = {
+                'success': '#10B981',
+                'error': '#EF4444', 
+                'warning': '#F59E0B',
+                'info': '#D4AF37'
+            };
+            return colors[type] || '#D4AF37';
+        }
+
+        function hideAlert(alert) {
+            alert.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (alert.parentNode) {
+                    alert.parentNode.removeChild(alert);
+                }
+            }, 300);
+        }
+
+        // Close theme switcher when clicking outside
+        document.addEventListener('click', function(e) {
+            const switcher = document.getElementById('themeSwitcher');
+            if (switcher && !switcher.contains(e.target)) {
+                switcher.classList.remove('active');
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                    header.style.backdropFilter = 'blur(20px)';
+                } else {
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                    header.style.backdropFilter = 'blur(15px)';
+                }
+            }
+        });
+    </script>
+</body>
+</html>;
+    border-radius: 12px;
+    padding: 0.75rem;
+    box-shadow: var(--shadow-heavy);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border: 1px solid var(--medium-gray);
+}
+
+.theme-switcher-float.active .theme-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 0.4rem;
+    border: 1px solid transparent;
+}
+
+.theme-option:last-child {
+    margin-bottom: 0;
+}
+
+.theme-option:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.theme-option.active {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--primary-gold);
+}
+
+.theme-preview {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.theme-preview.theme-1 {
+    background: linear-gradient(135deg, #4ECDC4 0%, #2C5C7C 50%, #F4A261 100%);
+}
+
+.theme-preview.theme-2 {
+    background: linear-gradient(135deg, #006C33 0%, #2A9D8F 50%, #E9C46A 100%);
+}
+
+.theme-preview.theme-3 {
+    background: linear-gradient(135deg, #2C5C7C 0%, #4ECDC4 50%, #BE922D 100%);
+}
+
+.theme-preview.theme-4 {
+    background: var(--gradient-gold);
+}
+
+.theme-preview.theme-5 {
+    background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #06B6D4 100%);
+}
+/* إضافة في قسم Theme Previews */
+.theme-preview.theme-4 {
+    background: linear-gradient(135deg, #D4AF37 0%, #B8860B 50%, #FFD700 100%);
+}
+
+.theme-preview.theme-5 {
+    background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #06B6D4 100%);
+}
+.theme-option span {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.8rem;
+    flex: 1;
+}
+
+.theme-option small {
+    font-size: 0.7rem;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+.theme-option.active small {
+    color: var(--primary-gold);
+    font-weight: 600;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 9999;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-heavy);
+}
+
+/* Header */
+.header {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--medium-gray);
+    box-shadow: var(--shadow-light);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0.75rem 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: var(--gradient-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    box-shadow: var(--shadow-light);
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: var(--primary-gold);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.company-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-gold);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.company-subtitle {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+.certification-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--primary-gold);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: var(--primary-gold);
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+.certification-badge i {
+    font-size: 0.7rem;
+}
+
+/* Navigation */
+.main-navigation {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.language-selector {
+    position: relative;
+}
+
+.language-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid var(--medium-gray);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    border-color: var(--primary-gold);
+    color: var(--primary-gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.cta-button.primary {
+    background: var(--gradient-gold);
+    color: white;
+    box-shadow: var(--shadow-light);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--primary-gold);
+    border: 1px solid var(--primary-gold);
+}
+
+.cta-button.secondary:hover {
+    background: var(--primary-gold);
+    color: white;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 4rem 0;
+    background: var(--light-gray);
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-logo-container {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-heavy);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    position: relative;
+}
+
+.hero-logo-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: var(--gradient-gold);
+    z-index: -1;
+}
+
+.hero-logo {
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-title .highlight {
+    color: var(--primary-gold);
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-medium);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.hero-description {
+    font-size: 1rem;
+    color: var(--dark-gray);
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button.large {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+}
+
+/* Section Styles */
+.section {
+    padding: 4rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--primary-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--primary-gold);
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.section-title .highlight {
+    color: var(--primary-gold);
+}
+
+.section-description {
+    font-size: 1rem;
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+/* About Section */
+.about-section {
+    background: white;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-medium);
+}
+
+.about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-icons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.about-icon-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.about-icon-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.about-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-gold);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.about-icon-text {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+/* Services Grid */
+.services-section {
+    background: var(--light-gray);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    border: 1px solid var(--medium-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-gold);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-light);
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.service-description {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.service-button {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-gold);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.service-button:hover {
+    transform: translateX(-5px);
+}
+
+/* Projects Section */
+.projects-section {
+    background: white;
+}
+
+.projects-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--light-gray);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--medium-gray);
+}
+
+.stat-card:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-4px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Clients Section */
+.clients-section {
+    background: var(--light-gray);
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.client-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    border: 1px solid var(--medium-gray);
+}
+
+.client-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+.client-logo {
+    width: 80px;
+    height: 80px;
+    background: var(--light-gray);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+/* Contact Section */
+.contact-section {
+    background: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateX(-5px);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-gold);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.contact-text h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.contact-text p {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Contact Form */
+.contact-form {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--medium-gray);
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--medium-gray);
+    border-radius: 8px;
+    background: white

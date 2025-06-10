@@ -171,7 +171,14 @@ body {
 .theme-preview.theme-3 {
     background: var(--gradient-primary);
 }
+/* إضافة في قسم Theme Previews */
+.theme-preview.theme-4 {
+    background: linear-gradient(135deg, #D4AF37 0%, #B8860B 50%, #FFD700 100%);
+}
 
+.theme-preview.theme-5 {
+    background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #06B6D4 100%);
+}
 .theme-option span {
     font-weight: 600;
     color: var(--gray-800);

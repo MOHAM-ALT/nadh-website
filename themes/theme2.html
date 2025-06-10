@@ -60,30 +60,40 @@
     </script>
 </head>
 <body>
-    <!-- Theme Switcher Float Button -->
-    <div class="theme-switcher-float" id="themeSwitcher">
-        <div class="theme-switcher-btn" onclick="toggleThemeSwitcher()">
-            <i class="fas fa-palette"></i>
-            <span class="theme-number">2</span>
+    <!-- Theme Switcher Float Button - محدث للتصميمات الخمسة -->
+<div class="theme-switcher-float" id="themeSwitcher">
+    <div class="theme-switcher-btn" onclick="toggleThemeSwitcher()">
+        <i class="fas fa-palette"></i>
+        <span class="theme-number" id="themeNumber">1</span>
+    </div>
+    <div class="theme-options" id="themeOptions">
+        <div class="theme-option active" data-theme="1" onclick="switchTheme(1)">
+            <div class="theme-preview theme-1"></div>
+            <span>التصميم الأول</span>
+            <small>الحالي</small>
         </div>
-        <div class="theme-options" id="themeOptions">
-            <div class="theme-option" data-theme="1" onclick="switchTheme(1)">
-                <div class="theme-preview theme-1"></div>
-                <span>التصميم الأول</span>
-                <small>كلاسيكي</small>
-            </div>
-            <div class="theme-option active" data-theme="2" onclick="switchTheme(2)">
-                <div class="theme-preview theme-2"></div>
-                <span>التصميم الثاني</span>
-                <small>الحالي</small>
-            </div>
-            <div class="theme-option" data-theme="3" onclick="switchTheme(3)">
-                <div class="theme-preview theme-3"></div>
-                <span>التصميم الثالث</span>
-                <small>مينيمال</small>
-            </div>
+        <div class="theme-option" data-theme="2" onclick="switchTheme(2)">
+            <div class="theme-preview theme-2"></div>
+            <span>التصميم الثاني</span>
+            <small>سعودي</small>
+        </div>
+        <div class="theme-option" data-theme="3" onclick="switchTheme(3)">
+            <div class="theme-preview theme-3"></div>
+            <span>التصميم الثالث</span>
+            <small>مينيمال</small>
+        </div>
+        <div class="theme-option" data-theme="4" onclick="switchTheme(4)">
+            <div class="theme-preview theme-4"></div>
+            <span>التصميم الرابع</span>
+            <small>ذهبي</small>
+        </div>
+        <div class="theme-option" data-theme="5" onclick="switchTheme(5)">
+            <div class="theme-preview theme-5"></div>
+            <span>التصميم الخامس</span>
+            <small>قريباً</small>
         </div>
     </div>
+</div>
 
     <!-- WhatsApp Float Button -->
     <a href="https://wa.me/966537573006" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
