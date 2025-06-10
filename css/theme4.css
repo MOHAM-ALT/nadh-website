@@ -1,4 +1,409 @@
-/* ملف css/theme4.css - التصميم الرابع الذهبي المهني */
+/* تحسين التفاعل مع اللمس */
+@media (hover: none) and (pointer: coarse) {
+    .nav-link:hover,
+    .cta-button:hover,
+    .language-btn:hover {
+        transform: none;
+    }
+    
+    .nav-link:active,
+    .cta-button:active,
+    .language-btn:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+}
+
+/* Responsive للأقسام الأخرى */
+@media (max-width: 1024px) {
+    .about-content,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-icons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-logo {
+        width: 150px;
+        height: 150px;
+        font-size: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        order: 2;
+    }
+    
+    .contact-form {
+        order: 1;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .theme-switcher-float {
+        bottom: 6rem;
+        left: 1rem;
+    }
+    
+    .theme-switcher-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .theme-switcher-btn i {
+        font-size: 16px;
+    }
+    
+    .theme-number {
+        width: 14px;
+        height: 14px;
+        font-size: 8px;
+    }
+    
+    .theme-options {
+        min-width: 160px;
+        bottom: 55px;
+    }
+    
+    .whatsapp-float {
+        left: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 1rem 0;
+    }
+    
+    .hero-logo {
+        width: 120px;
+        height: 120px;
+        font-size: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .about-icons-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .projects-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    .contact-item {
+        padding: 1rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .theme-switcher-float {
+        bottom: 5.5rem;
+        left: 0.75rem;
+    }
+    
+    .theme-switcher-btn {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .theme-switcher-btn i {
+        font-size: 14px;
+    }
+    
+    .theme-options {
+        min-width: 150px;
+        bottom: 52px;
+    }
+    
+    .whatsapp-float {
+        left: 0.75rem;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+/* Mobile Menu Enhanced */
+.nav-menu.active {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--text-dark);
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-xl);
+    border-radius: 0 0 16px 16px;
+    z-index: 1000;
+}
+
+.nav-menu.active .nav-link {
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+.nav-menu.active .nav-link:last-child {
+    border-bottom: none;
+}
+
+.nav-menu.active .nav-link:hover {
+    color: var(--primary-gold);
+    background: rgba(190, 146, 45, 0.2);
+}
+
+.nav-menu.active .nav-link::after {
+    display: none;
+}
+
+/* Animation Classes */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading Animation */
+.loading {
+    opacity: 0;
+}
+
+.loaded {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* تأثيرات خاصة للتصميم الذهبي */
+.hero-logo {
+    animation: gentle-glow 3s ease-in-out infinite;
+}
+
+@keyframes gentle-glow {
+    0%, 100% {
+        box-shadow: 
+            0 0 30px rgba(190, 146, 45, 0.3),
+            inset 0 0 30px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 
+            0 0 50px rgba(190, 146, 45, 0.4),
+            inset 0 0 50px rgba(255, 255, 255, 0.15);
+    }
+}
+
+/* تحسينات أداء */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.service-card,
+.cert-item,
+.client-card,
+.contact-item {
+    will-change: transform;
+}
+
+/* تأثيرات إضافية للعناصر التفاعلية */
+.cta-button.primary:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.service-card:active {
+    transform: translateY(-4px) scale(0.98);
+}
+
+.theme-switcher-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* تحسينات للطباعة */
+@media print {
+    .header,
+    .theme-switcher-float,
+    .whatsapp-float {
+        display: none !important;
+    }
+    
+    body {
+        padding-top: 0;
+    }
+    
+    .hero-section,
+    .contact-section,
+    .projects-section {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* تحسينات للوضع المظلم */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-dark: #F8FAFC;
+        --text-medium: #E2E8F0;
+        --white: #0F172A;
+        --light-gray: #1E293B;
+    }
+}
+
+/* تحسينات لتقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hero-logo {
+        animation: none;
+    }
+}
+
+/* تحسينات للتباين العالي */
+@media (prefers-contrast: high) {
+    .header {
+        border-bottom: 3px solid var(--primary-gold);
+        background: rgba(255, 255, 255, 1);
+    }
+    
+    .nav-link,
+    .cta-button,
+    .service-card {
+        border: 2px solid var(--primary-gold);
+    }
+}
+
+/* Focus styles للإمكانية الوصول */
+.nav-link:focus,
+.cta-button:focus,
+.language-btn:focus,
+.mobile-menu-toggle:focus {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 2px;
+}
+
+/* تحسينات للشاشات الكبيرة */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .header-content {
+        padding: 0 2rem;
+    }
+    
+    .nav-menu {
+        gap: 2.5rem;
+    }
+    
+    .logo-container {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .company-name {
+        font-size: 1.4rem;
+    }
+}/* ملف css/theme4.css - التصميم الرابع الذهبي المهني */
 
 * {
     margin: 0;
@@ -220,7 +625,7 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
-/* Header */
+/* Header محسن ومتجاوب */
 .header {
     position: fixed;
     top: 0;
@@ -228,11 +633,10 @@ body {
     z-index: 1000;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--medium-gray);
-    box-shadow: var(--shadow-sm);
+    border-bottom: 2px solid var(--primary-gold);
+    box-shadow: 0 2px 10px rgba(190, 146, 45, 0.1);
     transition: all 0.3s ease;
     height: 80px;
-    padding: 0;
 }
 
 .header-content {
@@ -240,36 +644,40 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    padding: 0;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo-section {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-shrink: 0;
 }
 
 .logo-container {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 8px;
     background: var(--gradient-gold);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6px;
     box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
 }
 
 .logo-container .logo-image {
     color: white;
     font-weight: 900;
-    font-size: 1.4rem;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .company-info {
@@ -279,7 +687,7 @@ body {
 }
 
 .company-name {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--primary-gold);
     margin: 0;
@@ -290,6 +698,7 @@ body {
     font-size: 0.75rem;
     color: var(--dark-gray);
     font-weight: 600;
+    line-height: 1;
 }
 
 .certification-badge {
@@ -304,6 +713,12 @@ body {
     color: var(--primary-gold);
     font-weight: 600;
     margin-top: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.certification-badge:hover {
+    background: var(--primary-gold);
+    color: white;
 }
 
 .certification-badge i {
@@ -320,9 +735,10 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
     margin: 0;
+    padding: 0;
 }
 
 .nav-link {
@@ -334,6 +750,7 @@ body {
     border-radius: 6px;
     transition: all 0.3s ease;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -344,7 +761,7 @@ body {
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     left: 50%;
     width: 0;
     height: 2px;
@@ -362,6 +779,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-shrink: 0;
 }
 
 .language-selector {
@@ -417,12 +835,24 @@ body {
 
 .mobile-menu-toggle {
     display: none;
-    background: none;
+    background: var(--gradient-gold);
     border: none;
-    color: var(--text-dark);
+    color: white;
     font-size: 1.2rem;
     cursor: pointer;
     padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.mobile-menu-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.mobile-menu-toggle:active {
+    transform: scale(0.95);
 }
 
 /* Hero Section */
@@ -1131,29 +1561,19 @@ body {
     }
 }
 
-/* Responsive Design */
+/* Responsive Design محسن */
 @media (max-width: 1024px) {
-    .about-content,
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .nav-menu {
+        gap: 1rem;
     }
     
-    .about-icons-grid {
-        grid-template-columns: 1fr;
+    .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
     }
     
-    .projects-stats {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
+    .header-actions {
+        gap: 0.8rem;
     }
 }
 
@@ -1164,15 +1584,20 @@ body {
     
     .header {
         height: 70px;
+        border-bottom: 1px solid var(--primary-gold);
     }
     
     .header-content {
         padding: 0 0.8rem;
     }
     
+    .logo-section {
+        gap: 0.8rem;
+    }
+    
     .logo-container {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
     }
     
     .logo-container .logo-image {
@@ -1180,122 +1605,79 @@ body {
     }
     
     .company-name {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
     .company-subtitle {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
     
     .certification-badge {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.6rem;
+        font-size: 0.55rem;
+        padding: 0.1rem 0.4rem;
+        margin-top: 0.2rem;
     }
     
+    /* إخفاء النافجيشن في الموبايل */
     .main-navigation {
         display: none;
     }
     
     .mobile-menu-toggle {
-        display: block;
-    }
-    
-    .header-actions {
-        gap: 0.8rem;
-    }
-    
-    .cta-button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.8rem;
-    }
-    
-    .language-btn {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.8rem;
-    }
-    
-    .hero-logo {
-        width: 150px;
-        height: 150px;
-        font-size: 2rem;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .hero-description {
+        display: flex;
+        padding: 0.4rem;
         font-size: 1rem;
     }
     
-    .hero-actions {
+    .header-actions {
+        gap: 0.6rem;
+    }
+    
+    .cta-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+    
+    .language-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    /* Mobile Menu */
+    .nav-menu.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--text-dark);
         flex-direction: column;
-        align-items: center;
+        padding: 1rem;
+        gap: 0.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 0 0 16px 16px;
+        z-index: 1000;
     }
     
-    .section-title {
-        font-size: 2rem;
+    .nav-menu.active .nav-link {
+        color: white;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
     }
     
-    .services-grid {
-        grid-template-columns: 1fr;
+    .nav-menu.active .nav-link:last-child {
+        border-bottom: none;
     }
     
-    .clients-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    .nav-menu.active .nav-link:hover {
+        color: var(--primary-gold);
+        background: rgba(190, 146, 45, 0.2);
     }
     
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-info {
-        order: 2;
-    }
-    
-    .contact-form {
-        order: 1;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .theme-switcher-float {
-        bottom: 6rem;
-        left: 1rem;
-    }
-    
-    .theme-switcher-btn {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .theme-switcher-btn i {
-        font-size: 16px;
-    }
-    
-    .theme-number {
-        width: 14px;
-        height: 14px;
-        font-size: 8px;
-    }
-    
-    .theme-options {
-        min-width: 160px;
-        bottom: 55px;
-    }
-    
-    .whatsapp-float {
-        left: 1rem;
-        width: 50px;
-        height: 50px;
-        font-size: 22px;
+    .nav-menu.active .nav-link::after {
+        display: none;
     }
 }
 
@@ -1313,12 +1695,12 @@ body {
     }
     
     .logo-section {
-        gap: 0.8rem;
+        gap: 0.6rem;
     }
     
     .logo-container {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
     
     .logo-container .logo-image {
@@ -1326,113 +1708,119 @@ body {
     }
     
     .company-name {
-        font-size: 1rem;
-    }
-    
-    .company-subtitle {
-        font-size: 0.65rem;
-    }
-    
-    .certification-badge {
-        display: none;
-    }
-    
-    .header-actions {
-        gap: 0.6rem;
-    }
-    
-    .cta-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.75rem;
-    }
-    
-    .language-btn {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.75rem;
-    }
-    
-    .hero-section {
-        padding: 1rem 0;
-    }
-    
-    .hero-logo {
-        width: 120px;
-        height: 120px;
-        font-size: 1.5rem;
-    }
-    
-    .hero-title {
-        font-size: 1.8rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    
-    .hero-description {
         font-size: 0.9rem;
     }
     
-    .section-title {
-        font-size: 1.8rem;
+    .company-subtitle {
+        font-size: 0.6rem;
     }
     
-    .about-icons-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .certification-badge {
+        display: none; /* إخفاء في الشاشات الصغيرة جداً */
     }
     
-    .projects-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+    .mobile-menu-toggle {
+        padding: 0.3rem;
+        font-size: 0.9rem;
     }
     
-    .clients-grid {
-        grid-template-columns: 1fr;
+    .header-actions {
+        gap: 0.4rem;
     }
     
-    .service-card {
-        padding: 1.5rem;
+    .cta-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
     }
     
-    .service-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
+    .language-btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.65rem;
     }
     
-    .contact-item {
-        padding: 1rem;
+    .nav-menu.active {
+        padding: 0.8rem;
     }
     
-    .contact-form {
-        padding: 1.5rem;
+    .nav-menu.active .nav-link {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* تحسينات إضافية للموبايل */
+@media (max-width: 360px) {
+    .header-content {
+        padding: 0 0.4rem;
     }
     
-    .theme-switcher-float {
-        bottom: 5.5rem;
-        left: 0.75rem;
+    .logo-section {
+        gap: 0.4rem;
     }
     
-    .theme-switcher-btn {
-        width: 42px;
-        height: 42px;
+    .company-name {
+        font-size: 0.8rem;
     }
     
-    .theme-switcher-btn i {
-        font-size: 14px;
+    .company-subtitle {
+        display: none; /* إخفاء في الشاشات الصغيرة جداً */
     }
     
-    .theme-options {
-        min-width: 150px;
-        bottom: 52px;
+    .cta-button {
+        display: none; /* إخفاء الزر في الشاشات الصغيرة جداً */
     }
     
-    .whatsapp-float {
-        left: 0.75rem;
-        width: 48px;
-        height: 48px;
-        font-size: 20px;
+    .header-actions {
+        gap: 0.3rem;
+    }
+}
+
+/* تأثيرات تفاعلية للهيدر */
+.header:hover {
+    box-shadow: 0 4px 15px rgba(190, 146, 45, 0.15);
+}
+
+/* تحسين أداء الهيدر */
+.header {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 15px rgba(190, 146, 45, 0.15);
+}
+
+/* Animation للموبايل menu */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-menu.active {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* تحسين التفاعل مع اللمس */
+@media (hover: none) and (pointer: coarse) {
+    .nav-link:hover,
+    .cta-button:hover,
+    .language-btn:hover {
+        transform: none;
+    }
+    
+    .nav-link:active,
+    .cta-button:active,
+    .language-btn:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
     }
 }
 
