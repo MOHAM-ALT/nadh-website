@@ -261,6 +261,14 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    background: var(--primary-gold);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .company-info {
@@ -454,7 +462,14 @@ body {
 .hero-logo {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
 }
 
 .hero-title {
@@ -611,6 +626,56 @@ body {
     font-weight: 600;
     color: var(--text-dark);
     font-size: 0.9rem;
+}
+
+/* Certifications Display */
+.certifications-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.cert-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-gold);
+}
+
+.cert-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.cert-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-gold);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.cert-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.cert-info p {
+    font-size: 0.8rem;
+    color: var(--text-medium);
+    margin: 0;
 }
 
 /* Services Grid */
@@ -903,6 +968,39 @@ body {
     margin-bottom: 2rem;
 }
 
+.footer-logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo-section .logo-container {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-gold);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.footer-logo-section h1 {
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+    color: var(--primary-gold);
+}
+
+.footer-logo-section span {
+    font-size: 0.75rem;
+}
+
 .footer-section h3 {
     color: var(--primary-gold);
     margin-bottom: 1rem;
@@ -967,41 +1065,6 @@ body {
     text-align: center;
     opacity: 0.7;
     font-size: 0.875rem;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .about-content,
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .theme-switcher-float {
-        bottom: 5.5rem;
-        left: 0.75rem;
-    }
-
-    .theme-switcher-btn {
-        width: 42px;
-        height: 42px;
-    }
-
-    .whatsapp-float {
-        left: 0.75rem;
-        width: 48px;
-        height: 48px;
-        font-size: 20px;
-    }
 }
 
 /* Animation Classes */
@@ -1086,8 +1149,27 @@ body {
     .footer-logo-image {
         image-rendering: auto;
     }
-}template-columns: 1fr 1fr;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-content,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
+    }
+
+    .certifications-display {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1122,6 +1204,24 @@ body {
         order: 3;
         flex-basis: 100%;
         display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--text-dark);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        box-shadow: var(--shadow-heavy);
+        border-radius: 0 0 16px 16px;
+    }
+
+    .nav-menu.active .nav-link {
+        color: white;
     }
 
     .mobile-menu-toggle {
@@ -1175,6 +1275,21 @@ body {
         height: 45px;
     }
 
+    .theme-switcher-btn i {
+        font-size: 16px;
+    }
+
+    .theme-number {
+        width: 14px;
+        height: 14px;
+        font-size: 8px;
+    }
+
+    .theme-options {
+        min-width: 180px;
+        bottom: 55px;
+    }
+
     .whatsapp-float {
         left: 1rem;
         width: 50px;
@@ -1188,8 +1303,20 @@ body {
         padding: 0 0.75rem;
     }
 
+    body {
+        padding-top: 60px;
+    }
+
+    .header {
+        padding: 0.4rem 0;
+    }
+
     .company-name {
         font-size: 1rem;
+    }
+
+    .company-subtitle {
+        font-size: 0.7rem;
     }
 
     .certification-badge {
@@ -1198,6 +1325,15 @@ body {
 
     .hero-title {
         font-size: 1.75rem;
+    }
+
+    .hero-logo-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero-logo {
+        font-size: 30px;
     }
 
     .section-title {
@@ -1213,4 +1349,92 @@ body {
     }
 
     .footer-content {
-        grid-
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .theme-switcher-float {
+        bottom: 5.5rem;
+        left: 0.75rem;
+    }
+
+    .theme-switcher-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .theme-switcher-btn i {
+        font-size: 14px;
+    }
+
+    .theme-number {
+        width: 12px;
+        height: 12px;
+        font-size: 7px;
+    }
+
+    .theme-options {
+        min-width: 170px;
+        bottom: 52px;
+    }
+
+    .whatsapp-float {
+        left: 0.75rem;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .contact-item {
+        padding: 1rem;
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.75rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .client-card {
+        padding: 1.5rem;
+    }
+
+    .client-logo {
+        width: 60px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+}
