@@ -798,83 +798,169 @@
     box-sizing: border-box;
 }
 
-/* إصلاح الألوان والتباين */
+/* إصلاح التباين والألوان نهائياً */
 :root {
-    /* ألوان محسنة حسب الشعار الجديد */
-    --primary-blue: #1B4F72;        /* أزرق الشعار */
-    --secondary-blue: #2E86AB;      /* أزرق فاتح */
-    --primary-teal: #4ECDC4;        /* تيل الشعار */
-    --accent-teal: #48CAE4;         /* تيل فاتح */
+    /* ألوان واضحة ومتباينة */
+    --primary-blue: #1B4F72;
+    --secondary-blue: #2E86AB;
+    --primary-teal: #4ECDC4;
+    --accent-teal: #48CAE4;
     
-    --primary-gold: #D4AF37;        /* ذهبي رئيسي */
-    --secondary-gold: #FFD700;      /* ذهبي لامع */
-    --accent-gold: #F39C12;         /* برتقالي ذهبي */
-    --dark-gold: #B8860B;           /* ذهبي داكن */
+    --primary-gold: #D4AF37;
+    --secondary-gold: #FFD700;
     
-    --primary-black: #1C1C1C;       /* أسود عميق */
-    --secondary-black: #2D2D2D;     /* أسود متوسط */
+    /* نصوص واضحة */
+    --text-dark: #1F2937;           /* أسود قوي للنصوص */
+    --text-medium: #374151;         /* رمادي متوسط */
+    --text-light: #6B7280;          /* رمادي فاتح */
+    --text-white: #FFFFFF;          /* أبيض نقي */
     
-    /* ألوان محايدة مع تباين جيد */
-    --white: #FFFFFF;
-    --light-gray: #F8FAFC;
-    --medium-gray: #E5E7EB;
-    --dark-gray: #475569;
-    --text-dark: #1C1C1C;           /* نص أسود واضح */
-    --text-medium: #374151;         /* نص رمادي متوسط */
-    --text-light: #6B7280;          /* نص رمادي فاتح */
+    /* خلفيات واضحة */
+    --bg-white: #FFFFFF;            /* أبيض نقي */
+    --bg-light: #F9FAFB;            /* رمادي فاتح جداً */
+    --bg-gray: #F3F4F6;             /* رمادي فاتح */
+    --bg-dark: #1F2937;             /* أسود للخلفيات المظلمة */
     
     /* تدرجات محسنة */
     --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
     --gradient-gold: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
     --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 50%, var(--primary-gold) 100%);
-    --gradient-logo: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--primary-teal) 100%);
     
-    /* ظلال محسنة */
-    --shadow-sm: 0 1px 3px rgba(27, 79, 114, 0.1);
-    --shadow-md: 0 4px 6px rgba(27, 79, 114, 0.15);
-    --shadow-lg: 0 10px 15px rgba(27, 79, 114, 0.2);
-    --shadow-xl: 0 20px 25px rgba(27, 79, 114, 0.25);
+    /* ظلال */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.18);
 }
 
-/* إصلاح Theme Switcher مع تباين أفضل */
+/* إصلاح Theme Switcher مع تباين مثالي */
+.theme-switcher-float {
+    position: fixed;
+    bottom: 7rem;
+    left: 1.5rem;
+    z-index: 9999;
+    font-family: 'Cairo', sans-serif;
+}
+
+.theme-switcher-btn {
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.theme-switcher-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+}
+
+.theme-switcher-btn i {
+    font-size: 20px;
+    z-index: 2;
+}
+
+.theme-number {
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    background: var(--primary-gold);
+    color: var(--text-white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+    border: 3px solid var(--bg-white);
+    box-shadow: var(--shadow-md);
+}
+
 .theme-options {
-    background: var(--white);
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    background: var(--bg-white);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: var(--shadow-xl);
+    min-width: 240px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.95);
+    transition: all 0.3s ease;
     border: 2px solid var(--primary-blue);
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.15),
-        0 8px 25px rgba(27, 79, 114, 0.2);
-    backdrop-filter: blur(20px);
+}
+
+.theme-switcher-float.active .theme-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
 }
 
 .theme-option {
-    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
     border: 2px solid transparent;
+    background: var(--bg-white);
+}
+
+.theme-option:last-child {
+    margin-bottom: 0;
 }
 
 .theme-option:hover {
-    background: linear-gradient(135deg, 
-        rgba(27, 79, 114, 0.1),
-        rgba(78, 205, 196, 0.05));
-    border-color: var(--primary-blue);
-    color: var(--text-dark);
+    background: var(--bg-light);
+    border-color: var(--primary-teal);
+    transform: translateX(4px);
 }
 
 .theme-option.active {
-    background: linear-gradient(135deg, 
-        rgba(27, 79, 114, 0.15),
-        rgba(78, 205, 196, 0.1));
+    background: var(--bg-light);
     border-color: var(--primary-blue);
-    color: var(--text-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-preview {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    border: 2px solid var(--bg-white);
+    box-shadow: var(--shadow-sm);
 }
 
 .theme-option span {
     color: var(--text-dark);
     font-weight: 700;
+    font-size: 0.9rem;
+    flex: 1;
 }
 
 .theme-option small {
     color: var(--text-medium);
     font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.theme-option.active span {
+    color: var(--primary-blue);
 }
 
 .theme-option.active small {
@@ -882,80 +968,58 @@
     font-weight: 700;
 }
 
-/* تحديث الشعار الجديد */
-.logo-container {
-    background: var(--gradient-logo);
-    border: 2px solid var(--primary-blue);
-    box-shadow: 
-        var(--shadow-md),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
+/* إضافة الشعارات الحقيقية */
 .logo-container .logo-image {
-    /* إزالة الخلفية واستخدام الشعار الجديد */
-    background-image: none;
-    background: none;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 900;
-    text-indent: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* إضافة الشعار الجديد كـ pseudo-element */
-.logo-container::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNMjAgNEwzMiAxMlYyOEwyMCAzNkw4IDI4VjEyTDIwIDRaIiBmaWxsPSIjNEVDREM0Ii8+CiAgPHBhdGggZD0iTTIwIDhMMjggMTRWMjZMMjAgMzJMMTIgMjZWMTRMMjAgOFoiIGZpbGw9IiMxQjRGNzIiLz4KICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI0IiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo=');
+    background-image: url('../images/logo-small.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    text-indent: -9999px;
+    display: block;
 }
 
-/* تحديث Hero Logo */
-.hero-logo {
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.2),
-        rgba(27, 79, 114, 0.1));
-    border: 4px solid var(--primary-teal);
-    position: relative;
-}
-
-.hero-logo::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
-    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTYwIDEyTDk2IDM2Vjg0TDYwIDEwOEwyNCA4NFYzNkw2MCAxMloiIGZpbGw9IiM0RUNEQUM0Ii8+CiAgPHBhdGggZD0iTTYwIDI0TDg0IDQyVjc4TDYwIDk2TDM2IDc4VjQyTDYwIDI0WiIgZmlsbD0iIzFCNEY3MiIvPgogIDxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjEyIiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo=');
+.hero-logo .hero-logo-image {
+    background-image: url('../images/logo-large.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    text-indent: -9999px;
+    display: block;
 }
 
-/* تحديث ألوان Header */
+.footer-logo-section .footer-logo {
+    background-image: url('../images/logo-large.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent;
+    text-indent: -9999px;
+}
+
+/* تحسين Header مع تباين مثالي */
 .header {
     background: rgba(255, 255, 255, 0.98);
-    border-bottom: 3px solid var(--primary-blue);
-    box-shadow: 
-        0 2px 10px rgba(27, 79, 114, 0.1),
-        0 1px 3px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(27, 79, 114, 0.1);
+    box-shadow: var(--shadow-sm);
+}
+
+.logo-container {
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    border: none;
 }
 
 .company-name {
-    background: var(--gradient-logo);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-blue);
+    font-weight: 800;
 }
 
 .company-subtitle {
@@ -963,11 +1027,252 @@
 }
 
 .certification-badge {
-    background: linear-gradient(135deg, 
-        rgba(27, 79, 114, 0.1),
-        rgba(78, 205, 196, 0.1));
-    border: 2px solid var(--primary-blue);
+    background: rgba(27, 79, 114, 0.1);
+    border: 1px solid var(--primary-blue);
     color: var(--primary-blue);
+}
+
+/* Navigation محسن */
+.nav-link {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: var(--primary-blue);
+    background: rgba(27, 79, 114, 0.08);
+}
+
+/* Hero Section */
+.hero-section {
+    background: var(--gradient-hero);
+    color: var(--text-white);
+}
+
+.hero-logo {
+    background: rgba(255, 255, 255, 0.15);
+    border: 4px solid var(--primary-teal);
+    backdrop-filter: blur(20px);
+}
+
+.hero-title .highlight {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    color: var(--primary-teal);
+}
+
+/* CTA Buttons */
+.cta-button.primary {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+    border: none;
+    font-weight: 700;
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Services Section */
+.services-section {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.section-badge {
+    background: rgba(27, 79, 114, 0.1);
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.section-title {
+    color: var(--text-dark);
+    font-weight: 900;
+}
+
+.section-title .highlight {
+    color: var(--primary-teal);
+}
+
+.section-description {
+    color: var(--text-medium);
+}
+
+.service-card {
+    background: var(--bg-white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-sm);
+}
+
+.service-card::before {
+    background: var(--gradient-primary);
+}
+
+.service-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-icon {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+.service-title {
+    color: var(--text-dark);
+    font-weight: 800;
+}
+
+.service-description {
+    color: var(--text-medium);
+}
+
+.service-button {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+/* About Section */
+.about-section {
+    background: var(--bg-white);
+    color: var(--text-dark);
+}
+
+.about-description {
+    color: var(--text-medium);
+}
+
+.about-icon {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+.about-icon-text {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.cert-item {
+    background: var(--bg-white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cert-item:hover {
+    border-color: var(--primary-blue);
+}
+
+.cert-icon {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+.cert-info h4 {
+    color: var(--text-dark);
+}
+
+.cert-info p {
+    color: var(--text-medium);
+}
+
+/* Projects Section */
+.projects-section {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+.stat-number {
+    color: var(--primary-gold);
+}
+
+/* Clients Section */
+.clients-section {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.client-card {
+    background: var(--bg-white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.client-card:hover {
+    border-color: var(--primary-blue);
+    background: var(--primary-blue);
+    color: var(--text-white);
+}
+
+.client-logo {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.client-card:hover .client-logo {
+    color: var(--text-white);
+}
+
+/* Contact Section */
+.contact-section {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+.contact-icon {
+    background: var(--gradient-gold);
+    color: var(--text-white);
+}
+
+.form-title {
+    color: var(--primary-gold);
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-dark);
+    color: var(--text-white);
+}
+
+.footer::before {
+    background: var(--gradient-primary);
+}
+
+.footer-section h3 {
+    color: var(--primary-teal);
+}
+
+.social-link:hover {
+    background: var(--primary-teal);
+}
+
+/* تحسين التباين في جميع الحالات */
+body {
+    background: var(--bg-white);
+    color: var(--text-dark);
+}
+
+/* تحسين مخصص للموبايل */
+@media (max-width: 768px) {
+    .theme-options {
+        min-width: 200px;
+        bottom: 65px;
+    }
+    
+    .theme-switcher-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .theme-number {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+    }
 }
 
 /* تحديث Navigation */
