@@ -1783,34 +1783,129 @@ p, span, div, a, li {
     color: #FFD700 !important;
 }
 
-/* إصلاح Clients Section */
-.clients-section,
-.clients-section *,
-.client-card,
-.client-card *,
-.client-logo {
-    color: #1F2937 !important;
-    background: #F9FAFB !important;
-}
-
-.clients-section .section-title {
-    color: #000000 !important;
-}
-
-.clients-section .section-title .highlight {
-    color: #B8860B !important;
-}
-
+/* إصلاح مشكلة المربع الأبيض في الكروت */
 .client-card {
     background: #FFFFFF !important;
+    position: relative;
+    border: 2px solid rgba(184, 134, 11, 0.1);
+}
+
+.client-card::before,
+.client-card::after {
+    display: none !important;
 }
 
 .client-card:hover {
     background: #B8860B !important;
+    border-color: #B8860B !important;
+}
+
+.client-logo {
+    color: #1F2937 !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 10;
+    background: transparent !important;
 }
 
 .client-card:hover .client-logo {
     color: #FFFFFF !important;
+    background: transparent !important;
+}
+
+/* إزالة أي عناصر overlay أو pseudo-elements */
+.client-card *::before,
+.client-card *::after {
+    display: none !important;
+}
+
+/* إصلاح الشعار في Header */
+.logo-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background: var(--gradient-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-gold-sm);
+    transition: all 0.3s ease;
+    padding: 0;
+    overflow: hidden;
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-image: url('../images/logo-small.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent;
+    text-indent: -9999px;
+    display: block;
+}
+
+/* إصلاح الشعار في Hero */
+.hero-logo {
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    backdrop-filter: blur(20px);
+    border: 3px solid rgba(218, 165, 32, 0.3);
+    box-shadow: 
+        0 0 50px rgba(184, 134, 11, 0.3),
+        inset 0 0 50px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.hero-logo::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/logo-large.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* إصلاح الشعار في Footer */
+.footer-logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo-section .logo-container {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-gold);
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.footer-logo {
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/logo-large.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent;
+    text-indent: -9999px;
+    display: block;
 }
 
 /* إصلاح Contact Section */
@@ -1843,22 +1938,84 @@ p, span, div, a, li {
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
-/* إصلاح Theme Switcher */
-.theme-options {
-    background: #FFFFFF !important;
+/* إصلاح إضافي لضمان عدم وجود مربعات بيضاء */
+.service-card,
+.cert-item,
+.about-icon-item,
+.contact-item,
+.stat-card {
+    position: relative;
 }
 
-.theme-option span {
-    color: #1F2937 !important;
+.service-card::before,
+.service-card::after,
+.cert-item::before,
+.cert-item::after,
+.about-icon-item::before,
+.about-icon-item::after,
+.contact-item::before,
+.contact-item::after,
+.stat-card::before,
+.stat-card::after {
+    display: none !important;
 }
 
-.theme-option small {
-    color: #6B7280 !important;
+/* إزالة أي خلفيات أو overlays غير مرغوب فيها */
+.client-card .client-logo::before,
+.client-card .client-logo::after {
+    content: none !important;
+    display: none !important;
 }
 
-.theme-option.active span,
-.theme-option.active small {
-    color: #B8860B !important;
+/* تأكيد شفافية الخلفيات */
+.client-logo {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.client-card:hover .client-logo {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* إصلاح الشعار في جميع الأماكن */
+img[src*="logo"],
+img[alt*="شعار"],
+img[alt*="ناض"] {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: transparent !important;
+}
+
+/* إضافة الشعار كخلفية في الأماكن المناسبة */
+.logo-container,
+.hero-logo-container .hero-logo,
+.footer-logo-section .footer-logo {
+    background-color: transparent;
+}
+
+/* تحديد مسارات الشعار */
+.logo-container .logo-image {
+    background-image: url('../images/logo-small.png'), url('../images/nadh-logo.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -9999px;
+    color: transparent;
+}
+
+.hero-logo::before {
+    background-image: url('../images/logo-large.png'), url('../images/nadh-logo.png');
+    background-size: 70%;
+}
+
+.footer-logo {
+    background-image: url('../images/logo-large.png'), url('../images/nadh-logo.png');
+    background-size: 70%;
 }
 
 /* تحسين التفاعل مع اللمس */
