@@ -1662,188 +1662,203 @@ p, span, div, a, li {
     }
 }
 
-/* إصلاحات شاملة للألوان والتباين */
+/* إصلاحات قوية وفورية للألوان - بأولوية عالية */
 
-/* قسم Header - خلفية بيضاء */
-.header {
-    background: rgba(255, 255, 255, 0.98) !important;
+/* إصلاح الهيدر والشريط العلوي */
+.header,
+.header *,
+.header .company-name,
+.header .company-subtitle,
+.header .nav-link,
+.header .language-btn,
+.header .certification-badge {
+    color: #1F2937 !important;
+    background-color: rgba(255, 255, 255, 0.98) !important;
 }
 
-.header * {
-    color: var(--text-dark) !important;
+.header .company-name {
+    color: #B8860B !important;
 }
 
-.company-name {
-    color: var(--primary-gold) !important;
-}
-
-.company-subtitle {
-    color: var(--text-medium) !important;
-}
-
-.certification-badge {
-    color: var(--primary-gold) !important;
+.header .certification-badge {
+    color: #B8860B !important;
     background: rgba(184, 134, 11, 0.1) !important;
-    border-color: var(--primary-gold) !important;
+    border-color: #B8860B !important;
 }
 
-.nav-link {
-    color: var(--text-dark) !important;
+/* إصلاح الفوتر */
+.footer,
+.footer *,
+.footer p,
+.footer ul,
+.footer li,
+.footer a,
+.footer span,
+.footer div {
+    color: #FFFFFF !important;
+    background-color: #1F2937 !important;
 }
 
-.nav-link:hover {
-    color: var(--primary-gold) !important;
+.footer h3 {
+    color: #FFD700 !important;
 }
 
-.language-btn {
-    color: var(--text-dark) !important;
-    border-color: var(--text-medium) !important;
+.footer-bottom,
+.footer-bottom * {
+    color: #E5E7EB !important;
 }
 
-.language-btn:hover {
-    color: var(--primary-gold) !important;
-    border-color: var(--primary-gold) !important;
+/* إصلاح Hero Section */
+.hero-section,
+.hero-section *,
+.hero-content,
+.hero-content *,
+.hero-title,
+.hero-subtitle,
+.hero-description {
+    color: #FFFFFF !important;
 }
 
-/* أقسام بخلفية فاتحة - نص داكن */
+.hero-title .highlight {
+    color: #FFD700 !important;
+}
+
+.hero-subtitle {
+    color: #FFD700 !important;
+}
+
+/* إصلاح About Section */
 .about-section,
-.services-section,
-.clients-section {
-    background: var(--bg-light) !important;
-}
-
 .about-section *,
+.about-text,
+.about-text *,
+.about-description,
+.about-icon-text,
+.cert-info h4,
+.cert-info p {
+    color: #1F2937 !important;
+    background: #F9FAFB !important;
+}
+
+.about-section .section-title {
+    color: #000000 !important;
+}
+
+.about-section .section-title .highlight {
+    color: #B8860B !important;
+}
+
+/* إصلاح Services Section */
+.services-section,
 .services-section *,
-.clients-section * {
-    color: var(--text-dark) !important;
-}
-
-.about-section .section-title,
-.services-section .section-title,
-.clients-section .section-title {
-    color: var(--text-black) !important;
-}
-
-.about-section .section-title .highlight,
-.services-section .section-title .highlight,
-.clients-section .section-title .highlight {
-    color: var(--primary-gold) !important;
-}
-
-.about-section .section-description,
-.services-section .section-description,
-.clients-section .section-description {
-    color: var(--text-medium) !important;
-}
-
-.about-section .section-badge,
-.services-section .section-badge,
-.clients-section .section-badge {
-    color: var(--primary-gold) !important;
-    background: rgba(184, 134, 11, 0.1) !important;
-    border-color: var(--primary-gold) !important;
-}
-
-/* Service Cards */
-.service-card {
-    background: var(--bg-white) !important;
-}
-
-.service-card * {
-    color: var(--text-dark) !important;
-}
-
-.service-title {
-    color: var(--text-black) !important;
-}
-
+.service-card,
+.service-card *,
+.service-title,
 .service-description {
-    color: var(--text-medium) !important;
+    color: #1F2937 !important;
+    background: #FFFFFF !important;
+}
+
+.services-section .section-title {
+    color: #000000 !important;
+}
+
+.services-section .section-title .highlight {
+    color: #B8860B !important;
 }
 
 .service-button {
-    color: var(--primary-gold) !important;
+    color: #B8860B !important;
 }
 
-.service-button:hover {
-    color: var(--secondary-gold) !important;
+/* إصلاح Projects Section */
+.projects-section,
+.projects-section *,
+.stat-card,
+.stat-card * {
+    color: #FFFFFF !important;
 }
 
-/* About Icons and Certs */
-.about-icon-text {
-    color: var(--text-dark) !important;
+.stat-number {
+    color: #FFD700 !important;
 }
 
-.cert-info h4 {
-    color: var(--text-black) !important;
-}
-
-.cert-info p {
-    color: var(--text-medium) !important;
-}
-
-/* Client Cards */
+/* إصلاح Clients Section */
+.clients-section,
+.clients-section *,
+.client-card,
+.client-card *,
 .client-logo {
-    color: var(--text-black) !important;
+    color: #1F2937 !important;
+    background: #F9FAFB !important;
+}
+
+.clients-section .section-title {
+    color: #000000 !important;
+}
+
+.clients-section .section-title .highlight {
+    color: #B8860B !important;
+}
+
+.client-card {
+    background: #FFFFFF !important;
+}
+
+.client-card:hover {
+    background: #B8860B !important;
 }
 
 .client-card:hover .client-logo {
-    color: var(--text-white) !important;
+    color: #FFFFFF !important;
 }
 
-/* أقسام بخلفية داكنة - نص فاتح */
-.hero-section,
-.projects-section,
-.contact-section {
-    background: var(--gradient-hero) !important;
+/* إصلاح Contact Section */
+.contact-section,
+.contact-section *,
+.contact-info,
+.contact-info *,
+.contact-text h4,
+.contact-text p,
+.form-title {
+    color: #FFFFFF !important;
 }
 
-.hero-section *,
-.projects-section *,
-.contact-section * {
-    color: var(--text-white) !important;
+.form-title {
+    color: #FFD700 !important;
+}
+
+/* إصلاح Section Badges */
+.section-badge {
+    color: #B8860B !important;
+    background: rgba(184, 134, 11, 0.1) !important;
+    border: 1px solid #B8860B !important;
 }
 
 .hero-section .section-badge,
 .projects-section .section-badge,
 .contact-section .section-badge {
-    color: var(--text-white) !important;
+    color: #FFFFFF !important;
     background: rgba(255, 255, 255, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
-/* Footer - خلفية داكنة */
-.footer {
-    background: var(--text-dark) !important;
-}
-
-.footer * {
-    color: var(--text-white) !important;
-}
-
-.footer h3 {
-    color: var(--accent-gold) !important;
-}
-
-/* Theme Switcher */
+/* إصلاح Theme Switcher */
 .theme-options {
-    background: var(--bg-white) !important;
+    background: #FFFFFF !important;
 }
 
 .theme-option span {
-    color: var(--text-dark) !important;
+    color: #1F2937 !important;
 }
 
 .theme-option small {
-    color: var(--text-medium) !important;
+    color: #6B7280 !important;
 }
 
-.theme-option.active span {
-    color: var(--primary-gold) !important;
-}
-
+.theme-option.active span,
 .theme-option.active small {
-    color: var(--primary-gold) !important;
+    color: #B8860B !important;
 }
 
 /* تحسين التفاعل مع اللمس */
