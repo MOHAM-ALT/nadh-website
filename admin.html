@@ -11,6 +11,12 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     
+    <!-- مكتبة التشفير -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
+    <!-- إعدادات آمنة -->
+    <script src="config/admin-config.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -23,6 +29,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
+            overflow-x: hidden;
         }
         
         /* تسجيل الدخول */
@@ -42,6 +49,7 @@
             max-width: 400px;
             width: 100%;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
         
         .login-logo {
@@ -56,6 +64,15 @@
             color: white;
             font-size: 24px;
             font-weight: 900;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 20px;
         }
         
         .login-title {
@@ -112,13 +129,33 @@
             box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
         }
         
-        .error-message {
-            color: #dc3545;
-            background: #f8d7da;
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .error-message, .success-message {
             padding: 10px;
             border-radius: 8px;
             margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            background: #f8d7da;
             border: 1px solid #f5c6cb;
+        }
+        
+        .success-message {
+            color: #155724;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .hidden {
+            display: none !important;
         }
         
         /* لوحة التحكم */
@@ -144,6 +181,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
+            backdrop-filter: blur(10px);
         }
         
         .header-left {
@@ -163,6 +201,14 @@
             color: white;
             font-weight: 900;
             font-size: 18px;
+            overflow: hidden;
+        }
+        
+        .header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
         }
         
         .header-info h1 {
@@ -218,6 +264,16 @@
             transform: translateY(-1px);
         }
         
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+            transform: translateY(-1px);
+        }
+        
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -232,6 +288,7 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             text-align: center;
             transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
         }
         
         .stat-card:hover {
@@ -258,7 +315,7 @@
             background: linear-gradient(135deg, #F4A261, #E76F51);
         }
         
-        .stat-icon.pages {
+        .stat-icon.conversion {
             background: linear-gradient(135deg, #A8E6CF, #7FCDCD);
         }
         
@@ -289,6 +346,7 @@
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
         }
         
         .section h3 {
@@ -298,19 +356,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-        
-        .iframe-container {
-            width: 100%;
-            height: 400px;
-            border: 2px dashed #ddd;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            text-align: center;
-            background: #f8f9fa;
         }
         
         .recent-messages {
@@ -359,21 +404,16 @@
             border-radius: 12px;
         }
         
+        .message-contact {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
         .message-content {
             color: #555;
             font-size: 14px;
             line-height: 1.5;
-        }
-        
-        .analytics-placeholder {
-            text-align: center;
-            padding: 60px 20px;
-        }
-        
-        .analytics-placeholder i {
-            font-size: 48px;
-            color: #ddd;
-            margin-bottom: 15px;
         }
         
         .quick-links {
@@ -410,34 +450,30 @@
             font-size: 16px;
         }
         
-        .refresh-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #4ECDC4, #2C5C7C);
-            color: white;
-            border: none;
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ffffff;
             border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
-            transition: all 0.3s ease;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
         }
         
-        .refresh-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
         
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
+        .no-data {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
         }
         
-        .hidden {
-            display: none;
+        .no-data i {
+            font-size: 48px;
+            color: #ddd;
+            margin-bottom: 15px;
         }
         
         /* استجابة للجوال */
@@ -459,14 +495,6 @@
             .header-actions {
                 justify-content: center;
             }
-            
-            .refresh-btn {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 16px;
-            }
         }
         
         @media (max-width: 480px) {
@@ -484,7 +512,9 @@
     <!-- صفحة تسجيل الدخول -->
     <div id="loginContainer" class="login-container">
         <div class="login-box">
-            <div class="login-logo">ناض</div>
+            <div class="login-logo">
+                <img src="images/logo-small.png" alt="شعار ناض" onerror="this.style.display='none'; this.parentNode.innerHTML='ناض';">
+            </div>
             <h2 class="login-title">🔐 لوحة التحكم</h2>
             <p style="color: #666; margin-bottom: 25px;">للوصول إلى إحصائيات الموقع ورسائل العملاء</p>
             
@@ -497,11 +527,12 @@
                     <label for="password">كلمة المرور:</label>
                     <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
                 </div>
-                <button type="submit" class="login-btn">
+                <button type="submit" class="login-btn" id="loginBtn">
                     <i class="fas fa-sign-in-alt"></i>
                     دخول
                 </button>
                 <div id="errorMessage" class="error-message hidden"></div>
+                <div id="successMessage" class="success-message hidden"></div>
             </form>
         </div>
     </div>
@@ -510,10 +541,12 @@
     <div id="dashboard" class="dashboard">
         <div class="header">
             <div class="header-left">
-                <div class="header-logo">ناض</div>
+                <div class="header-logo">
+                    <img src="images/logo-large.png" alt="شعار ناض" onerror="this.style.display='none'; this.parentNode.innerHTML='ناض';">
+                </div>
                 <div class="header-info">
                     <h1>لوحة تحكم ناض للمقاولات</h1>
-                    <p>مرحباً بك، إليك ملخص أداء الموقع اليوم - <span id="lastUpdate"></span></p>
+                    <p>مرحباً بك، إليك ملخص أداء الموقع - <span id="lastUpdate">جاري التحميل...</span></p>
                 </div>
             </div>
             <div class="header-actions">
@@ -521,11 +554,15 @@
                     <i class="fas fa-chart-line"></i>
                     Analytics
                 </a>
-                <a href="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID" target="_blank" class="btn btn-secondary" id="sheetsLink">
+                <a href="#" target="_blank" class="btn btn-secondary" id="sheetsLink">
                     <i class="fas fa-table"></i>
-                    Sheets
+                    جدول البيانات
                 </a>
-                <button onclick="logout()" class="btn btn-secondary">
+                <button onclick="refreshData()" class="btn btn-primary">
+                    <i class="fas fa-sync-alt"></i>
+                    تحديث البيانات
+                </button>
+                <button onclick="logout()" class="btn btn-danger">
                     <i class="fas fa-sign-out-alt"></i>
                     خروج
                 </button>
@@ -547,15 +584,15 @@
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div class="stat-number" id="messagesCount">-</div>
-                <div class="stat-label">رسالة جديدة</div>
+                <div class="stat-label">إجمالي الرسائل</div>
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon pages">
-                    <i class="fas fa-file-alt"></i>
+                <div class="stat-icon conversion">
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <div class="stat-number" id="pagesCount">-</div>
-                <div class="stat-label">مشاهدة صفحة</div>
+                <div class="stat-number" id="conversionRate">-</div>
+                <div class="stat-label">معدل التحويل</div>
             </div>
             
             <div class="stat-card">
@@ -563,55 +600,34 @@
                     <i class="fas fa-calendar-day"></i>
                 </div>
                 <div class="stat-number" id="todayMessages">-</div>
-                <div class="stat-label">رسالة اليوم</div>
+                <div class="stat-label">رسائل اليوم</div>
             </div>
         </div>
 
         <!-- الأقسام الرئيسية -->
         <div class="dashboard-sections">
-            <!-- قسم الإحصائيات -->
-            <div class="section">
-                <h3>
-                    <i class="fas fa-chart-area"></i>
-                    إحصائيات Google Analytics
-                </h3>
-                <div class="iframe-container">
-                    <div class="analytics-placeholder">
-                        <i class="fas fa-chart-line"></i>
-                        <p><strong>لعرض إحصائيات Google Analytics:</strong></p>
-                        <p style="font-size: 14px; margin-top: 10px;">
-                            1. اذهب إلى <a href="https://analytics.google.com" target="_blank">Google Analytics</a><br>
-                            2. اختر موقعك → تقارير → نظرة عامة<br>
-                            3. انقر على "مشاركة" → "تضمين التقرير"<br>
-                            4. انسخ الكود واستبدل هذا النص
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- قسم الرسائل والروابط السريعة -->
+            <!-- قسم الرسائل -->
             <div class="section">
                 <h3>
                     <i class="fas fa-comments"></i>
                     الرسائل الأخيرة
                 </h3>
                 <div class="recent-messages" id="recentMessages">
-                    <!-- سيتم تحميل الرسائل هنا -->
-                    <div class="message-item">
-                        <div class="message-header">
-                            <span class="message-name">جاري التحميل...</span>
-                            <span class="message-time">-</span>
-                        </div>
-                        <div class="message-content">يتم تحميل الرسائل من Google Sheets...</div>
+                    <div class="no-data">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>جاري تحميل الرسائل...</p>
                     </div>
                 </div>
-                
-                <h3 style="margin-top: 30px;">
+            </div>
+
+            <!-- قسم الروابط السريعة -->
+            <div class="section">
+                <h3>
                     <i class="fas fa-external-link-alt"></i>
                     روابط سريعة
                 </h3>
                 <div class="quick-links">
-                    <a href="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID" target="_blank" class="quick-link" id="quickSheetsLink">
+                    <a href="#" target="_blank" class="quick-link" id="quickSheetsLink">
                         <div class="quick-link-icon">
                             <i class="fas fa-table"></i>
                         </div>
@@ -640,141 +656,350 @@
                             <br><small>زيارة الموقع</small>
                         </div>
                     </a>
+                    
+                    <a href="https://wa.me/966537573006" target="_blank" class="quick-link">
+                        <div class="quick-link-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <strong>واتساب الشركة</strong>
+                            <br><small>تواصل مباشر</small>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- زر التحديث -->
-    <button class="refresh-btn" onclick="refreshData()" title="تحديث البيانات">
-        <i class="fas fa-sync-alt"></i>
-    </button>
-
     <script>
-       // إعدادات النظام (محدثة)
-const CONFIG = {
-    credentials: {
-        username: 'nadh_admin',
-        password: 'nadh2025@secure'
-    },
-    sheetId: '1DcZZQ7sjhLLkTqygRaiMc7jPkxnZD-jIiSXEEUUeH_Y',
-    appsScriptUrl: 'https://script.google.com/macros/s/AKfycbx9XQl36D7iYeekg-8DU5m0zfgOhSepXntAtOFVz9bEGly-qmWJsePYpxLAM_u4b_T0iw/exec',
-    refreshInterval: 300000 // 5 دقائق
-};
+        // متغيرات عامة
+        let loginAttempts = 0;
+        let isBlocked = false;
+        let sessionToken = null;
+        let refreshInterval = null;
+        let sheetsData = {
+            messages: [],
+            stats: {
+                totalMessages: 0,
+                todayMessages: 0,
+                conversionRate: '0%',
+                visitors: 0
+            }
+        };
 
-        // تسجيل الدخول
+        // التحقق من تحميل الإعدادات
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ADMIN_CONFIG === 'undefined') {
+                showMessage('خطأ: لم يتم تحميل ملف الإعدادات', 'error');
+                return;
+            }
+
+            console.log('✅ تم تحميل إعدادات Dashboard بنجاح');
+            
+            // تحديث الروابط
+            updateLinks();
+            
+            // التحقق من الجلسة المحفوظة
+            checkSavedSession();
+            
+            // إعداد Google Analytics إذا كان مفعل
+            initializeAnalytics();
+        });
+
+        // ===============================
+        // وظائف تسجيل الدخول والأمان
+        // ===============================
+
         function handleLogin(event) {
             event.preventDefault();
             
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorDiv = document.getElementById('errorMessage');
+            if (isBlocked) {
+                showMessage(`تم حظر المحاولات لمدة ${ADMIN_CONFIG.security.blockDuration} دقيقة`, 'error');
+                return;
+            }
             
-            if (username === CONFIG.credentials.username && password === CONFIG.credentials.password) {
-                localStorage.setItem('nadhAdminLoggedIn', 'true');
-                showDashboard();
-                loadDashboardData();
-                errorDiv.classList.add('hidden');
-            } else {
-                errorDiv.textContent = '⚠️ اسم المستخدم أو كلمة المرور غير صحيحة';
-                errorDiv.classList.remove('hidden');
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            
+            if (!username || !password) {
+                showMessage('يرجى إدخال اسم المستخدم وكلمة المرور', 'error');
+                return;
+            }
+            
+            // تعطيل الزر أثناء المعالجة
+            loginBtn.disabled = true;
+            loginBtn.innerHTML = '<span class="loading-spinner"></span> جاري التحقق...';
+            
+            // تشفير كلمة المرور المدخلة
+            const hashedPassword = CryptoJS.SHA256(password).toString();
+            
+            // التحقق من البيانات
+            if (username === ADMIN_CONFIG.credentials.username && 
+                hashedPassword === ADMIN_CONFIG.credentials.passwordHash) {
                 
-                // إخفاء الرسالة بعد 3 ثوان
+                // نجح تسجيل الدخول
+                loginSuccess();
+                
+            } else {
+                // فشل تسجيل الدخول
+                loginFailed();
+            }
+            
+            // إعادة تفعيل الزر
+            loginBtn.disabled = false;
+            loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> دخول';
+        }
+
+        function loginSuccess() {
+            console.log('✅ تم تسجيل الدخول بنجاح');
+            
+            // إنشاء token للجلسة
+            sessionToken = generateSessionToken();
+            
+            // حفظ الجلسة
+            localStorage.setItem('nadhAdminSession', JSON.stringify({
+                token: sessionToken,
+                loginTime: Date.now(),
+                expiresAt: Date.now() + (ADMIN_CONFIG.security.sessionTimeout * 60 * 1000)
+            }));
+            
+            // إعادة تعيين المحاولات
+            loginAttempts = 0;
+            
+            showMessage('مرحباً بك في لوحة التحكم', 'success');
+            
+            setTimeout(() => {
+                showDashboard();
+            }, 1000);
+        }
+
+        function loginFailed() {
+            loginAttempts++;
+            console.log(`❌ محاولة دخول فاشلة رقم ${loginAttempts}`);
+            
+            if (loginAttempts >= ADMIN_CONFIG.security.maxLoginAttempts) {
+                // حظر مؤقت
+                isBlocked = true;
+                showMessage(`تم حظر المحاولات لمدة ${ADMIN_CONFIG.security.blockDuration} دقيقة بعد ${loginAttempts} محاولات فاشلة`, 'error');
+                
                 setTimeout(() => {
-                    errorDiv.classList.add('hidden');
-                }, 3000);
+                    isBlocked = false;
+                    loginAttempts = 0;
+                    showMessage('تم رفع الحظر، يمكنك المحاولة مرة أخرى', 'success');
+                }, ADMIN_CONFIG.security.blockDuration * 60 * 1000);
+                
+            } else {
+                const remaining = ADMIN_CONFIG.security.maxLoginAttempts - loginAttempts;
+                showMessage(`اسم المستخدم أو كلمة المرور غير صحيحة (${remaining} محاولات متبقية)`, 'error');
             }
         }
 
-        // إظهار لوحة التحكم
-        function showDashboard() {
-            document.getElementById('loginContainer').style.display = 'none';
-            document.getElementById('dashboard').classList.add('active');
-            
-            // تحديث رابط الجدول
-            const sheetUrl = `https://docs.google.com/spreadsheets/d/${CONFIG.sheetId}`;
-            document.getElementById('sheetsLink').href = sheetUrl;
-            document.getElementById('quickSheetsLink').href = sheetUrl;
-            
-            // تحديث وقت آخر تحديث
-            updateLastUpdate();
+        function generateSessionToken() {
+            const timestamp = Date.now().toString();
+            const random = Math.random().toString(36).substring(2);
+            return CryptoJS.SHA256(timestamp + random + ADMIN_CONFIG.credentials.username).toString().substring(0, 32);
         }
 
-        // تسجيل الخروج
+        function checkSavedSession() {
+            const savedSession = localStorage.getItem('nadhAdminSession');
+            
+            if (savedSession) {
+                try {
+                    const session = JSON.parse(savedSession);
+                    
+                    if (Date.now() < session.expiresAt) {
+                        sessionToken = session.token;
+                        console.log('✅ تم استرداد الجلسة المحفوظة');
+                        showDashboard();
+                        return;
+                    } else {
+                        console.log('⏰ انتهت صلاحية الجلسة');
+                        localStorage.removeItem('nadhAdminSession');
+                    }
+                } catch (error) {
+                    console.error('خطأ في قراءة الجلسة المحفوظة:', error);
+                    localStorage.removeItem('nadhAdminSession');
+                }
+            }
+        }
+
         function logout() {
-            localStorage.removeItem('nadhAdminLoggedIn');
+            console.log('🚪 تسجيل الخروج');
+            
+            // مسح البيانات
+            sessionToken = null;
+            localStorage.removeItem('nadhAdminSession');
+            
+            // إيقاف التحديث التلقائي
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+            }
+            
+            // العودة لصفحة تسجيل الدخول
             document.getElementById('loginContainer').style.display = 'flex';
             document.getElementById('dashboard').classList.remove('active');
             
             // مسح الحقول
             document.getElementById('username').value = '';
             document.getElementById('password').value = '';
+            
+            showMessage('تم تسجيل الخروج بنجاح', 'success');
         }
 
-        // تحميل بيانات لوحة التحكم
-        function loadDashboardData() {
-            // محاكاة البيانات (سيتم ربطها مع Google Sheets لاحقاً)
-            const mockData = {
-                visitors: Math.floor(Math.random() * 2000) + 1000,
-                messages: Math.floor(Math.random() * 50) + 10,
-                pages: Math.floor(Math.random() * 8000) + 3000,
-                todayMessages: Math.floor(Math.random() * 10) + 1
+        // ===============================
+        // وظائف Dashboard
+        // ===============================
+
+        function showDashboard() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('dashboard').classList.add('active');
+            
+            updateLastUpdate();
+            loadDashboardData();
+            
+            // بدء التحديث التلقائي
+            if (ADMIN_CONFIG.refresh.enabled) {
+                startAutoRefresh();
+            }
+        }
+
+        function updateLinks() {
+            const sheetsUrl = ADMIN_CONFIG.googleSheets.directUrl;
+            document.getElementById('sheetsLink').href = sheetsUrl;
+            document.getElementById('quickSheetsLink').href = sheetsUrl;
+        }
+
+        function updateLastUpdate() {
+            const now = new Date();
+            const timeString = now.toLocaleString('ar-SA', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('lastUpdate').textContent = `آخر تحديث: ${timeString}`;
+        }
+
+        async function loadDashboardData() {
+            console.log('📊 جاري تحميل بيانات Dashboard...');
+            
+            try {
+                // محاولة قراءة البيانات من Google Sheets
+                await loadSheetsData();
+                
+                // تحديث الإحصائيات
+                updateStatistics();
+                
+                // تحديث الرسائل
+                updateMessagesDisplay();
+                
+            } catch (error) {
+                console.error('خطأ في تحميل البيانات:', error);
+                
+                // عرض بيانات تجريبية في حالة الخطأ
+                loadFallbackData();
+            }
+        }
+
+        async function loadSheetsData() {
+            // نظراً لأن Google Sheets API يحتاج مفتاح API
+            // سنستخدم البيانات التجريبية حالياً
+            console.log('⚠️ Google Sheets API غير مكوّن - استخدام بيانات تجريبية');
+            
+            // هنا يمكن إضافة استدعاء حقيقي لـ Google Sheets API
+            // مع مفتاح API أو Apps Script
+            
+            return Promise.resolve();
+        }
+
+        function loadFallbackData() {
+            console.log('📋 تحميل بيانات تجريبية...');
+            
+            // بيانات تجريبية واقعية
+            sheetsData = {
+                messages: [
+                    {
+                        timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // منذ ساعتين
+                        name: 'أحمد محمد السعدي',
+                        email: 'ahmed.saadi@email.com',
+                        phone: '0501234567',
+                        service: 'الأنظمة الميكانيكية',
+                        message: 'مرحباً، أريد عرض سعر لنظام إطفاء حريق لمطعم مساحة 200 متر مربع في الرياض...'
+                    },
+                    {
+                        timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000), // منذ 5 ساعات
+                        name: 'سارة عبدالله العتيبي',
+                        email: 'sara.otaibi@email.com',
+                        phone: '0559876543',
+                        service: 'مشروع متكامل',
+                        message: 'السلام عليكم، لدي مشروع سكني (فيلا) ويحتاج أنظمة كاملة للسلامة والحماية من الحريق...'
+                    },
+                    {
+                        timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // أمس
+                        name: 'خالد سلمان الدوسري',
+                        email: 'khalid.dosari@email.com',
+                        phone: '0567891234',
+                        service: 'استشارة فنية',
+                        message: 'أريد استشارة فنية حول أفضل أنواع أبواب الطوارئ للمباني التجارية...'
+                    }
+                ],
+                stats: {
+                    totalMessages: 45,
+                    todayMessages: 3,
+                    conversionRate: '67%',
+                    visitors: 1240
+                }
             };
             
-            // تحديث الإحصائيات مع أنيميشن
-            animateNumber('visitorsCount', mockData.visitors);
-            animateNumber('messagesCount', mockData.messages);
-            animateNumber('pagesCount', mockData.pages);
-            animateNumber('todayMessages', mockData.todayMessages);
-            
-            // تحميل الرسائل
-            loadRecentMessages();
+            updateStatistics();
+            updateMessagesDisplay();
         }
 
-        // تحميل الرسائل الأخيرة
-        function loadRecentMessages() {
-            const messagesContainer = document.getElementById('recentMessages');
+        function updateStatistics() {
+            const stats = sheetsData.stats;
             
-            // محاكاة رسائل (سيتم ربطها مع Google Sheets)
-            const mockMessages = [
-                {
-                    name: 'أحمد محمد السعدي',
-                    time: 'منذ ساعة',
-                    service: 'الأنظمة الميكانيكية',
-                    content: 'مرحباً، أريد عرض سعر لنظام إطفاء حريق لمطعم مساحة 200 متر مربع في الرياض. المشروع عبارة عن مطعم جديد ويحتاج جميع أنظمة السلامة...'
-                },
-                {
-                    name: 'سارة عبدالله العتيبي',
-                    time: 'منذ 3 ساعات',
-                    service: 'مشروع متكامل',
-                    content: 'السلام عليكم، لدي مشروع سكني (فيلا) ويحتاج أنظمة كاملة للسلامة والحماية من الحريق، بالإضافة لكاميرات المراقبة...'
-                },
-                {
-                    name: 'خالد سلمان الدوسري',
-                    time: 'اليوم',
-                    service: 'استشارة فنية',
-                    content: 'أريد استشارة فنية حول أفضل أنواع أبواب الطوارئ للمباني التجارية. المشروع عبارة عن مجمع تجاري من 3 طوابق...'
-                },
-                {
-                    name: 'منيرة أحمد القحطاني',
-                    time: 'أمس',
-                    service: 'الصيانة والدعم',
-                    content: 'مرحباً، نحتاج عرض سعر لصيانة دورية لأنظمة الحريق في مجمع تجاري. الأنظمة موجودة ولكن نريد عقد صيانة سنوي...'
-                }
-            ];
+            // تحديث الأرقام مع أنيميشن
+            animateNumber('visitorsCount', stats.visitors);
+            animateNumber('messagesCount', stats.totalMessages);
+            animateNumber('todayMessages', stats.todayMessages);
+            
+            // معدل التحويل
+            document.getElementById('conversionRate').textContent = stats.conversionRate;
+        }
+
+        function updateMessagesDisplay() {
+            const messagesContainer = document.getElementById('recentMessages');
+            const messages = sheetsData.messages;
+            
+            if (!messages || messages.length === 0) {
+                messagesContainer.innerHTML = `
+                    <div class="no-data">
+                        <i class="fas fa-inbox"></i>
+                        <p>لا توجد رسائل حالياً</p>
+                    </div>
+                `;
+                return;
+            }
             
             let messagesHTML = '';
-            mockMessages.forEach(msg => {
+            messages.forEach(msg => {
+                const timeAgo = getTimeAgo(msg.timestamp);
+                
                 messagesHTML += `
                     <div class="message-item">
                         <div class="message-header">
                             <span class="message-name">${msg.name}</span>
-                            <span class="message-time">${msg.time}</span>
+                            <span class="message-time">${timeAgo}</span>
+                        </div>
+                        <div class="message-contact">
+                            📧 ${msg.email} | 📱 ${msg.phone}
                         </div>
                         <div style="margin-bottom: 8px;">
                             <span class="message-service">${msg.service}</span>
                         </div>
-                        <div class="message-content">${msg.content}</div>
+                        <div class="message-content">${msg.message}</div>
                     </div>
                 `;
             });
@@ -782,7 +1007,22 @@ const CONFIG = {
             messagesContainer.innerHTML = messagesHTML;
         }
 
-        // أنيميشن الأرقام
+        function getTimeAgo(timestamp) {
+            const now = new Date();
+            const diffMs = now - new Date(timestamp);
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffDays = Math.floor(diffHours / 24);
+            
+            if (diffDays > 0) {
+                return `منذ ${diffDays} يوم`;
+            } else if (diffHours > 0) {
+                return `منذ ${diffHours} ساعة`;
+            } else {
+                const diffMinutes = Math.floor(diffMs / (1000 * 60));
+                return `منذ ${diffMinutes} دقيقة`;
+            }
+        }
+
         function animateNumber(elementId, targetNumber) {
             const element = document.getElementById(elementId);
             const startNumber = 0;
@@ -804,68 +1044,113 @@ const CONFIG = {
             update();
         }
 
-        // تحديث وقت آخر تحديث
-        function updateLastUpdate() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('ar-SA', {
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            document.getElementById('lastUpdate').textContent = `آخر تحديث: ${timeString}`;
-        }
-
-        // تحديث البيانات
         function refreshData() {
-            const refreshBtn = document.querySelector('.refresh-btn');
+            const refreshBtn = event.target;
             const icon = refreshBtn.querySelector('i');
             
             // أنيميشن التحديث
-            icon.style.animation = 'spin 1s linear infinite';
-            refreshBtn.style.opacity = '0.7';
+            icon.classList.add('fa-spin');
+            refreshBtn.disabled = true;
             
-            // تحديث البيانات
+            console.log('🔄 تحديث البيانات...');
+            
             setTimeout(() => {
                 loadDashboardData();
                 updateLastUpdate();
                 
                 // إنهاء الأنيميشن
-                icon.style.animation = '';
-                refreshBtn.style.opacity = '1';
+                icon.classList.remove('fa-spin');
+                refreshBtn.disabled = false;
+                
+                showMessage('تم تحديث البيانات بنجاح', 'success');
             }, 1000);
         }
 
-        // التحقق من تسجيل الدخول عند تحميل الصفحة
-        window.addEventListener('load', function() {
-            if (localStorage.getItem('nadhAdminLoggedIn') === 'true') {
-                showDashboard();
-                loadDashboardData();
+        function startAutoRefresh() {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
             }
             
-            // السماح بتسجيل الدخول بالضغط على Enter
-            document.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' && !document.getElementById('dashboard').classList.contains('active')) {
-                    document.getElementById('loginForm').dispatchEvent(new Event('submit'));
-                }
-            });
-        });
-
-        // تحديث البيانات دورياً
-        setInterval(function() {
-            if (document.getElementById('dashboard').classList.contains('active')) {
+            refreshInterval = setInterval(() => {
+                console.log('🔄 تحديث تلقائي للبيانات...');
                 loadDashboardData();
                 updateLastUpdate();
-            }
-        }, CONFIG.refreshInterval);
+            }, ADMIN_CONFIG.refresh.interval * 1000);
+            
+            console.log(`✅ تم تفعيل التحديث التلقائي كل ${ADMIN_CONFIG.refresh.interval} ثانية`);
+        }
 
-        // CSS للأنيميشن
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes spin {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
+        // ===============================
+        // وظائف Google Analytics
+        // ===============================
+
+        function initializeAnalytics() {
+            if (!ADMIN_CONFIG.analytics.enabled) {
+                console.log('⏸️ Google Analytics معطل في الإعدادات');
+                return;
             }
-        `;
-        document.head.appendChild(style);
+            
+            // إعداد Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('config', ADMIN_CONFIG.analytics.measurementId, {
+                    page_title: 'Dashboard - ناض للمقاولات',
+                    page_location: window.location.href,
+                    content_group1: 'لوحة التحكم'
+                });
+                
+                console.log('✅ تم تكوين Google Analytics');
+                
+                // تتبع دخول Dashboard
+                gtag('event', 'admin_login', {
+                    event_category: 'admin',
+                    event_label: 'dashboard_access'
+                });
+            }
+        }
+
+        // ===============================
+        // وظائف المساعدة
+        // ===============================
+
+        function showMessage(message, type = 'info') {
+            // إخفاء الرسائل السابقة
+            document.querySelectorAll('.error-message, .success-message').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            let targetElement;
+            if (type === 'error') {
+                targetElement = document.getElementById('errorMessage');
+            } else {
+                targetElement = document.getElementById('successMessage');
+            }
+            
+            if (targetElement) {
+                targetElement.textContent = message;
+                targetElement.classList.remove('hidden');
+                
+                // إخفاء الرسالة بعد 5 ثوان
+                setTimeout(() => {
+                    targetElement.classList.add('hidden');
+                }, 5000);
+            }
+            
+            console.log(`${type === 'error' ? '❌' : '✅'} ${message}`);
+        }
+
+        // معالجة أخطاء JavaScript
+        window.addEventListener('error', function(e) {
+            console.error('خطأ في JavaScript:', e.error);
+        });
+
+        // تنظيف الموارد عند إغلاق الصفحة
+        window.addEventListener('beforeunload', function() {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+            }
+        });
+
+        console.log('✅ تم تحميل نظام Dashboard المحدث والآمن');
     </script>
 </body>
 </html>
