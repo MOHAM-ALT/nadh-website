@@ -8,7 +8,7 @@ const ADMIN_CONFIG = {
     credentials: {
         username: 'nadh_admin',
         // كلمة المرور مشفرة بـ SHA-256
-        passwordHash: 'a8b4c6e2f9d1e3a7b5c8d2f6e9a3b7c1e5f8a2d6c9e3b7a1f5d8c2e6a9b3f7e1', // nadh2025@secure
+        passwordHash: '3db558e85f029bbd773e43ad8d0663ae4caa6aea9e1846bfc1423f9002a8047b', // nadh2025@secure
         // إذا أردت تغيير كلمة المرور، استخدم: https://emn178.github.io/online-tools/sha256.html
     },
     
