@@ -144,7 +144,7 @@ async function submitToGoogleSheets(event) {
         params.append('service', formData.get('service'));
         params.append('message', formData.get('message'));
         
-        const response = await fetch('https://script.google.com/macros/s/[ضع الرابط الجديد هنا]/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbyURfrvrukFWczWEfFefENe9qGgNfxZKZCNvHpIrBZxPJtHiUXd_uRQWp4ze6XowK-b0A/exec', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
