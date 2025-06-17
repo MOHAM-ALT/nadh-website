@@ -157,8 +157,7 @@ async function submitToGoogleSheets(event) {
         }
         
         // إرسال البيانات لـ Google Apps Script (الرابط الجديد)
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbx9XQl36D7iYeekg-8DU5m0zfgOhSepXntAtOFVz9bEGly-qmWJsePYpxLAM_u4b_T0iw/exec';
-        
+const scriptUrl = 'https://script.google.com/macros/s/AKfycbxOB6P-ar4KNVWdVUEcPlFFlOu7AuRmd2PbF2S9EbPMI_Li_hZciVgIKfgpPvhSoJUJxg/exec';
         const response = await fetch(scriptUrl, {
             method: 'POST',
             mode: 'no-cors',
