@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# السماح للملفات المهمة
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /themes/
+
+# منع فهرسة الملفات الحساسة والإدارية
+Disallow: /admin.html
+Disallow: /downloads/
+Disallow: *.pdf$
+
+# منع بعض البوتات المؤذية
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# معلومات مفيدة لمحركات البحث
+Sitemap: https://nadh.com.sa/sitemap.xml
+
+# تعليمات إضافية للزحف
+Crawl-delay: 1
+
+# معلومات الموقع
+# الموقع: https://nadh.com.sa
+# الشركة: شركة ناض للمقاولات العامة  
+# الخدمات: أنظمة إطفاء حريق، أنظمة ميكانيكية، أنظمة كهربائية، أبواب طوارئ
+# المنطقة: المملكة العربية السعودية - الرياض
