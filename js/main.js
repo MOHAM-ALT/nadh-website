@@ -118,6 +118,124 @@ function trackVideoPlay(videoTitle) {
 }
 
 // ===============================
+// Google Sheets Integration - جديد!
+// ===============================
+
+// دالة إرسال النموذج لـ Google Sheets
+async function submitToGoogleSheets(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const btnText = submitBtn.querySelector('.btn-text') || submitBtn;
+    const originalText = btnText.textContent;
+    
+    try {
+        // تحديث حالة الزر
+        submitBtn.disabled = true;
+        btnText.textContent = 'جاري الإرسال...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span class="btn-text">جاري الإرسال...</span>';
+        
+        // جمع البيانات
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get('name').trim(),
+            email: formData.get('email').trim(),
+            phone: formData.get('phone').trim(),
+            service: formData.get('service'),
+            message: formData.get('message').trim()
+        };
+        
+        // التحقق من البيانات
+        if (!data.name || !data.email || !data.phone || !data.service || !data.message) {
+            throw new Error('يرجى ملء جميع الحقول المطلوبة');
+        }
+        
+        // التحقق من صيغة البريد الإلكتروني
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            throw new Error('يرجى إدخال بريد إلكتروني صحيح');
+        }
+        
+        // إرسال البيانات لـ Google Apps Script
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzNIL8oBsEVfSLXbVFtX55BNV8xq91yHGLqdP0W9sDR/exec';
+        
+        const response = await fetch(scriptUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(data)
+        });
+        
+        // رسالة النجاح
+        showAlert('✅ تم إرسال رسالتك بنجاح! سنتواصل معك خلال 24 ساعة.', 'success');
+        
+        // تتبع في Google Analytics - استخدام الدالة الموجودة
+        trackFormSubmission(data.service);
+        
+        // مسح النموذج
+        form.reset();
+        
+        // إرسال نسخة احتياطية لواتساب بعد 3 ثوان
+        setTimeout(() => {
+            sendToWhatsAppBackup(data);
+        }, 3000);
+        
+    } catch (error) {
+        console.error('خطأ في الإرسال:', error);
+        showAlert('❌ ' + error.message, 'error');
+        
+        // خطة بديلة: إرسال لواتساب مباشرة
+        setTimeout(() => {
+            if (data && data.name) {
+                sendToWhatsAppBackup(data);
+            }
+        }, 1000);
+    } finally {
+        // إعادة تفعيل الزر
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span class="btn-text">${originalText}</span>`;
+    }
+}
+
+// دالة النسخة الاحتياطية - واتساب
+function sendToWhatsAppBackup(data) {
+    if (!data || !data.name) return;
+    
+    const serviceNames = {
+        'mechanical': 'الأنظمة الميكانيكية',
+        'electrical': 'الأنظمة الكهربائية',
+        'doors': 'أبواب الطوارئ',
+        'maintenance': 'الصيانة والدعم',
+        'consultation': 'استشارة فنية',
+        'complete': 'مشروع متكامل'
+    };
+    
+    const whatsappMessage = `🏢 *طلب عرض سعر من موقع ناض للمقاولات*
+
+👤 *الاسم:* ${data.name}
+📧 *البريد الإلكتروني:* ${data.email}
+📱 *رقم الهاتف:* ${data.phone}
+🔧 *نوع الخدمة:* ${serviceNames[data.service] || data.service}
+
+📝 *تفاصيل المشروع:*
+${data.message}
+
+---
+تم الإرسال من موقع: https://nadh.com.sa`;
+    
+    const whatsappURL = `https://wa.me/966537573006?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    showAlert('📱 نسخة احتياطية: فتح واتساب للتأكيد', 'info');
+    
+    setTimeout(() => {
+        window.open(whatsappURL, '_blank');
+    }, 500);
+}
+
+// ===============================
 // Theme Switcher Functions - محدث مع Analytics
 // ===============================
 
@@ -159,55 +277,13 @@ function switchTheme(themeNumber) {
 }
 
 // ===============================
-// Form Functions - محدث مع Analytics
+// Form Functions - الدالة القديمة محفوظة للتوافق
 // ===============================
 
 function handleFormSubmit(event) {
-    event.preventDefault();
-    
-    const formData = new FormData(event.target);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const service = formData.get('service');
-    const message = formData.get('message');
-    
-    // التحقق من البيانات
-    if (!name || !email || !phone || !service || !message) {
-        showAlert('يرجى ملء جميع الحقول المطلوبة', 'error');
-        return;
-    }
-    
-    // تتبع إرسال النموذج
-    trackFormSubmission(service);
-    
-    // إنشاء رسالة واتساب
-    const serviceNames = {
-        'mechanical': 'الأنظمة الميكانيكية',
-        'electrical': 'الأنظمة الكهربائية',
-        'doors': 'أبواب الطوارئ',
-        'maintenance': 'الصيانة والدعم',
-        'consultation': 'استشارة فنية',
-        'complete': 'مشروع متكامل'
-    };
-    
-    const whatsappMessage = `مرحباً، أريد عرض سعر من شركة ناض للمقاولات:
-
-الاسم: ${name}
-البريد الإلكتروني: ${email}
-رقم الهاتف: ${phone}
-نوع الخدمة: ${serviceNames[service] || service}
-
-تفاصيل المشروع:
-${message}`;
-    
-    // إرسال لواتساب
-    const whatsappURL = `https://wa.me/966537573006?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappURL, '_blank');
-    
-    // رسالة نجاح
-    showAlert('تم إرسال طلبك بنجاح! سيتم تحويلك لواتساب.', 'success');
-    event.target.reset();
+    // هذه الدالة محفوظة للتوافق مع الكود القديم
+    // الآن تستدعي الدالة الجديدة
+    submitToGoogleSheets(event);
 }
 
 // ===============================
@@ -535,6 +611,7 @@ window.addEventListener('error', function(e) {
 window.toggleThemeSwitcher = toggleThemeSwitcher;
 window.switchTheme = switchTheme;
 window.handleFormSubmit = handleFormSubmit;
+window.submitToGoogleSheets = submitToGoogleSheets; // الدالة الجديدة
 window.downloadCatalog = downloadCatalog;
 window.switchLanguage = switchLanguage;
 window.toggleMobileMenu = toggleMobileMenu;
