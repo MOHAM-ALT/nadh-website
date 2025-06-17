@@ -1,5 +1,16 @@
 // ملف js/main.js - جميع وظائف موقع ناض للمقاولات - نسخة محدثة
-
+(function() {
+    // فرض استخدام الرابط الصحيح
+    const correctURL = 'https://nadh.com.sa/';
+    const currentURL = window.location.href;
+    
+    // تحقق من الرابط
+    if (currentURL.includes('www.') || 
+        currentURL.includes('index.html') || 
+        !currentURL.startsWith('https://')) {
+        window.location.replace(correctURL);
+    }
+})();
 // تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
     // إزالة loading
