@@ -15,7 +15,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     
     <!-- إعدادات آمنة -->
-    <script src="config/admin-config.js"></script>
+    <script>
+// إعدادات آمنة مدمجة
+const ADMIN_CONFIG = {
+    credentials: {
+        username: 'nadh_admin',
+        passwordHash: 'a8b4c6e2f9d1e3a7b5c8d2f6e9a3b7c1e5f8a2d6c9e3b7a1f5d8c2e6a9b3f7e1'
+    },
+    googleSheets: {
+        spreadsheetId: '1DcZZQ7sjhLLkTqygRaiMc7jPkxnZD-jIiSXEEUUeH_Y',
+        directUrl: 'https://docs.google.com/spreadsheets/d/1DcZZQ7sjhLLkTqygRaiMc7jPkxnZD-jIiSXEEUUeH_Y/edit?gid=0#gid=0',
+        appsScriptUrl: 'https://script.google.com/macros/s/AKfycbx9XQl36D7iYeekg-8DU5m0zfgOhSepXntAtOFVz9bEGly-qmWJsePYpxLAM_u4b_T0iw/exec'
+    },
+    analytics: {
+        measurementId: 'G-0XX64MVZ1W',
+        enabled: true
+    },
+    security: {
+        sessionTimeout: 60,
+        maxLoginAttempts: 3,
+        blockDuration: 15
+    },
+    refresh: {
+        interval: 300,
+        enabled: true
+    },
+    company: {
+        name: 'شركة ناض للمقاولات العامة',
+        email: 'Nadhksa@gmail.com',
+        phone: '0537573006'
+    }
+};
+</script>
     
     <style>
         * {
