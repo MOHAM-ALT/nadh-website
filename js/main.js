@@ -131,71 +131,37 @@ async function submitToGoogleSheets(event) {
     const originalText = submitBtn.innerHTML;
     
     try {
-        // تعطيل الزر
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
         
-        // جمع البيانات
         const formData = new FormData(form);
-        const data = {
-            name: formData.get('name').trim(),
-            email: formData.get('email').trim(),
-            phone: formData.get('phone').trim(),
-            service: formData.get('service'),
-            message: formData.get('message').trim()
-        };
         
-        // التحقق من البيانات
-        if (!data.name || !data.email || !data.phone || !data.service || !data.message) {
-            throw new Error('يرجى ملء جميع الحقول المطلوبة');
-        }
+        // إرسال مباشر كـ URL parameters
+        const params = new URLSearchParams();
+        params.append('name', formData.get('name'));
+        params.append('email', formData.get('email'));
+        params.append('phone', formData.get('phone'));
+        params.append('service', formData.get('service'));
+        params.append('message', formData.get('message'));
         
-        // إرسال عبر IFRAME (تجاوز CORS)
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        
-        const iframeDoc = iframe.contentWindow.document;
-        const iframeForm = iframeDoc.createElement('form');
-        iframeForm.method = 'POST';
-        iframeForm.action = 'https://script.google.com/macros/s/AKfycbyURfrvrukFWczWEfFefENe9qGgNfxZKZCNvHpIrBZxPJtHiUXd_uRQWp4ze6XowK-b0A/exec';
-        
-        // إضافة البيانات
-        Object.keys(data).forEach(key => {
-            const input = iframeDoc.createElement('input');
-            input.type = 'hidden';
-            input.name = key;
-            input.value = data[key];
-            iframeForm.appendChild(input);
+        const response = await fetch('https://script.google.com/macros/s/[ضع الرابط الجديد هنا]/exec', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: params
         });
         
-        iframeDoc.body.appendChild(iframeForm);
-        iframeForm.submit();
+        const result = await response.text();
+        console.log('النتيجة:', result);
         
-        // إزالة iframe بعد ثانيتين
-        setTimeout(() => {
-            document.body.removeChild(iframe);
-        }, 2000);
-        
-        // رسالة النجاح
-        showAlert('✅ تم إرسال رسالتك بنجاح! سنتواصل معك خلال 24 ساعة.', 'success');
-        
-        // تتبع في Google Analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'generate_lead', {
-                event_category: 'contact',
-                event_label: data.service
-            });
-        }
-        
-        // مسح النموذج
+        showAlert('✅ تم إرسال رسالتك بنجاح!', 'success');
         form.reset();
         
     } catch (error) {
-        console.error('خطأ في الإرسال:', error);
-        showAlert('❌ ' + error.message, 'error');
+        console.error('خطأ:', error);
+        showAlert('❌ حدث خطأ في الإرسال', 'error');
     } finally {
-        // إعادة تفعيل الزر
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
     }
