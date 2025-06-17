@@ -128,10 +128,10 @@ async function submitToGoogleSheets(event) {
     
     const form = event.target;
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
+    const originalText = submitBtn.innerHTML;
     
     try {
-        // تحديث حالة الزر
+        // تعطيل الزر
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
         
@@ -150,28 +150,43 @@ async function submitToGoogleSheets(event) {
             throw new Error('يرجى ملء جميع الحقول المطلوبة');
         }
         
-        // التحقق من صيغة البريد الإلكتروني
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
-            throw new Error('يرجى إدخال بريد إلكتروني صحيح');
-        }
+        // إرسال عبر IFRAME (تجاوز CORS)
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
         
-        // إرسال البيانات لـ Google Apps Script (الرابط الجديد)
-const scriptUrl = 'https://script.google.com/macros/s/AKfycbyURfrvrukFWczWEfFefENe9qGgNfxZKZCNvHpIrBZxPJtHiUXd_uRQWp4ze6XowK-b0A/exec';
-        const response = await fetch(scriptUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(data)
+        const iframeDoc = iframe.contentWindow.document;
+        const iframeForm = iframeDoc.createElement('form');
+        iframeForm.method = 'POST';
+        iframeForm.action = 'https://script.google.com/macros/s/AKfycbyURfrvrukFWczWEfFefENe9qGgNfxZKZCNvHpIrBZxPJtHiUXd_uRQWp4ze6XowK-b0A/exec';
+        
+        // إضافة البيانات
+        Object.keys(data).forEach(key => {
+            const input = iframeDoc.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = data[key];
+            iframeForm.appendChild(input);
         });
         
-        // رسالة النجاح (بدون واتساب)
+        iframeDoc.body.appendChild(iframeForm);
+        iframeForm.submit();
+        
+        // إزالة iframe بعد ثانيتين
+        setTimeout(() => {
+            document.body.removeChild(iframe);
+        }, 2000);
+        
+        // رسالة النجاح
         showAlert('✅ تم إرسال رسالتك بنجاح! سنتواصل معك خلال 24 ساعة.', 'success');
         
         // تتبع في Google Analytics
-        trackFormSubmission(data.service);
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'generate_lead', {
+                event_category: 'contact',
+                event_label: data.service
+            });
+        }
         
         // مسح النموذج
         form.reset();
@@ -182,7 +197,7 @@ const scriptUrl = 'https://script.google.com/macros/s/AKfycbyURfrvrukFWczWEfFefE
     } finally {
         // إعادة تفعيل الزر
         submitBtn.disabled = false;
-        submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> ${originalText}`;
+        submitBtn.innerHTML = originalText;
     }
 }
 
