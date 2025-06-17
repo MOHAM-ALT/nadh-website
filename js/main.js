@@ -122,19 +122,18 @@ function trackVideoPlay(videoTitle) {
 // ===============================
 
 // دالة إرسال النموذج لـ Google Sheets
+// دالة إرسال النموذج لـ Google Sheets (النسخة النهائية)
 async function submitToGoogleSheets(event) {
     event.preventDefault();
     
     const form = event.target;
     const submitBtn = form.querySelector('button[type="submit"]');
-    const btnText = submitBtn.querySelector('.btn-text') || submitBtn;
-    const originalText = btnText.textContent;
+    const originalText = submitBtn.textContent;
     
     try {
         // تحديث حالة الزر
         submitBtn.disabled = true;
-        btnText.textContent = 'جاري الإرسال...';
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span class="btn-text">جاري الإرسال...</span>';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
         
         // جمع البيانات
         const formData = new FormData(form);
@@ -157,8 +156,8 @@ async function submitToGoogleSheets(event) {
             throw new Error('يرجى إدخال بريد إلكتروني صحيح');
         }
         
-        // إرسال البيانات لـ Google Apps Script
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzNIL8oBsEVfSLXbVFtX55BNV8xq91yHGLqdP0W9sDR/exec';
+        // إرسال البيانات لـ Google Apps Script (الرابط الجديد)
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbx9XQl36D7iYeekg-8DU5m0zfgOhSepXntAtOFVz9bEGly-qmWJsePYpxLAM_u4b_T0iw/exec';
         
         const response = await fetch(scriptUrl, {
             method: 'POST',
@@ -169,34 +168,22 @@ async function submitToGoogleSheets(event) {
             body: new URLSearchParams(data)
         });
         
-        // رسالة النجاح
+        // رسالة النجاح (بدون واتساب)
         showAlert('✅ تم إرسال رسالتك بنجاح! سنتواصل معك خلال 24 ساعة.', 'success');
         
-        // تتبع في Google Analytics - استخدام الدالة الموجودة
+        // تتبع في Google Analytics
         trackFormSubmission(data.service);
         
         // مسح النموذج
         form.reset();
         
-        // إرسال نسخة احتياطية لواتساب بعد 3 ثوان
-        setTimeout(() => {
-            sendToWhatsAppBackup(data);
-        }, 3000);
-        
     } catch (error) {
         console.error('خطأ في الإرسال:', error);
         showAlert('❌ ' + error.message, 'error');
-        
-        // خطة بديلة: إرسال لواتساب مباشرة
-        setTimeout(() => {
-            if (data && data.name) {
-                sendToWhatsAppBackup(data);
-            }
-        }, 1000);
     } finally {
         // إعادة تفعيل الزر
         submitBtn.disabled = false;
-        submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span class="btn-text">${originalText}</span>`;
+        submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> ${originalText}`;
     }
 }
 
