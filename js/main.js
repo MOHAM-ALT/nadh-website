@@ -1,4 +1,4 @@
-// ملف js/main.js - جميع وظائف موقع ناض للمقاولات - نسخة محدثة
+// ملف js/main.js - جميع وظائف موقع ناض مع Google Analytics
 
 // تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
@@ -14,44 +14,118 @@ document.addEventListener('DOMContentLoaded', function() {
     initThemeSwitcher();
     
     console.log('✅ تم تحميل جميع وظائف موقع ناض للمقاولات بنجاح');
+    
+    // تتبع تحميل الصفحة
+    trackPageLoad();
 });
 
 // ===============================
-// Theme Switcher Functions - محدث
+// Google Analytics Functions
 // ===============================
 
-function initThemeSwitcher() {
-    // تحديد التصميم الحالي حسب الصفحة
-    const currentPage = window.location.pathname;
-    let currentTheme = '1'; // الافتراضي
-    
-    if (currentPage.includes('theme2.html')) {
-        currentTheme = '2';
-    } else if (currentPage.includes('theme3.html')) {
-        currentTheme = '3';
-    }
-    
-    // تحديث رقم التصميم في الزر
-    updateThemeNumber(currentTheme);
-    setActiveTheme(currentTheme);
-    
-    // حفظ التصميم الحالي
-    localStorage.setItem('nadhTheme', currentTheme);
-}
-
-// تبديل قائمة الثيمات
-function toggleThemeSwitcher() {
-    const switcher = document.getElementById('themeSwitcher');
-    if (switcher) {
-        switcher.classList.toggle('active');
-        console.log('تم تفعيل/إلغاء قائمة التصميمات');
+// تتبع تحميل الصفحة
+function trackPageLoad() {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'website_load_complete', {
+            event_category: 'engagement',
+            event_label: 'موقع ناض محمل بالكامل',
+            load_time: Math.round(performance.now())
+        });
     }
 }
 
-// التبديل بين التصميمات
-// استبدال دالة switchTheme القديمة بهذه الجديدة
+// تتبع إرسال النماذج
+function trackFormSubmission(serviceType) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+            event_category: 'contact',
+            event_label: serviceType,
+            currency: 'SAR',
+            value: 200, // قيمة تقديرية للعميل المحتمل
+            service_type: serviceType,
+            lead_source: 'موقع إلكتروني',
+            transport_type: 'beacon'
+        });
+        
+        // حدث إضافي لتتبع نوع الخدمة
+        gtag('event', 'service_inquiry', {
+            event_category: 'services',
+            event_label: serviceType,
+            service_category: getServiceCategory(serviceType)
+        });
+    }
+}
+
+// تحديد فئة الخدمة
+function getServiceCategory(serviceType) {
+    const categories = {
+        'mechanical': 'أنظمة ميكانيكية',
+        'electrical': 'أنظمة كهربائية',
+        'doors': 'أبواب طوارئ',
+        'maintenance': 'صيانة',
+        'consultation': 'استشارات',
+        'complete': 'مشاريع متكاملة'
+    };
+    return categories[serviceType] || serviceType;
+}
+
+// تتبع تحميل الكتالوج
+function trackCatalogDownload() {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'file_download', {
+            event_category: 'engagement',
+            event_label: 'دليل خدمات ناض',
+            file_name: 'nadh-catalog.pdf',
+            file_extension: 'pdf',
+            currency: 'SAR',
+            value: 50, // قيمة تقديرية للتحميل
+            transport_type: 'beacon'
+        });
+    }
+}
+
+// تتبع تغيير التصميم
+function trackThemeSwitch(themeNumber) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'customize', {
+            event_category: 'engagement',
+            event_label: `التصميم ${themeNumber}`,
+            theme_number: themeNumber,
+            customization_type: 'theme_change'
+        });
+    }
+}
+
+// تتبع البحث في الموقع (إذا أضيف لاحقاً)
+function trackSiteSearch(searchTerm, resultsCount) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'search', {
+            search_term: searchTerm,
+            results_count: resultsCount || 0
+        });
+    }
+}
+
+// تتبع مشاهدة الفيديو (إذا أضيف لاحقاً)
+function trackVideoPlay(videoTitle) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'video_play', {
+            event_category: 'video',
+            event_label: videoTitle,
+            video_title: videoTitle
+        });
+    }
+}
+
+// ===============================
+// Theme Switcher Functions - محدث مع Analytics
+// ===============================
+
 function switchTheme(themeNumber) {
     console.log('تم اختيار التصميم رقم:', themeNumber);
+    
+    // تتبع تغيير التصميم
+    trackThemeSwitch(themeNumber);
     
     const switcher = document.getElementById('themeSwitcher');
     if (switcher) {
@@ -84,70 +158,8 @@ function switchTheme(themeNumber) {
     }
 }
 
-function setActiveTheme(themeNumber) {
-    // إزالة active من جميع الخيارات
-    document.querySelectorAll('.theme-option').forEach(option => {
-        option.classList.remove('active');
-        const smallEl = option.querySelector('small');
-        if (smallEl) {
-            smallEl.textContent = '';
-        }
-    });
-    
-    // إضافة active للتصميم المختار
-    const activeOption = document.querySelector(`[data-theme="${themeNumber}"]`);
-    if (activeOption) {
-        activeOption.classList.add('active');
-        const smallEl = activeOption.querySelector('small');
-        if (smallEl) {
-            smallEl.textContent = 'الحالي';
-        }
-    }
-}
-
-function updateThemeNumber(themeNumber) {
-    const themeNumberEl = document.getElementById('themeNumber');
-    if (themeNumberEl) {
-        themeNumberEl.textContent = themeNumber;
-    }
-}
-
-// إغلاق قائمة التصميمات عند الضغط خارجها
-document.addEventListener('click', function(e) {
-    const switcher = document.getElementById('themeSwitcher');
-    if (switcher && !switcher.contains(e.target)) {
-        switcher.classList.remove('active');
-    }
-});
-
 // ===============================
-// Mobile Menu Functions
-// ===============================
-
-function toggleMobileMenu() {
-    const navMenu = document.getElementById('navMenu');
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    
-    if (navMenu && menuToggle) {
-        if (navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        } else {
-            navMenu.classList.add('active');
-            menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-        }
-    }
-}
-
-function initMobileMenu() {
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    if (menuToggle) {
-        menuToggle.addEventListener('click', toggleMobileMenu);
-    }
-}
-
-// ===============================
-// Form Functions
+// Form Functions - محدث مع Analytics
 // ===============================
 
 function handleFormSubmit(event) {
@@ -165,6 +177,9 @@ function handleFormSubmit(event) {
         showAlert('يرجى ملء جميع الحقول المطلوبة', 'error');
         return;
     }
+    
+    // تتبع إرسال النموذج
+    trackFormSubmission(service);
     
     // إنشاء رسالة واتساب
     const serviceNames = {
@@ -196,10 +211,13 @@ ${message}`;
 }
 
 // ===============================
-// Download & Language Functions
+// Download & Language Functions - محدث مع Analytics
 // ===============================
 
 function downloadCatalog() {
+    // تتبع محاولة التحميل
+    trackCatalogDownload();
+    
     // محاولة تحميل الملف أولاً
     const link = document.createElement('a');
     link.href = 'downloads/nadh-profile-ar.pdf';
@@ -215,6 +233,15 @@ function downloadCatalog() {
 }
 
 function switchLanguage(lang) {
+    // تتبع تغيير اللغة
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'language_switch_attempt', {
+            event_category: 'engagement',
+            event_label: lang,
+            target_language: lang
+        });
+    }
+    
     const messages = {
         'en': 'English version will be available soon\nالنسخة الإنجليزية ستكون متاحة قريباً',
         'fr': 'Version française sera bientôt disponible\nالنسخة الفرنسية ستكون متاحة قريباً',  
@@ -227,8 +254,86 @@ function switchLanguage(lang) {
 }
 
 // ===============================
-// Animation Functions
+// باقي الوظائف (بدون تغيير)
 // ===============================
+
+function initThemeSwitcher() {
+    const currentPage = window.location.pathname;
+    let currentTheme = '1';
+    
+    if (currentPage.includes('theme2.html')) {
+        currentTheme = '2';
+    } else if (currentPage.includes('theme3.html')) {
+        currentTheme = '3';
+    }
+    
+    updateThemeNumber(currentTheme);
+    setActiveTheme(currentTheme);
+    localStorage.setItem('nadhTheme', currentTheme);
+}
+
+function toggleThemeSwitcher() {
+    const switcher = document.getElementById('themeSwitcher');
+    if (switcher) {
+        switcher.classList.toggle('active');
+    }
+}
+
+function setActiveTheme(themeNumber) {
+    document.querySelectorAll('.theme-option').forEach(option => {
+        option.classList.remove('active');
+        const smallEl = option.querySelector('small');
+        if (smallEl) {
+            smallEl.textContent = '';
+        }
+    });
+    
+    const activeOption = document.querySelector(`[data-theme="${themeNumber}"]`);
+    if (activeOption) {
+        activeOption.classList.add('active');
+        const smallEl = activeOption.querySelector('small');
+        if (smallEl) {
+            smallEl.textContent = 'الحالي';
+        }
+    }
+}
+
+function updateThemeNumber(themeNumber) {
+    const themeNumberEl = document.getElementById('themeNumber');
+    if (themeNumberEl) {
+        themeNumberEl.textContent = themeNumber;
+    }
+}
+
+function toggleMobileMenu() {
+    const navMenu = document.getElementById('navMenu');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (navMenu && menuToggle) {
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        } else {
+            navMenu.classList.add('active');
+            menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            
+            // تتبع فتح القائمة المحمولة
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'mobile_menu_open', {
+                    event_category: 'engagement',
+                    event_label: 'قائمة محمول'
+                });
+            }
+        }
+    }
+}
+
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMobileMenu);
+    }
+}
 
 function initScrollAnimations() {
     const elements = document.querySelectorAll('.animate-on-scroll');
@@ -247,10 +352,6 @@ function initScrollAnimations() {
     elements.forEach(el => observer.observe(el));
 }
 
-// ===============================
-// FAQ Functions
-// ===============================
-
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
     
@@ -259,6 +360,8 @@ function initFAQ() {
         
         if (question) {
             question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
                 // إغلاق الأخريات
                 faqItems.forEach(other => {
                     if (other !== item) {
@@ -268,14 +371,20 @@ function initFAQ() {
                 
                 // تبديل الحالي
                 item.classList.toggle('active');
+                
+                // تتبع فتح السؤال
+                if (!isActive && typeof gtag !== 'undefined') {
+                    const questionText = question.querySelector('h3').textContent;
+                    gtag('event', 'faq_interaction', {
+                        event_category: 'engagement',
+                        event_label: questionText,
+                        interaction_type: 'expand'
+                    });
+                }
             });
         }
     });
 }
-
-// ===============================
-// Smooth Scrolling
-// ===============================
 
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
@@ -292,12 +401,20 @@ function initSmoothScrolling() {
                 const headerHeight = header ? header.offsetHeight : 60;
                 const targetPos = target.offsetTop - headerHeight;
                 
+                // تتبع التنقل الداخلي
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'internal_navigation', {
+                        event_category: 'navigation',
+                        event_label: targetId.replace('#', ''),
+                        navigation_type: 'smooth_scroll'
+                    });
+                }
+                
                 window.scrollTo({
                     top: targetPos,
                     behavior: 'smooth'
                 });
                 
-                // إغلاق القائمة المحمولة
                 const navMenu = document.getElementById('navMenu');
                 if (navMenu && navMenu.classList.contains('active')) {
                     toggleMobileMenu();
@@ -306,10 +423,6 @@ function initSmoothScrolling() {
         });
     });
 }
-
-// ===============================
-// Header Scroll Effects
-// ===============================
 
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
@@ -325,11 +438,10 @@ window.addEventListener('scroll', function() {
 });
 
 // ===============================
-// Alert System
+// Alert System (بدون تغيير)
 // ===============================
 
 function showAlert(message, type = 'info') {
-    // إنشاء عنصر التنبيه
     const alert = document.createElement('div');
     alert.className = `custom-alert alert-${type}`;
     alert.innerHTML = `
@@ -340,7 +452,6 @@ function showAlert(message, type = 'info') {
         </div>
     `;
     
-    // إضافة الأنماط
     alert.style.cssText = `
         position: fixed;
         top: 80px;
@@ -359,17 +470,14 @@ function showAlert(message, type = 'info') {
     
     document.body.appendChild(alert);
     
-    // إظهار التنبيه
     setTimeout(() => {
         alert.style.transform = 'translateX(0)';
     }, 100);
     
-    // إخفاء تلقائي
     setTimeout(() => {
         hideAlert(alert);
     }, 5000);
     
-    // إغلاق يدوي
     alert.querySelector('.alert-close').addEventListener('click', () => {
         hideAlert(alert);
     });
@@ -404,10 +512,6 @@ function hideAlert(alert) {
     }, 300);
 }
 
-// ===============================
-// Image Optimization
-// ===============================
-
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
@@ -417,16 +521,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         img.addEventListener('error', function() {
             console.warn('فشل تحميل الصورة:', this.src);
-            // إضافة placeholder بدلاً من إخفاء الصورة
             this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjNEVDREM0Ii8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxNCIgZm9udC1mYW1pbHk9IkNhaXJvLCBzYW5zLXNlcmlmIj7Zhtin2LY8L3RleHQ+PC9zdmc+';
             this.alt = 'شعار ناض';
         });
     });
 });
-
-// ===============================
-// Error Handling
-// ===============================
 
 window.addEventListener('error', function(e) {
     console.error('خطأ في الموقع:', e.error);
