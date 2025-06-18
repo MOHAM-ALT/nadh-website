@@ -144,13 +144,14 @@ async function submitToGoogleSheets(event) {
         hiddenForm.style.display = 'none';
         
         // إضافة الحقول (ستحتاج entry IDs من Google Form)
-        const fields = {
-            'entry.XXXXXX': formData.get('name'),
-            'entry.YYYYYY': formData.get('email'),
-            'entry.ZZZZZZ': formData.get('phone'),
-            'entry.WWWWWW': formData.get('service'),
-            'entry.QQQQQQ': formData.get('message')
-        };
+        // إضافة الحقول مع الـ entry IDs الصحيحة
+const fields = {
+    'entry.1618351483': formData.get('name'),
+    'entry.1973485429': formData.get('email'),
+    'entry.843162309': formData.get('phone'),
+    'entry.1056047907': formData.get('service'),
+    'entry.1781915677': formData.get('message')
+};
         
         Object.keys(fields).forEach(key => {
             const input = document.createElement('input');
