@@ -7,10 +7,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- منع فهرسة الصفحة في محركات البحث -->
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
-    
     <style>
         * {
             margin: 0;
@@ -23,15 +19,11 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
-            overflow-x: hidden;
         }
         
-        /* تسجيل الدخول */
-        .login-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
         
@@ -41,122 +33,11 @@
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             max-width: 400px;
-            width: 100%;
+            margin: 50px auto;
             text-align: center;
-            backdrop-filter: blur(10px);
         }
         
-        .login-logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #4ECDC4, #2C5C7C);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 24px;
-            font-weight: 900;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .login-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 20px;
-        }
-        
-        .login-title {
-            color: #2C5C7C;
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 30px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-            text-align: right;
-        }
-        
-        .form-group label {
-            display: block;
-            color: #2C5C7C;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: #4ECDC4;
-            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
-        }
-        
-        .login-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #4ECDC4, #2C5C7C);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
-        }
-        
-        .login-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .error-message, .success-message {
-            padding: 10px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-weight: 500;
-        }
-        
-        .error-message {
-            color: #dc3545;
-            background: #f8d7da;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .success-message {
-            color: #155724;
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-        
-        /* لوحة التحكم */
         .dashboard {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
             display: none;
         }
         
@@ -165,108 +46,12 @@
         }
         
         .header {
-            background: rgba(255, 255, 255, 0.95);
+            background: white;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .header-logo {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #4ECDC4, #2C5C7C);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 900;
-            font-size: 18px;
-            overflow: hidden;
-        }
-        
-        .header-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-        
-        .header-info h1 {
-            color: #2C5C7C;
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        
-        .header-info p {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .header-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: inherit;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #4ECDC4, #2C5C7C);
-            color: white;
-            box-shadow: 0 2px 6px rgba(78, 205, 196, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 3px 8px rgba(78, 205, 196, 0.4);
-        }
-        
-        .btn-secondary {
-            background: #f8f9fa;
-            color: #2C5C7C;
-            border: 1px solid #ddd;
-        }
-        
-        .btn-secondary:hover {
-            background: #e9ecef;
-            transform: translateY(-1px);
-        }
-        
-        .btn-danger {
-            background: #dc3545;
-            color: white;
-        }
-        
-        .btn-danger:hover {
-            background: #c82333;
-            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
         }
         
         .stats-grid {
@@ -277,45 +62,11 @@
         }
         
         .stat-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: white;
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
-            transition: transform 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 15px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-        }
-        
-        .stat-icon.messages {
-            background: linear-gradient(135deg, #4ECDC4, #2C5C7C);
-        }
-        
-        .stat-icon.today {
-            background: linear-gradient(135deg, #F4A261, #E76F51);
-        }
-        
-        .stat-icon.conversion {
-            background: linear-gradient(135deg, #A8E6CF, #7FCDCD);
-        }
-        
-        .stat-icon.visitors {
-            background: linear-gradient(135deg, #FFB6C1, #FF69B4);
         }
         
         .stat-number {
@@ -330,32 +81,11 @@
             font-size: 14px;
         }
         
-        .dashboard-sections {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-        }
-        
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
+        .messages-section {
+            background: white;
             padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .section h3 {
-            color: #2C5C7C;
-            margin-bottom: 20px;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .recent-messages {
-            max-height: 500px;
-            overflow-y: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .message-item {
@@ -364,976 +94,603 @@
             border-radius: 10px;
             margin-bottom: 15px;
             border-right: 4px solid #4ECDC4;
-            transition: all 0.3s ease;
         }
         
-        .message-item:hover {
-            background: #e9ecef;
-            transform: translateX(-5px);
-        }
-        
-        .message-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .message-name {
-            font-weight: 700;
-            color: #2C5C7C;
-        }
-        
-        .message-time {
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .message-service {
-            font-size: 11px;
-            background: #4ECDC4;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-        }
-        
-        .message-contact {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 8px;
-        }
-        
-        .message-content {
-            color: #555;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        
-        .quick-links {
-            display: grid;
-            gap: 15px;
-        }
-        
-        .quick-link {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
             text-decoration: none;
-            color: #2C5C7C;
-            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            margin: 5px;
         }
         
-        .quick-link:hover {
-            background: #e9ecef;
-            transform: translateX(-5px);
-        }
-        
-        .quick-link-icon {
-            width: 40px;
-            height: 40px;
+        .btn-primary {
             background: linear-gradient(135deg, #4ECDC4, #2C5C7C);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: white;
-            font-size: 16px;
         }
         
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #ffffff;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #2C5C7C;
+            border: 1px solid #ddd;
         }
         
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .btn-danger {
+            background: #dc3545;
+            color: white;
         }
         
-        .no-data {
-            text-align: center;
-            padding: 40px 20px;
-            color: #666;
-        }
-        
-        .no-data i {
-            font-size: 48px;
-            color: #ddd;
+        .form-group {
             margin-bottom: 15px;
+            text-align: right;
         }
         
-        .connection-status {
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
             font-weight: 600;
         }
         
-        .connection-status.connected {
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+        
+        .status-indicator {
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .status-connected {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
         
-        .connection-status.disconnected {
+        .status-error {
             background: #f8d7da;
             color: #dc3545;
             border: 1px solid #f5c6cb;
         }
         
-        .connection-status.loading {
+        .status-loading {
             background: #fff3cd;
             color: #856404;
             border: 1px solid #ffeaa7;
         }
         
-        /* استجابة للجوال */
-        @media (max-width: 768px) {
-            .dashboard-sections {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .header {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .header-actions {
-                justify-content: center;
-            }
+        .hidden {
+            display: none !important;
         }
         
-        @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .login-box {
-                padding: 30px 20px;
-            }
+        .gist-setup {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid #2196f3;
         }
+        
+        .alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            z-index: 1000;
+            max-width: 300px;
+        }
+        
+        .alert-success { background: #28a745; }
+        .alert-error { background: #dc3545; }
+        .alert-info { background: #17a2b8; }
     </style>
 </head>
 <body>
     <!-- صفحة تسجيل الدخول -->
-    <div id="loginContainer" class="login-container">
+    <div id="loginContainer">
         <div class="login-box">
-            <div class="login-logo">
-                <img src="images/logo-small.png" alt="شعار ناض" onerror="this.style.display='none'; this.parentNode.innerHTML='ناض';">
-            </div>
-            <h2 class="login-title">🔐 لوحة التحكم الاحترافية</h2>
-            <p style="color: #666; margin-bottom: 25px;">للوصول إلى إحصائيات الموقع الحقيقية ورسائل العملاء</p>
+            <h2>🔐 لوحة التحكم</h2>
+            <p style="color: #666; margin: 20px 0;">GitHub Gist Dashboard</p>
             
-            <form id="loginForm" onsubmit="handleLogin(event)">
+            <form onsubmit="login(event)">
                 <div class="form-group">
-                    <label for="username">اسم المستخدم:</label>
-                    <input type="text" id="username" placeholder="أدخل اسم المستخدم" required>
+                    <label>اسم المستخدم:</label>
+                    <input type="text" id="username" value="nadh_admin" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">كلمة المرور:</label>
-                    <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+                    <label>كلمة المرور:</label>
+                    <input type="password" id="password" value="nadh2025@github" required>
                 </div>
-                <button type="submit" class="login-btn" id="loginBtn">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
                     <i class="fas fa-sign-in-alt"></i>
-                    دخول للوحة الحقيقية
+                    دخول
                 </button>
-                <div id="errorMessage" class="error-message hidden"></div>
-                <div id="successMessage" class="success-message hidden"></div>
             </form>
         </div>
     </div>
 
-    <!-- لوحة التحكم الرئيسية -->
+    <!-- لوحة التحكم -->
     <div id="dashboard" class="dashboard">
-        <div class="header">
-            <div class="header-left">
-                <div class="header-logo">
-                    <img src="images/logo-large.png" alt="شعار ناض" onerror="this.style.display='none'; this.parentNode.innerHTML='ناض';">
-                </div>
-                <div class="header-info">
-                    <h1>لوحة تحكم ناض للمقاولات - البيانات الحقيقية</h1>
-                    <p>مرحباً بك، البيانات متصلة مباشرة مع Google Sheets - <span id="lastUpdate">جاري التحميل...</span></p>
-                </div>
-            </div>
-            <div class="header-actions">
-                <a href="https://analytics.google.com" target="_blank" class="btn btn-secondary">
-                    <i class="fas fa-chart-line"></i>
-                    Analytics
-                </a>
-                <a href="#" target="_blank" class="btn btn-secondary" id="sheetsLink">
-                    <i class="fas fa-table"></i>
-                    جدول البيانات الحقيقية
-                </a>
-                <button onclick="refreshRealData()" class="btn btn-primary">
-                    <i class="fas fa-sync-alt"></i>
-                    تحديث البيانات الحقيقية
-                </button>
-                <button onclick="logout()" class="btn btn-danger">
-                    <i class="fas fa-sign-out-alt"></i>
-                    خروج
-                </button>
-            </div>
-        </div>
-
-        <!-- حالة الاتصال -->
-        <div id="connectionStatus" class="connection-status loading">
-            <i class="fas fa-wifi"></i>
-            <span id="connectionText">جاري الاتصال بـ Google Sheets...</span>
-        </div>
-
-        <!-- إحصائيات حقيقية -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon messages">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="stat-number" id="messagesCount">-</div>
-                <div class="stat-label">إجمالي الرسائل الحقيقية</div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-icon today">
-                    <i class="fas fa-calendar-day"></i>
-                </div>
-                <div class="stat-number" id="todayMessages">-</div>
-                <div class="stat-label">رسائل اليوم</div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-icon conversion">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="stat-number" id="conversionRate">-</div>
-                <div class="stat-label">معدل الاستجابة</div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-icon visitors">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-number" id="weekMessages">-</div>
-                <div class="stat-label">رسائل هذا الأسبوع</div>
-            </div>
-        </div>
-
-        <!-- الأقسام الرئيسية -->
-        <div class="dashboard-sections">
-            <!-- قسم الرسائل الحقيقية -->
-            <div class="section">
-                <h3>
-                    <i class="fas fa-comments"></i>
-                    الرسائل الحقيقية من Google Sheets
-                </h3>
-                <div class="recent-messages" id="recentMessages">
-                    <div class="no-data">
-                        <i class="fas fa-spinner fa-spin"></i>
-                        <p>جاري تحميل الرسائل الحقيقية من Google Sheets...</p>
-                    </div>
+        <div class="container">
+            <!-- رأس الصفحة -->
+            <div class="header">
+                <h1>لوحة تحكم ناض للمقاولات</h1>
+                <p>مدعومة بـ GitHub Gist</p>
+                <div style="margin-top: 15px;">
+                    <button onclick="loadData()" class="btn btn-primary">
+                        <i class="fas fa-sync"></i> تحديث البيانات
+                    </button>
+                    <button onclick="showSetup()" class="btn btn-secondary">
+                        <i class="fas fa-cog"></i> إعداد GitHub
+                    </button>
+                    <button onclick="logout()" class="btn btn-danger">
+                        <i class="fas fa-sign-out-alt"></i> خروج
+                    </button>
                 </div>
             </div>
 
-            <!-- قسم الروابط السريعة -->
-            <div class="section">
-                <h3>
-                    <i class="fas fa-external-link-alt"></i>
-                    روابط سريعة
-                </h3>
-                <div class="quick-links">
-                    <a href="#" target="_blank" class="quick-link" id="quickSheetsLink">
-                        <div class="quick-link-icon">
-                            <i class="fas fa-table"></i>
-                        </div>
-                        <div>
-                            <strong>جدول الرسائل الحقيقية</strong>
-                            <br><small>عرض وإدارة جميع الرسائل من Google Sheets</small>
-                        </div>
-                    </a>
-                    
-                    <a href="https://analytics.google.com" target="_blank" class="quick-link">
-                        <div class="quick-link-icon">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <div>
-                            <strong>Google Analytics</strong>
-                            <br><small>إحصائيات مفصلة للزيارات</small>
-                        </div>
-                    </a>
-                    
-                    <a href="index.html" target="_blank" class="quick-link">
-                        <div class="quick-link-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div>
-                            <strong>الموقع الرئيسي</strong>
-                            <br><small>زيارة الموقع</small>
-                        </div>
-                    </a>
-                    
-                    <a href="https://wa.me/966537573006" target="_blank" class="quick-link">
-                        <div class="quick-link-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <strong>واتساب الشركة</strong>
-                            <br><small>تواصل مباشر مع العملاء</small>
-                        </div>
-                    </a>
+            <!-- حالة الاتصال -->
+            <div id="status" class="status-indicator status-loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                جاري التحميل...
+            </div>
+
+            <!-- إعداد GitHub Gist -->
+            <div id="gistSetup" class="gist-setup hidden">
+                <h3><i class="fab fa-github"></i> إعداد GitHub Gist</h3>
+                <p>لتفعيل النظام، تحتاج لإنشاء GitHub Gist:</p>
+                
+                <div style="margin: 20px 0;">
+                    <label>رابط GitHub Gist (Raw):</label>
+                    <input type="url" id="gistUrl" placeholder="https://gist.githubusercontent.com/username/id/raw/file.json" style="width: 100%; margin: 10px 0;">
+                    <button onclick="saveGistUrl()" class="btn btn-primary">حفظ الرابط</button>
                 </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>خطوات سريعة:</h4>
+                    <ol style="text-align: right; margin: 10px 0; line-height: 1.8;">
+                        <li>اذهب إلى <a href="https://gist.github.com" target="_blank">gist.github.com</a></li>
+                        <li>أنشئ ملف جديد باسم: <code>nadh-data.json</code></li>
+                        <li>الصق المحتوى التالي:</li>
+                    </ol>
+                    <textarea readonly style="width: 100%; height: 150px; font-family: monospace; font-size: 12px; margin: 10px 0;">{
+  "messages": [],
+  "stats": {
+    "totalMessages": 0,
+    "todayMessages": 0,
+    "thisWeekMessages": 0,
+    "responseRate": "0%"
+  }
+}</textarea>
+                    <p style="font-size: 14px; color: #666;">4. احفظ كـ "Create public gist" ثم انسخ رابط "Raw"</p>
+                </div>
+            </div>
+
+            <!-- الإحصائيات -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalMessages">0</div>
+                    <div class="stat-label">إجمالي الرسائل</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="todayMessages">0</div>
+                    <div class="stat-label">رسائل اليوم</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="weekMessages">0</div>
+                    <div class="stat-label">رسائل الأسبوع</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="responseRate">0%</div>
+                    <div class="stat-label">معدل الاستجابة</div>
+                </div>
+            </div>
+
+            <!-- قسم الرسائل -->
+            <div class="messages-section">
+                <h3><i class="fas fa-envelope"></i> الرسائل الأخيرة</h3>
+                
+                <!-- زر إضافة رسالة -->
+                <div style="margin: 15px 0;">
+                    <button onclick="showAddForm()" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> إضافة رسالة
+                    </button>
+                </div>
+
+                <!-- نموذج إضافة رسالة -->
+                <div id="addForm" class="hidden" style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <h4>إضافة رسالة جديدة</h4>
+                    <form onsubmit="addMessage(event)">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label>الاسم:</label>
+                                <input type="text" id="msgName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>الهاتف:</label>
+                                <input type="text" id="msgPhone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>البريد الإلكتروني:</label>
+                            <input type="email" id="msgEmail">
+                        </div>
+                        <div class="form-group">
+                            <label>نوع الخدمة:</label>
+                            <select id="msgService" required>
+                                <option value="الأنظمة الميكانيكية">الأنظمة الميكانيكية</option>
+                                <option value="الأنظمة الكهربائية">الأنظمة الكهربائية</option>
+                                <option value="أبواب الطوارئ">أبواب الطوارئ</option>
+                                <option value="الصيانة والدعم">الصيانة والدعم</option>
+                                <option value="استشارة فنية">استشارة فنية</option>
+                                <option value="مشروع متكامل">مشروع متكامل</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>الرسالة:</label>
+                            <textarea id="msgText" rows="3" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> حفظ
+                            </button>
+                            <button type="button" onclick="hideAddForm()" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> إلغاء
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- قائمة الرسائل -->
+                <div id="messagesList"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // إعدادات Google Sheets مع روابط متعددة للاستقرار
-        const GOOGLE_SHEETS_CONFIG = {
-            // الطرق المختلفة للوصول للبيانات
-            methods: [
-                {
-                    name: 'Google Apps Script',
-                    url: 'https://script.google.com/macros/s/AKfycby_JapW-HsRXIQ83j4f54eE5i3FsjxUDuEjPK5i2Gg-DBXyeU-968pGJchRLmaCdxBojg/exec',
-                    type: 'script'
-                },
-                {
-                    name: 'Google Sheets API',
-                    url: 'https://sheets.googleapis.com/v4/spreadsheets/1uVKm0qkDytwdlgi6CT8cGDKBt4khJLwQ-AscGLcY44o/values/Sheet1!A:Z',
-                    type: 'api'
-                },
-                {
-                    name: 'CSV Export',
-                    url: 'https://docs.google.com/spreadsheets/d/1uVKm0qkDytwdlgi6CT8cGDKBt4khJLwQ-AscGLcY44o/export?format=csv&gid=0',
-                    type: 'csv'
-                }
-            ],
-            
-            // رابط Google Sheets المباشر
-            sheetsUrl: 'https://docs.google.com/spreadsheets/d/1uVKm0qkDytwdlgi6CT8cGDKBt4khJLwQ-AscGLcY44o/edit?gid=0#gid=0'
-        };
-
-        // متغيرات عامة
-        let loginAttempts = 0;
-        let isBlocked = false;
-        let sessionToken = null;
-        let refreshInterval = null;
-        let realData = {
+        // البيانات والمتغيرات
+        let currentData = {
             messages: [],
             stats: {
                 totalMessages: 0,
                 todayMessages: 0,
                 thisWeekMessages: 0,
-                responseRate: '0%'
+                responseRate: "0%"
             }
         };
 
-        // تحديث الروابط بالروابط الحقيقية
-        function updateRealLinks() {
-            document.getElementById('sheetsLink').href = GOOGLE_SHEETS_CONFIG.sheetsUrl;
-            document.getElementById('quickSheetsLink').href = GOOGLE_SHEETS_CONFIG.sheetsUrl;
-        }
+        let gistUrl = localStorage.getItem('nadhGistUrl') || '';
 
-        // التحقق من تحميل الصفحة
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('✅ تم تحميل لوحة التحكم الحقيقية');
-            updateRealLinks();
-            checkSavedSession();
-        });
-
-        // وظائف تسجيل الدخول
-        function handleLogin(event) {
+        // تسجيل الدخول
+        function login(event) {
             event.preventDefault();
             
-            if (isBlocked) {
-                showMessage('تم حظر المحاولات لمدة 15 دقيقة', 'error');
-                return;
-            }
-            
-            const username = document.getElementById('username').value.trim();
+            const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const loginBtn = document.getElementById('loginBtn');
             
-            if (!username || !password) {
-                showMessage('يرجى إدخال اسم المستخدم وكلمة المرور', 'error');
+            if (username === 'nadh_admin' && password === 'nadh2025@github') {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('dashboard').classList.add('active');
+                
+                showAlert('تم تسجيل الدخول بنجاح', 'success');
+                
+                if (gistUrl) {
+                    loadData();
+                } else {
+                    showSetup();
+                }
+            } else {
+                showAlert('اسم المستخدم أو كلمة المرور غير صحيحة', 'error');
+            }
+        }
+
+        // تسجيل الخروج
+        function logout() {
+            document.getElementById('loginContainer').style.display = 'block';
+            document.getElementById('dashboard').classList.remove('active');
+            showAlert('تم تسجيل الخروج', 'info');
+        }
+
+        // إظهار إعداد GitHub
+        function showSetup() {
+            const setup = document.getElementById('gistSetup');
+            setup.classList.toggle('hidden');
+            
+            if (gistUrl) {
+                document.getElementById('gistUrl').value = gistUrl;
+            }
+        }
+
+        // حفظ رابط Gist
+        function saveGistUrl() {
+            const url = document.getElementById('gistUrl').value.trim();
+            
+            if (url && url.includes('gist.githubusercontent.com')) {
+                gistUrl = url;
+                localStorage.setItem('nadhGistUrl', gistUrl);
+                document.getElementById('gistSetup').classList.add('hidden');
+                showAlert('تم حفظ الرابط بنجاح', 'success');
+                loadData();
+            } else {
+                showAlert('رابط غير صحيح', 'error');
+            }
+        }
+
+        // تحميل البيانات
+        async function loadData() {
+            if (!gistUrl) {
+                showSetup();
                 return;
             }
-            
-            loginBtn.disabled = true;
-            loginBtn.innerHTML = '<span class="loading-spinner"></span> جاري التحقق...';
-            
-            // بيانات الدخول الحقيقية (يجب تغييرها لأمان أفضل)
-            if (username === 'nadh_admin' && password === 'nadh2025@secure') {
-                loginSuccess();
-            } else {
-                loginFailed();
-            }
-            
-            loginBtn.disabled = false;
-            loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> دخول للوحة الحقيقية';
-        }
 
-        function loginSuccess() {
-            console.log('✅ تم تسجيل الدخول بنجاح للوحة الحقيقية');
-            
-            sessionToken = generateSessionToken();
-            localStorage.setItem('nadhAdminSession', JSON.stringify({
-                token: sessionToken,
-                loginTime: Date.now(),
-                expiresAt: Date.now() + (60 * 60 * 1000) // ساعة واحدة
-            }));
-            
-            loginAttempts = 0;
-            showMessage('مرحباً بك في لوحة التحكم الحقيقية', 'success');
-            
-            setTimeout(() => {
-                showRealDashboard();
-            }, 1000);
-        }
+            updateStatus('loading', 'جاري تحميل البيانات من GitHub...');
 
-        function loginFailed() {
-            loginAttempts++;
-            console.log(`❌ محاولة دخول فاشلة رقم ${loginAttempts}`);
-            
-            if (loginAttempts >= 3) {
-                isBlocked = true;
-                showMessage('تم حظر المحاولات لمدة 15 دقيقة بعد 3 محاولات فاشلة', 'error');
-                
-                setTimeout(() => {
-                    isBlocked = false;
-                    loginAttempts = 0;
-                    showMessage('تم رفع الحظر، يمكنك المحاولة مرة أخرى', 'success');
-                }, 15 * 60 * 1000);
-                
-            } else {
-                const remaining = 3 - loginAttempts;
-                showMessage(`اسم المستخدم أو كلمة المرور غير صحيحة (${remaining} محاولات متبقية)`, 'error');
-            }
-        }
-
-        function generateSessionToken() {
-            const timestamp = Date.now().toString();
-            const random = Math.random().toString(36).substring(2);
-            return timestamp + random;
-        }
-
-        function checkSavedSession() {
-            const savedSession = localStorage.getItem('nadhAdminSession');
-            
-            if (savedSession) {
-                try {
-                    const session = JSON.parse(savedSession);
-                    
-                    if (Date.now() < session.expiresAt) {
-                        sessionToken = session.token;
-                        console.log('✅ تم استرداد الجلسة المحفوظة');
-                        showRealDashboard();
-                        return;
-                    } else {
-                        console.log('⏰ انتهت صلاحية الجلسة');
-                        localStorage.removeItem('nadhAdminSession');
-                    }
-                } catch (error) {
-                    console.error('خطأ في قراءة الجلسة المحفوظة:', error);
-                    localStorage.removeItem('nadhAdminSession');
-                }
-            }
-        }
-
-        function logout() {
-            console.log('🚪 تسجيل الخروج من اللوحة الحقيقية');
-            
-            sessionToken = null;
-            localStorage.removeItem('nadhAdminSession');
-            
-            if (refreshInterval) {
-                clearInterval(refreshInterval);
-            }
-            
-            document.getElementById('loginContainer').style.display = 'flex';
-            document.getElementById('dashboard').classList.remove('active');
-            
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
-            
-            showMessage('تم تسجيل الخروج بنجاح', 'success');
-        }
-
-        // وظائف لوحة التحكم الحقيقية
-        function showRealDashboard() {
-            document.getElementById('loginContainer').style.display = 'none';
-            document.getElementById('dashboard').classList.add('active');
-            
-            updateLastUpdate();
-            loadRealDataFromSheets();
-            
-            // بدء التحديث التلقائي كل 5 دقائق
-            startRealAutoRefresh();
-        }
-
-        // تحميل البيانات الحقيقية من Google Sheets
-        async function loadRealDataFromSheets() {
-            console.log('📊 جاري تحميل البيانات الحقيقية من Google Sheets...');
-            
-            updateConnectionStatus('loading', 'جاري الاتصال بـ Google Sheets...');
-            
             try {
-                // إرسال طلب للحصول على البيانات
-                const response = await fetch(`${GOOGLE_SHEETS_CONFIG.scriptUrl}?action=getDashboardData&timestamp=${Date.now()}`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Cache-Control': 'no-cache'
-                    }
-                });
+                const response = await fetch(gistUrl + '?t=' + Date.now());
                 
                 if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    throw new Error(`HTTP ${response.status}`);
                 }
+
+                const data = await response.json();
+                currentData = data;
                 
-                const result = await response.json();
+                updateStatus('connected', 'متصل مع GitHub Gist ✅');
+                updateStats();
+                updateMessages();
                 
-                if (result.success && result.data) {
-                    console.log('✅ تم تحميل البيانات الحقيقية بنجاح:', result.data);
-                    
-                    realData = result.data;
-                    updateConnectionStatus('connected', 'متصل بـ Google Sheets - البيانات محدثة');
-                    
-                    // تحديث الواجهة بالبيانات الحقيقية
-                    updateRealStatistics();
-                    updateRealMessages();
-                    
-                } else {
-                    throw new Error(result.error || 'خطأ في هيكل البيانات المستلمة');
-                }
-                
+                showAlert('تم تحميل البيانات بنجاح', 'success');
+
             } catch (error) {
-                console.error('❌ خطأ في تحميل البيانات الحقيقية:', error);
-                updateConnectionStatus('disconnected', `خطأ في الاتصال: ${error.message}`);
+                console.error('خطأ:', error);
+                updateStatus('error', 'خطأ في التحميل: ' + error.message);
+                showAlert('فشل في تحميل البيانات', 'error');
                 
-                // عرض رسالة خطأ مفصلة
-                showErrorInDashboard(error.message);
-                
-                // محاولة استخدام البيانات المحفوظة محلياً كحل احتياطي
-                loadFallbackData();
+                // عرض بيانات تجريبية
+                loadSampleData();
             }
         }
 
         // تحديث حالة الاتصال
-        function updateConnectionStatus(status, message) {
-            const statusElement = document.getElementById('connectionStatus');
-            const textElement = document.getElementById('connectionText');
-            
-            statusElement.className = `connection-status ${status}`;
-            textElement.textContent = message;
+        function updateStatus(type, message) {
+            const status = document.getElementById('status');
+            status.className = `status-indicator status-${type}`;
             
             const icons = {
-                'connected': 'fas fa-check-circle',
-                'disconnected': 'fas fa-exclamation-triangle',
-                'loading': 'fas fa-spinner fa-spin'
+                loading: 'fas fa-spinner fa-spin',
+                connected: 'fas fa-check-circle',
+                error: 'fas fa-exclamation-triangle'
             };
             
-            const icon = statusElement.querySelector('i');
-            icon.className = icons[status] || 'fas fa-wifi';
+            status.innerHTML = `<i class="${icons[type]}"></i> ${message}`;
         }
 
-        // تحديث الإحصائيات الحقيقية
-        function updateRealStatistics() {
-            const stats = realData.stats;
+        // تحديث الإحصائيات
+        function updateStats() {
+            const stats = currentData.stats || {};
             
-            // تحديث الأرقام مع أنيميشن
-            animateNumber('messagesCount', stats.totalMessages || 0);
-            animateNumber('todayMessages', stats.todayMessages || 0);
-            animateNumber('weekMessages', stats.thisWeekMessages || 0);
-            
-            // معدل الاستجابة
-            document.getElementById('conversionRate').textContent = stats.responseRate || '0%';
-            
-            console.log('📈 تم تحديث الإحصائيات الحقيقية:', stats);
+            document.getElementById('totalMessages').textContent = stats.totalMessages || 0;
+            document.getElementById('todayMessages').textContent = stats.todayMessages || 0;
+            document.getElementById('weekMessages').textContent = stats.thisWeekMessages || 0;
+            document.getElementById('responseRate').textContent = stats.responseRate || '0%';
         }
 
-        // تحديث الرسائل الحقيقية
-        function updateRealMessages() {
-            const messagesContainer = document.getElementById('recentMessages');
-            const messages = realData.messages || [];
-            
-            if (!messages || messages.length === 0) {
-                messagesContainer.innerHTML = `
-                    <div class="no-data">
-                        <i class="fas fa-inbox"></i>
-                        <p>لا توجد رسائل في Google Sheets حالياً</p>
-                        <small>عندما يرسل العملاء رسائل من الموقع ستظهر هنا تلقائياً</small>
+        // تحديث الرسائل
+        function updateMessages() {
+            const container = document.getElementById('messagesList');
+            const messages = currentData.messages || [];
+
+            if (messages.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #666;">
+                        <i class="fas fa-inbox" style="font-size: 48px; margin-bottom: 15px;"></i>
+                        <p>لا توجد رسائل حالياً</p>
+                        <button onclick="loadSampleData()" class="btn btn-primary" style="margin-top: 15px;">
+                            <i class="fas fa-plus"></i> إضافة بيانات تجريبية
+                        </button>
                     </div>
                 `;
                 return;
             }
-            
-            let messagesHTML = '';
-            messages.forEach((msg, index) => {
-                const timeAgo = getTimeAgo(msg.timestamp);
-                const serviceNames = {
-                    'mechanical': 'الأنظمة الميكانيكية',
-                    'electrical': 'الأنظمة الكهربائية', 
-                    'doors': 'أبواب الطوارئ',
-                    'maintenance': 'الصيانة والدعم',
-                    'consultation': 'استشارة فنية',
-                    'complete': 'مشروع متكامل'
-                };
-                
-                messagesHTML += `
-                    <div class="message-item" style="animation-delay: ${index * 0.1}s;">
-                        <div class="message-header">
-                            <span class="message-name">${msg.name || 'غير محدد'}</span>
-                            <span class="message-time">${timeAgo}</span>
+
+            let html = '';
+            messages.slice(0, 10).forEach((msg, index) => {
+                html += `
+                    <div class="message-item">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #2C5C7C;">👤 ${msg.name || 'غير محدد'}</strong>
+                            <small style="color: #666;">🕒 ${formatDate(msg.timestamp)}</small>
                         </div>
-                        <div class="message-contact">
+                        <div style="margin-bottom: 8px; font-size: 14px; color: #666;">
                             📧 ${msg.email || 'غير محدد'} | 📱 ${msg.phone || 'غير محدد'}
                         </div>
                         <div style="margin-bottom: 8px;">
-                            <span class="message-service">${serviceNames[msg.service] || msg.service || 'غير محدد'}</span>
-                            <span class="message-time" style="margin-right: 10px;">🕒 ${msg.timestamp || 'غير محدد'}</span>
+                            <span style="background: #4ECDC4; color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px;">
+                                ${msg.service || 'غير محدد'}
+                            </span>
                         </div>
-                        <div class="message-content">${msg.message || 'لا يوجد نص للرسالة'}</div>
+                        <div style="color: #555; line-height: 1.5;">
+                            ${msg.message || 'لا يوجد نص'}
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <button onclick="deleteMessage(${index})" class="btn btn-danger" style="padding: 5px 10px; font-size: 12px;">
+                                <i class="fas fa-trash"></i> حذف
+                            </button>
+                        </div>
                     </div>
                 `;
             });
-            
-            messagesContainer.innerHTML = messagesHTML;
-            console.log(`📨 تم عرض ${messages.length} رسالة حقيقية من Google Sheets`);
+
+            container.innerHTML = html;
         }
 
-        // عرض خطأ في الداشبورد
-        function showErrorInDashboard(errorMessage) {
-            const messagesContainer = document.getElementById('recentMessages');
-            messagesContainer.innerHTML = `
-                <div class="no-data">
-                    <i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>
-                    <p style="color: #dc3545;">خطأ في تحميل البيانات الحقيقية</p>
-                    <small style="color: #666;">${errorMessage}</small>
-                    <br><br>
-                    <button onclick="loadRealDataFromSheets()" class="btn btn-primary" style="margin-top: 10px;">
-                        <i class="fas fa-sync-alt"></i> إعادة المحاولة
-                    </button>
+        // إظهار نموذج الإضافة
+        function showAddForm() {
+            document.getElementById('addForm').classList.remove('hidden');
+            document.getElementById('msgName').focus();
+        }
+
+        // إخفاء نموذج الإضافة
+        function hideAddForm() {
+            document.getElementById('addForm').classList.add('hidden');
+            document.getElementById('addForm').querySelector('form').reset();
+        }
+
+        // إضافة رسالة جديدة
+        function addMessage(event) {
+            event.preventDefault();
+
+            const newMessage = {
+                id: Date.now(),
+                timestamp: new Date().toISOString(),
+                name: document.getElementById('msgName').value.trim(),
+                email: document.getElementById('msgEmail').value.trim() || 'غير محدد',
+                phone: document.getElementById('msgPhone').value.trim(),
+                service: document.getElementById('msgService').value,
+                message: document.getElementById('msgText').value.trim(),
+                status: 'جديد'
+            };
+
+            // إضافة للبيانات المحلية
+            currentData.messages.unshift(newMessage);
+            currentData.stats.totalMessages = (currentData.stats.totalMessages || 0) + 1;
+            currentData.stats.todayMessages = (currentData.stats.todayMessages || 0) + 1;
+
+            // تحديث العرض
+            updateStats();
+            updateMessages();
+            hideAddForm();
+
+            showAlert('تم إضافة الرسالة محلياً. لحفظها في GitHub، قم بالتحديث يدوياً', 'success');
+            
+            // إظهار تعليمات التحديث
+            showUpdateInstructions();
+        }
+
+        // حذف رسالة
+        function deleteMessage(index) {
+            if (confirm('هل تريد حذف هذه الرسالة؟')) {
+                currentData.messages.splice(index, 1);
+                currentData.stats.totalMessages = Math.max(0, currentData.stats.totalMessages - 1);
+                
+                updateStats();
+                updateMessages();
+                showAlert('تم حذف الرسالة محلياً', 'success');
+            }
+        }
+
+        // تحميل بيانات تجريبية
+        function loadSampleData() {
+            currentData = {
+                messages: [
+                    {
+                        id: 1,
+                        timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+                        name: 'أحمد محمد السعدي',
+                        email: 'ahmed@email.com',
+                        phone: '0501234567',
+                        service: 'الأنظمة الميكانيكية',
+                        message: 'مرحباً، أريد عرض سعر لنظام إطفاء حريق لمطعم مساحة 200 متر مربع',
+                        status: 'جديد'
+                    },
+                    {
+                        id: 2,
+                        timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
+                        name: 'سارة عبدالله العتيبي',
+                        email: 'sara@email.com',
+                        phone: '0559876543',
+                        service: 'مشروع متكامل',
+                        message: 'السلام عليكم، لدي مشروع سكني (فيلا) ويحتاج أنظمة كاملة للسلامة',
+                        status: 'قيد المتابعة'
+                    }
+                ],
+                stats: {
+                    totalMessages: 2,
+                    todayMessages: 1,
+                    thisWeekMessages: 2,
+                    responseRate: '50%'
+                }
+            };
+
+            updateStatus('connected', 'تم تحميل البيانات التجريبية ✅');
+            updateStats();
+            updateMessages();
+            showAlert('تم تحميل البيانات التجريبية', 'success');
+        }
+
+        // إظهار تعليمات التحديث
+        function showUpdateInstructions() {
+            const data = JSON.stringify(currentData, null, 2);
+            
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.8); z-index: 10000;
+                display: flex; align-items: center; justify-content: center;
+                padding: 20px;
+            `;
+            
+            modal.innerHTML = `
+                <div style="background: white; padding: 30px; border-radius: 15px; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+                    <h3 style="margin-bottom: 20px; text-align: center;">
+                        <i class="fab fa-github"></i> تحديث GitHub Gist
+                    </h3>
+                    <p style="margin-bottom: 15px;">انسخ البيانات أدناه والصقها في GitHub Gist:</p>
+                    <textarea readonly style="width: 100%; height: 300px; font-family: monospace; font-size: 11px; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">${data}</textarea>
+                    <div style="text-align: center; margin-top: 20px;">
+                        ${gistUrl ? `<a href="${gistUrl.replace('/raw/', '/').replace(/\/[^\/]*$/, '')}" target="_blank" class="btn btn-primary">فتح GitHub Gist</a>` : ''}
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="btn btn-secondary">إغلاق</button>
+                    </div>
                 </div>
             `;
+            
+            document.body.appendChild(modal);
         }
 
-        // تحديث الروابط
-        function updateRealLinks() {
-            document.getElementById('sheetsLink').href = GOOGLE_SHEETS_CONFIG.sheetsUrl;
-            document.getElementById('quickSheetsLink').href = GOOGLE_SHEETS_CONFIG.sheetsUrl;
-        }
-
-        // عرض خطأ مع تفاصيل أكثر
-        function showErrorInDashboard(errorMessage) {
-            const messagesContainer = document.getElementById('recentMessages');
-            messagesContainer.innerHTML = `
-                <div class="no-data">
-                    <i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>
-                    <p style="color: #dc3545; margin: 15px 0;"><strong>خطأ في تحميل البيانات الحقيقية</strong></p>
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; text-align: right;">
-                        <small style="color: #666; font-family: monospace;">${errorMessage}</small>
-                    </div>
-                    <div style="margin: 20px 0;">
-                        <h4 style="color: #666; margin-bottom: 10px;">خطوات الحل:</h4>
-                        <ul style="text-align: right; color: #666; font-size: 14px; line-height: 1.6;">
-                            <li>تأكد من أن Apps Script مُنشر كـ Web App</li>
-                            <li>تحقق من أن الصلاحيات مُفعلة "Anyone can access"</li>
-                            <li>تأكد من أن اسم الشيت هو "رسائل التواصل"</li>
-                            <li>تحقق من أن البيانات موجودة في الشيت</li>
-                        </ul>
-                    </div>
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
-                        <button onclick="loadRealDataFromSheets()" class="btn btn-primary">
-                            <i class="fas fa-sync-alt"></i> إعادة المحاولة
-                        </button>
-                        <a href="${GOOGLE_SHEETS_CONFIG.sheetsUrl}" target="_blank" class="btn btn-secondary">
-                            <i class="fas fa-external-link-alt"></i> فتح Google Sheets
-                        </a>
-                    </div>
-                </div>
-            `;
-        }
-
-        // تحديث الرسائل الحقيقية مع تحسينات
-        function updateRealMessages() {
-            const messagesContainer = document.getElementById('recentMessages');
-            const messages = realData.messages || [];
-            
-            if (!messages || messages.length === 0) {
-                messagesContainer.innerHTML = `
-                    <div class="no-data">
-                        <i class="fas fa-inbox"></i>
-                        <p><strong>لا توجد رسائل في Google Sheets حالياً</strong></p>
-                        <small style="color: #666;">
-                            عندما يرسل العملاء رسائل من الموقع ستظهر هنا تلقائياً<br>
-                            تأكد من أن النماذج تعمل وأن البيانات تُحفظ في "رسائل التواصل"
-                        </small>
-                        <div style="margin-top: 15px;">
-                            <a href="${GOOGLE_SHEETS_CONFIG.sheetsUrl}" target="_blank" class="btn btn-secondary" style="font-size: 12px; padding: 8px 15px;">
-                                <i class="fas fa-external-link-alt"></i> تحقق من Google Sheets
-                            </a>
-                        </div>
-                    </div>
-                `;
-                return;
-            }
-            
-            let messagesHTML = '';
-            messages.forEach((msg, index) => {
-                const serviceNames = {
-                    'mechanical': 'الأنظمة الميكانيكية',
-                    'electrical': 'الأنظمة الكهربائية', 
-                    'doors': 'أبواب الطوارئ',
-                    'maintenance': 'الصيانة والدعم',
-                    'consultation': 'استشارة فنية',
-                    'complete': 'مشروع متكامل'
-                };
-                
-                const statusColors = {
-                    'جديد': '#ff6b6b',
-                    'تم الرد': '#51cf66',
-                    'قيد المتابعة': '#ffd43b',
-                    'مكتمل': '#69db7c'
-                };
-                
-                messagesHTML += `
-                    <div class="message-item" style="animation-delay: ${index * 0.1}s;">
-                        <div class="message-header">
-                            <span class="message-name">👤 ${msg.name || 'غير محدد'}</span>
-                            <span class="message-time">🕒 ${msg.timestamp || 'غير محدد'}</span>
-                        </div>
-                        <div class="message-contact">
-                            📧 ${msg.email || 'غير محدد'} | 📱 ${msg.phone || 'غير محدد'}
-                        </div>
-                        <div style="margin-bottom: 8px; display: flex; gap: 8px; align-items: center;">
-                            <span class="message-service">${serviceNames[msg.service] || msg.service || 'غير محدد'}</span>
-                            ${msg.status ? `<span style="
-                                background: ${statusColors[msg.status] || '#6c757d'};
-                                color: white;
-                                padding: 2px 8px;
-                                border-radius: 12px;
-                                font-size: 11px;
-                                font-weight: 600;
-                            ">${msg.status}</span>` : ''}
-                        </div>
-                        <div class="message-content">${msg.message || 'لا يوجد نص للرسالة'}</div>
-                        ${msg.notes ? `<div style="margin-top: 8px; padding: 8px; background: rgba(78, 205, 196, 0.1); border-radius: 6px; font-size: 12px; color: #666;">
-                            📝 <strong>ملاحظات:</strong> ${msg.notes}
-                        </div>` : ''}
-                    </div>
-                `;
-            });
-            
-            messagesContainer.innerHTML = messagesHTML;
-            console.log(`📨 تم عرض ${messages.length} رسالة حقيقية من Google Sheets`);
-        }
-
-        // تحديث البيانات الحقيقية
-        function refreshRealData() {
-            const refreshBtn = event.target;
-            const icon = refreshBtn.querySelector('i');
-            
-            icon.classList.add('fa-spin');
-            refreshBtn.disabled = true;
-            
-            console.log('🔄 تحديث البيانات الحقيقية يدوياً...');
-            
-            loadRealDataFromSheets().then(() => {
-                updateLastUpdate();
-                showMessage('تم تحديث البيانات الحقيقية بنجاح', 'success');
-            }).catch((error) => {
-                console.error('خطأ في التحديث اليدوي:', error);
-                showMessage('حدث خطأ في تحديث البيانات الحقيقية', 'error');
-            }).finally(() => {
-                icon.classList.remove('fa-spin');
-                refreshBtn.disabled = false;
-            });
-        }
-
-        // التحديث التلقائي للبيانات الحقيقية
-        function startRealAutoRefresh() {
-            if (refreshInterval) {
-                clearInterval(refreshInterval);
-            }
-            
-            // تحديث كل 5 دقائق (300 ثانية)
-            refreshInterval = setInterval(() => {
-                console.log('🔄 تحديث تلقائي للبيانات الحقيقية...');
-                loadRealDataFromSheets();
-            }, 5 * 60 * 1000);
-            
-            console.log('✅ تم تفعيل التحديث التلقائي للبيانات الحقيقية كل 5 دقائق');
-        }
-
-        // حساب الوقت المنقضي
-        function getTimeAgo(timestamp) {
-            if (!timestamp) return 'غير محدد';
-            
+        // دوال مساعدة
+        function formatDate(dateStr) {
+            if (!dateStr) return 'غير محدد';
             try {
-                const now = new Date();
-                const messageTime = new Date(timestamp);
-                const diffMs = now - messageTime;
-                const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-                const diffDays = Math.floor(diffHours / 24);
-                
-                if (diffDays > 0) {
-                    return `منذ ${diffDays} يوم`;
-                } else if (diffHours > 0) {
-                    return `منذ ${diffHours} ساعة`;
-                } else {
-                    const diffMinutes = Math.floor(diffMs / (1000 * 60));
-                    return `منذ ${diffMinutes} دقيقة`;
-                }
-            } catch (error) {
-                console.error('خطأ في حساب الوقت:', error);
-                return 'غير محدد';
+                return new Date(dateStr).toLocaleString('ar-SA');
+            } catch (e) {
+                return dateStr.substring(0, 16);
             }
         }
 
-        // أنيميشن الأرقام
-        function animateNumber(elementId, targetNumber) {
-            const element = document.getElementById(elementId);
-            if (!element) return;
-            
-            const startNumber = 0;
-            const duration = 2000;
-            const startTime = Date.now();
-            
-            function update() {
-                const currentTime = Date.now();
-                const progress = Math.min((currentTime - startTime) / duration, 1);
-                const currentNumber = Math.floor(startNumber + (targetNumber - startNumber) * progress);
-                
-                element.textContent = currentNumber.toLocaleString('ar-SA');
-                
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                }
-            }
-            
-            update();
-        }
-
-        // تحديث وقت آخر تحديث
-        function updateLastUpdate() {
-            const now = new Date();
-            const timeString = now.toLocaleString('ar-SA', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            const lastUpdateElement = document.getElementById('lastUpdate');
-            if (lastUpdateElement) {
-                lastUpdateElement.textContent = `آخر تحديث: ${timeString}`;
-            }
-        }
-
-        // نظام الرسائل
-        function showMessage(message, type = 'info') {
+        function showAlert(message, type) {
             const alert = document.createElement('div');
-            alert.className = `custom-alert alert-${type}`;
+            alert.className = `alert alert-${type}`;
             alert.innerHTML = `
-                <div class="alert-content">
-                    <i class="fas fa-${getAlertIcon(type)}"></i>
-                    <span>${message}</span>
-                    <button class="alert-close">&times;</button>
-                </div>
-            `;
-            
-            alert.style.cssText = `
-                position: fixed;
-                top: 80px;
-                right: 20px;
-                background: ${getAlertColor(type)};
-                color: white;
-                padding: 1rem;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                z-index: 10000;
-                max-width: 400px;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-                font-family: 'Cairo', sans-serif;
+                <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'exclamation' : 'info'}-circle"></i>
+                ${message}
+                <button onclick="this.parentElement.remove()" style="float: left; background: none; border: none; color: white; font-size: 16px;">&times;</button>
             `;
             
             document.body.appendChild(alert);
             
             setTimeout(() => {
-                alert.style.transform = 'translateX(0)';
-            }, 100);
-            
-            setTimeout(() => {
-                hideAlert(alert);
+                if (alert.parentNode) alert.remove();
             }, 5000);
-            
-            alert.querySelector('.alert-close').addEventListener('click', () => {
-                hideAlert(alert);
-            });
         }
 
-        function getAlertIcon(type) {
-            const icons = {
-                'success': 'check-circle',
-                'error': 'exclamation-circle',
-                'warning': 'exclamation-triangle',
-                'info': 'info-circle'
-            };
-            return icons[type] || 'info-circle';
-        }
-
-        function getAlertColor(type) {
-            const colors = {
-                'success': '#10B981',
-                'error': '#EF4444', 
-                'warning': '#F59E0B',
-                'info': '#3B82F6'
-            };
-            return colors[type] || '#3B82F6';
-        }
-
-        function hideAlert(alert) {
-            alert.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                if (alert.parentNode) {
-                    alert.parentNode.removeChild(alert);
-                }
-            }, 300);
-        }
-
-        // معالجة أخطاء JavaScript
-        window.addEventListener('error', function(e) {
-            console.error('خطأ في JavaScript للوحة التحكم:', e.error);
-            updateConnectionStatus('disconnected', 'خطأ في تشغيل اللوحة');
+        // تحميل البيانات عند بدء التشغيل
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Dashboard loaded');
         });
-
-        // تنظيف الموارد عند إغلاق الصفحة
-        window.addEventListener('beforeunload', function() {
-            if (refreshInterval) {
-                clearInterval(refreshInterval);
-            }
-        });
-
-        // جعل الوظائف متاحة عالمياً
-        window.refreshRealData = refreshRealData;
-        window.loadRealDataFromSheets = loadRealDataFromSheets;
-        window.testAppsScript = testAppsScript;
-
     </script>
 </body>
 </html>
