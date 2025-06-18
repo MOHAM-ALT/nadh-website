@@ -11,43 +11,6 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     
-    <!-- مكتبة التشفير -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    
-    <!-- إعدادات آمنة -->
-    <script>
-// إعدادات آمنة مدمجة
-const ADMIN_CONFIG = {
-    credentials: {
-        username: 'nadh_admin',
-        passwordHash: 'a8b4c6e2f9d1e3a7b5c8d2f6e9a3b7c1e5f8a2d6c9e3b7a1f5d8c2e6a9b3f7e1'
-    },
-    googleSheets: {
-        spreadsheetId: '1DcZZQ7sjhLLkTqygRaiMc7jPkxnZD-jIiSXEEUUeH_Y',
-        directUrl: 'https://docs.google.com/spreadsheets/d/1uVKm0qkDytwdlgi6CT8cGDKBt4khJLwQ-AscGLcY44o/edit?gid=0#gid=0',
-        appsScriptUrl: 'https://script.google.com/macros/s/AKfycbyURfrvrukFWczWEfFefENe9qGgNfxZKZCNvHpIrBZxPJtHiUXd_uRQWp4ze6XowK-b0A/exec'
-    },
-    analytics: {
-        measurementId: 'G-0XX64MVZ1W',
-        enabled: true
-    },
-    security: {
-        sessionTimeout: 60,
-        maxLoginAttempts: 3,
-        blockDuration: 15
-    },
-    refresh: {
-        interval: 300,
-        enabled: true
-    },
-    company: {
-        name: 'شركة ناض للمقاولات العامة',
-        email: 'Nadhksa@gmail.com',
-        phone: '0537573006'
-    }
-};
-</script>
-    
     <style>
         * {
             margin: 0;
@@ -277,11 +240,12 @@ const ADMIN_CONFIG = {
         .btn-primary {
             background: linear-gradient(135deg, #4ECDC4, #2C5C7C);
             color: white;
+            box-shadow: 0 2px 6px rgba(78, 205, 196, 0.3);
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+            box-shadow: 0 3px 8px rgba(78, 205, 196, 0.4);
         }
         
         .btn-secondary {
@@ -338,11 +302,11 @@ const ADMIN_CONFIG = {
             color: white;
         }
         
-        .stat-icon.visitors {
+        .stat-icon.messages {
             background: linear-gradient(135deg, #4ECDC4, #2C5C7C);
         }
         
-        .stat-icon.messages {
+        .stat-icon.today {
             background: linear-gradient(135deg, #F4A261, #E76F51);
         }
         
@@ -350,7 +314,7 @@ const ADMIN_CONFIG = {
             background: linear-gradient(135deg, #A8E6CF, #7FCDCD);
         }
         
-        .stat-icon.today {
+        .stat-icon.visitors {
             background: linear-gradient(135deg, #FFB6C1, #FF69B4);
         }
         
@@ -507,6 +471,34 @@ const ADMIN_CONFIG = {
             margin-bottom: 15px;
         }
         
+        .connection-status {
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .connection-status.connected {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .connection-status.disconnected {
+            background: #f8d7da;
+            color: #dc3545;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .connection-status.loading {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
         /* استجابة للجوال */
         @media (max-width: 768px) {
             .dashboard-sections {
@@ -546,8 +538,8 @@ const ADMIN_CONFIG = {
             <div class="login-logo">
                 <img src="images/logo-small.png" alt="شعار ناض" onerror="this.style.display='none'; this.parentNode.innerHTML='ناض';">
             </div>
-            <h2 class="login-title">🔐 لوحة التحكم</h2>
-            <p style="color: #666; margin-bottom: 25px;">للوصول إلى إحصائيات الموقع ورسائل العملاء</p>
+            <h2 class="login-title">🔐 لوحة التحكم الاحترافية</h2>
+            <p style="color: #666; margin-bottom: 25px;">للوصول إلى إحصائيات الموقع الحقيقية ورسائل العملاء</p>
             
             <form id="loginForm" onsubmit="handleLogin(event)">
                 <div class="form-group">
@@ -560,7 +552,7 @@ const ADMIN_CONFIG = {
                 </div>
                 <button type="submit" class="login-btn" id="loginBtn">
                     <i class="fas fa-sign-in-alt"></i>
-                    دخول
+                    دخول للوحة الحقيقية
                 </button>
                 <div id="errorMessage" class="error-message hidden"></div>
                 <div id="successMessage" class="success-message hidden"></div>
@@ -576,8 +568,8 @@ const ADMIN_CONFIG = {
                     <img src="images/logo-large.png" alt="شعار ناض" onerror="this.style.display='none'; this.parentNode.innerHTML='ناض';">
                 </div>
                 <div class="header-info">
-                    <h1>لوحة تحكم ناض للمقاولات</h1>
-                    <p>مرحباً بك، إليك ملخص أداء الموقع - <span id="lastUpdate">جاري التحميل...</span></p>
+                    <h1>لوحة تحكم ناض للمقاولات - البيانات الحقيقية</h1>
+                    <p>مرحباً بك، البيانات متصلة مباشرة مع Google Sheets - <span id="lastUpdate">جاري التحميل...</span></p>
                 </div>
             </div>
             <div class="header-actions">
@@ -587,11 +579,11 @@ const ADMIN_CONFIG = {
                 </a>
                 <a href="#" target="_blank" class="btn btn-secondary" id="sheetsLink">
                     <i class="fas fa-table"></i>
-                    جدول البيانات
+                    جدول البيانات الحقيقية
                 </a>
-                <button onclick="refreshData()" class="btn btn-primary">
+                <button onclick="refreshRealData()" class="btn btn-primary">
                     <i class="fas fa-sync-alt"></i>
-                    تحديث البيانات
+                    تحديث البيانات الحقيقية
                 </button>
                 <button onclick="logout()" class="btn btn-danger">
                     <i class="fas fa-sign-out-alt"></i>
@@ -600,30 +592,20 @@ const ADMIN_CONFIG = {
             </div>
         </div>
 
-        <!-- إحصائيات سريعة -->
+        <!-- حالة الاتصال -->
+        <div id="connectionStatus" class="connection-status loading">
+            <i class="fas fa-wifi"></i>
+            <span id="connectionText">جاري الاتصال بـ Google Sheets...</span>
+        </div>
+
+        <!-- إحصائيات حقيقية -->
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon visitors">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-number" id="visitorsCount">-</div>
-                <div class="stat-label">زائر هذا الشهر</div>
-            </div>
-            
             <div class="stat-card">
                 <div class="stat-icon messages">
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div class="stat-number" id="messagesCount">-</div>
-                <div class="stat-label">إجمالي الرسائل</div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-icon conversion">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="stat-number" id="conversionRate">-</div>
-                <div class="stat-label">معدل التحويل</div>
+                <div class="stat-label">إجمالي الرسائل الحقيقية</div>
             </div>
             
             <div class="stat-card">
@@ -633,20 +615,36 @@ const ADMIN_CONFIG = {
                 <div class="stat-number" id="todayMessages">-</div>
                 <div class="stat-label">رسائل اليوم</div>
             </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon conversion">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-number" id="conversionRate">-</div>
+                <div class="stat-label">معدل الاستجابة</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon visitors">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number" id="weekMessages">-</div>
+                <div class="stat-label">رسائل هذا الأسبوع</div>
+            </div>
         </div>
 
         <!-- الأقسام الرئيسية -->
         <div class="dashboard-sections">
-            <!-- قسم الرسائل -->
+            <!-- قسم الرسائل الحقيقية -->
             <div class="section">
                 <h3>
                     <i class="fas fa-comments"></i>
-                    الرسائل الأخيرة
+                    الرسائل الحقيقية من Google Sheets
                 </h3>
                 <div class="recent-messages" id="recentMessages">
                     <div class="no-data">
                         <i class="fas fa-spinner fa-spin"></i>
-                        <p>جاري تحميل الرسائل...</p>
+                        <p>جاري تحميل الرسائل الحقيقية من Google Sheets...</p>
                     </div>
                 </div>
             </div>
@@ -663,8 +661,8 @@ const ADMIN_CONFIG = {
                             <i class="fas fa-table"></i>
                         </div>
                         <div>
-                            <strong>جدول الرسائل</strong>
-                            <br><small>عرض وإدارة جميع الرسائل</small>
+                            <strong>جدول الرسائل الحقيقية</strong>
+                            <br><small>عرض وإدارة جميع الرسائل من Google Sheets</small>
                         </div>
                     </a>
                     
@@ -694,7 +692,7 @@ const ADMIN_CONFIG = {
                         </div>
                         <div>
                             <strong>واتساب الشركة</strong>
-                            <br><small>تواصل مباشر</small>
+                            <br><small>تواصل مباشر مع العملاء</small>
                         </div>
                     </a>
                 </div>
@@ -703,49 +701,49 @@ const ADMIN_CONFIG = {
     </div>
 
     <script>
+        // إعدادات Google Sheets الحقيقية
+        const GOOGLE_SHEETS_CONFIG = {
+            // رابط Google Apps Script (Web App)
+            scriptUrl: 'https://script.google.com/macros/s/AKfycby_JapW-HsRXIQ83j4f54eE5i3FsjxUDuEjPK5i2Gg-DBXyeU-968pGJchRLmaCdxBojg/exec',
+            
+            // رابط Google Sheets المباشر
+            sheetsUrl: 'https://docs.google.com/spreadsheets/d/1uVKm0qkDytwdlgi6CT8cGDKBt4khJLwQ-AscGLcY44o/edit?gid=0#gid=0'
+        };
+
         // متغيرات عامة
         let loginAttempts = 0;
         let isBlocked = false;
         let sessionToken = null;
         let refreshInterval = null;
-        let sheetsData = {
+        let realData = {
             messages: [],
             stats: {
                 totalMessages: 0,
                 todayMessages: 0,
-                conversionRate: '0%',
-                visitors: 0
+                thisWeekMessages: 0,
+                responseRate: '0%'
             }
         };
 
-        // التحقق من تحميل الإعدادات
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof ADMIN_CONFIG === 'undefined') {
-                showMessage('خطأ: لم يتم تحميل ملف الإعدادات', 'error');
-                return;
-            }
+        // تحديث الروابط بالروابط الحقيقية
+        function updateRealLinks() {
+            document.getElementById('sheetsLink').href = GOOGLE_SHEETS_CONFIG.sheetsUrl;
+            document.getElementById('quickSheetsLink').href = GOOGLE_SHEETS_CONFIG.sheetsUrl;
+        }
 
-            console.log('✅ تم تحميل إعدادات Dashboard بنجاح');
-            
-            // تحديث الروابط
-            updateLinks();
-            
-            // التحقق من الجلسة المحفوظة
+        // التحقق من تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ تم تحميل لوحة التحكم الحقيقية');
+            updateRealLinks();
             checkSavedSession();
-            
-            // إعداد Google Analytics إذا كان مفعل
-            initializeAnalytics();
         });
 
-        // ===============================
-        // وظائف تسجيل الدخول والأمان
-        // ===============================
-
+        // وظائف تسجيل الدخول
         function handleLogin(event) {
             event.preventDefault();
             
             if (isBlocked) {
-                showMessage(`تم حظر المحاولات لمدة ${ADMIN_CONFIG.security.blockDuration} دقيقة`, 'error');
+                showMessage('تم حظر المحاولات لمدة 15 دقيقة', 'error');
                 return;
             }
             
@@ -758,51 +756,35 @@ const ADMIN_CONFIG = {
                 return;
             }
             
-            // تعطيل الزر أثناء المعالجة
             loginBtn.disabled = true;
             loginBtn.innerHTML = '<span class="loading-spinner"></span> جاري التحقق...';
             
-            // تشفير كلمة المرور المدخلة
-            const hashedPassword = CryptoJS.SHA256(password).toString();
-            
-            // التحقق من البيانات
-            if (username === ADMIN_CONFIG.credentials.username && 
-                password === 'nadh2025@secure'
-) {
-                
-                // نجح تسجيل الدخول
+            // بيانات الدخول الحقيقية (يجب تغييرها لأمان أفضل)
+            if (username === 'nadh_admin' && password === 'nadh2025@secure') {
                 loginSuccess();
-                
             } else {
-                // فشل تسجيل الدخول
                 loginFailed();
             }
             
-            // إعادة تفعيل الزر
             loginBtn.disabled = false;
-            loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> دخول';
+            loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> دخول للوحة الحقيقية';
         }
 
         function loginSuccess() {
-            console.log('✅ تم تسجيل الدخول بنجاح');
+            console.log('✅ تم تسجيل الدخول بنجاح للوحة الحقيقية');
             
-            // إنشاء token للجلسة
             sessionToken = generateSessionToken();
-            
-            // حفظ الجلسة
             localStorage.setItem('nadhAdminSession', JSON.stringify({
                 token: sessionToken,
                 loginTime: Date.now(),
-                expiresAt: Date.now() + (ADMIN_CONFIG.security.sessionTimeout * 60 * 1000)
+                expiresAt: Date.now() + (60 * 60 * 1000) // ساعة واحدة
             }));
             
-            // إعادة تعيين المحاولات
             loginAttempts = 0;
-            
-            showMessage('مرحباً بك في لوحة التحكم', 'success');
+            showMessage('مرحباً بك في لوحة التحكم الحقيقية', 'success');
             
             setTimeout(() => {
-                showDashboard();
+                showRealDashboard();
             }, 1000);
         }
 
@@ -810,19 +792,18 @@ const ADMIN_CONFIG = {
             loginAttempts++;
             console.log(`❌ محاولة دخول فاشلة رقم ${loginAttempts}`);
             
-            if (loginAttempts >= ADMIN_CONFIG.security.maxLoginAttempts) {
-                // حظر مؤقت
+            if (loginAttempts >= 3) {
                 isBlocked = true;
-                showMessage(`تم حظر المحاولات لمدة ${ADMIN_CONFIG.security.blockDuration} دقيقة بعد ${loginAttempts} محاولات فاشلة`, 'error');
+                showMessage('تم حظر المحاولات لمدة 15 دقيقة بعد 3 محاولات فاشلة', 'error');
                 
                 setTimeout(() => {
                     isBlocked = false;
                     loginAttempts = 0;
                     showMessage('تم رفع الحظر، يمكنك المحاولة مرة أخرى', 'success');
-                }, ADMIN_CONFIG.security.blockDuration * 60 * 1000);
+                }, 15 * 60 * 1000);
                 
             } else {
-                const remaining = ADMIN_CONFIG.security.maxLoginAttempts - loginAttempts;
+                const remaining = 3 - loginAttempts;
                 showMessage(`اسم المستخدم أو كلمة المرور غير صحيحة (${remaining} محاولات متبقية)`, 'error');
             }
         }
@@ -830,7 +811,7 @@ const ADMIN_CONFIG = {
         function generateSessionToken() {
             const timestamp = Date.now().toString();
             const random = Math.random().toString(36).substring(2);
-            return CryptoJS.SHA256(timestamp + random + ADMIN_CONFIG.credentials.username).toString().substring(0, 32);
+            return timestamp + random;
         }
 
         function checkSavedSession() {
@@ -843,7 +824,7 @@ const ADMIN_CONFIG = {
                     if (Date.now() < session.expiresAt) {
                         sessionToken = session.token;
                         console.log('✅ تم استرداد الجلسة المحفوظة');
-                        showDashboard();
+                        showRealDashboard();
                         return;
                     } else {
                         console.log('⏰ انتهت صلاحية الجلسة');
@@ -857,370 +838,278 @@ const ADMIN_CONFIG = {
         }
 
         function logout() {
-            console.log('🚪 تسجيل الخروج');
+            console.log('🚪 تسجيل الخروج من اللوحة الحقيقية');
             
-            // مسح البيانات
             sessionToken = null;
             localStorage.removeItem('nadhAdminSession');
             
-            // إيقاف التحديث التلقائي
             if (refreshInterval) {
                 clearInterval(refreshInterval);
             }
             
-            // العودة لصفحة تسجيل الدخول
             document.getElementById('loginContainer').style.display = 'flex';
             document.getElementById('dashboard').classList.remove('active');
             
-            // مسح الحقول
             document.getElementById('username').value = '';
             document.getElementById('password').value = '';
             
             showMessage('تم تسجيل الخروج بنجاح', 'success');
         }
 
-        // ===============================
-        // وظائف Dashboard
-        // ===============================
-
-        function showDashboard() {
+        // وظائف لوحة التحكم الحقيقية
+        function showRealDashboard() {
             document.getElementById('loginContainer').style.display = 'none';
             document.getElementById('dashboard').classList.add('active');
             
             updateLastUpdate();
-            loadDashboardData();
+            loadRealDataFromSheets();
             
-            // بدء التحديث التلقائي
-            if (ADMIN_CONFIG.refresh.enabled) {
-                startAutoRefresh();
-            }
+            // بدء التحديث التلقائي كل 5 دقائق
+            startRealAutoRefresh();
         }
 
-        function updateLinks() {
-            const sheetsUrl = ADMIN_CONFIG.googleSheets.directUrl;
-            document.getElementById('sheetsLink').href = sheetsUrl;
-            document.getElementById('quickSheetsLink').href = sheetsUrl;
-        }
-
-        function updateLastUpdate() {
-            const now = new Date();
-            const timeString = now.toLocaleString('ar-SA', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            document.getElementById('lastUpdate').textContent = `آخر تحديث: ${timeString}`;
-        }
-
-        // ===== استبدل دالة loadDashboardData في admin.html بهذا =====
-
-async function loadDashboardData() {
-    console.log('📊 جاري تحميل البيانات الحقيقية من Google Sheets...');
-    
-    try {
-        // عرض loading
-        showLoadingState();
-        
-        // استدعاء البيانات من Google Sheets
-        const response = await fetch('https://script.google.com/macros/s/AKfycby_JapW-HsRXIQ83j4f54eE5i3FsjxUDuEjPK5i2Gg-DBXyeU-968pGJchRLmaCdxBojg/exec?action=dashboard', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            console.log('✅ تم تحميل البيانات بنجاح:', result);
+        // تحميل البيانات الحقيقية من Google Sheets
+        async function loadRealDataFromSheets() {
+            console.log('📊 جاري تحميل البيانات الحقيقية من Google Sheets...');
             
-            // تحديث الإحصائيات
-            updateRealStatistics(result.stats);
+            updateConnectionStatus('loading', 'جاري الاتصال بـ Google Sheets...');
             
-            // تحديث الرسائل
-            updateRealMessages(result.recentMessages);
-            
-            // تحديث وقت آخر تحديث
-            document.getElementById('lastUpdate').textContent = `آخر تحديث: ${result.lastUpdate}`;
-            
-        } else {
-            throw new Error(result.error || 'خطأ في تحميل البيانات');
-        }
-        
-    } catch (error) {
-        console.error('خطأ في تحميل البيانات:', error);
-        
-        // عرض رسالة خطأ للمستخدم
-        showErrorState(error.message);
-        
-        // fallback للبيانات التجريبية
-        loadFallbackData();
-    }
-}
-
-// عرض حالة التحميل
-function showLoadingState() {
-    // الإحصائيات
-    document.getElementById('visitorsCount').innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-    document.getElementById('messagesCount').innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-    document.getElementById('conversionRate').innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-    document.getElementById('todayMessages').innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-    
-    // الرسائل
-    document.getElementById('recentMessages').innerHTML = `
-        <div class="no-data">
-            <i class="fas fa-spinner fa-spin"></i>
-            <p>جاري تحميل الرسائل الحقيقية...</p>
-        </div>
-    `;
-}
-
-// عرض حالة الخطأ
-function showErrorState(errorMessage) {
-    document.getElementById('recentMessages').innerHTML = `
-        <div class="no-data">
-            <i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>
-            <p style="color: #dc3545;">خطأ في تحميل البيانات</p>
-            <small>${errorMessage}</small>
-        </div>
-    `;
-}
-
-// تحديث الإحصائيات الحقيقية
-function updateRealStatistics(stats) {
-    // تحديث الأرقام مع أنيميشن
-    animateNumber('messagesCount', stats.totalMessages);
-    animateNumber('todayMessages', stats.todayMessages);
-    
-    // معدل التحويل
-    document.getElementById('conversionRate').textContent = stats.conversionRate;
-    
-    // رقم الزوار (يمكن ربطه مع Google Analytics لاحقاً)
-    animateNumber('visitorsCount', stats.thisMonthMessages * 10); // تقدير تقريبي
-    
-    console.log('📈 تم تحديث الإحصائيات:', stats);
-}
-
-// تحديث الرسائل الحقيقية
-function updateRealMessages(messages) {
-    const messagesContainer = document.getElementById('recentMessages');
-    
-    if (!messages || messages.length === 0) {
-        messagesContainer.innerHTML = `
-            <div class="no-data">
-                <i class="fas fa-inbox"></i>
-                <p>لا توجد رسائل حالياً</p>
-                <small>عندما يرسل العملاء رسائل من الموقع ستظهر هنا</small>
-            </div>
-        `;
-        return;
-    }
-    
-    let messagesHTML = '';
-    messages.forEach((msg, index) => {
-        messagesHTML += `
-            <div class="message-item" style="animation-delay: ${index * 0.1}s;">
-                <div class="message-header">
-                    <span class="message-name">${msg.name}</span>
-                    <span class="message-time">${msg.timestamp}</span>
-                </div>
-                <div class="message-contact">
-                    📧 ${msg.email} | 📱 ${msg.phone}
-                </div>
-                <div style="margin-bottom: 8px;">
-                    <span class="message-service">${msg.service}</span>
-                    <span class="message-status" style="
-                        background: ${msg.status === 'جديد' ? '#ff6b6b' : '#51cf66'};
-                        color: white;
-                        padding: 2px 8px;
-                        border-radius: 12px;
-                        font-size: 11px;
-                        margin-right: 8px;
-                    ">${msg.status}</span>
-                </div>
-                <div class="message-content">${msg.message}</div>
-                ${msg.notes ? `<div style="margin-top: 8px; font-size: 12px; color: #666; font-style: italic;">📝 ${msg.notes}</div>` : ''}
-            </div>
-        `;
-    });
-    
-    messagesContainer.innerHTML = messagesHTML;
-    console.log(`📨 تم تحديث ${messages.length} رسالة`);
-}
-
-// تحديث دالة refreshData لاستخدام البيانات الحقيقية
-function refreshData() {
-    const refreshBtn = event.target;
-    const icon = refreshBtn.querySelector('i');
-    
-    // أنيميشن التحديث
-    icon.classList.add('fa-spin');
-    refreshBtn.disabled = true;
-    
-    console.log('🔄 تحديث البيانات الحقيقية...');
-    
-    // استدعاء البيانات الحقيقية
-    loadDashboardData().then(() => {
-        updateLastUpdate();
-        
-        // إنهاء الأنيميشن
-        icon.classList.remove('fa-spin');
-        refreshBtn.disabled = false;
-        
-        showMessage('تم تحديث البيانات الحقيقية بنجاح', 'success');
-    }).catch((error) => {
-        console.error('خطأ في التحديث:', error);
-        
-        // إنهاء الأنيميشن حتى في حالة الخطأ
-        icon.classList.remove('fa-spin');
-        refreshBtn.disabled = false;
-        
-        showMessage('حدث خطأ في تحديث البيانات', 'error');
-    });
-}
-
-// تحسين دالة startAutoRefresh للبيانات الحقيقية
-function startAutoRefresh() {
-    if (refreshInterval) {
-        clearInterval(refreshInterval);
-    }
-    
-    refreshInterval = setInterval(() => {
-        console.log('🔄 تحديث تلقائي للبيانات الحقيقية...');
-        loadDashboardData();
-    }, ADMIN_CONFIG.refresh.interval * 1000);
-    
-    console.log(`✅ تم تفعيل التحديث التلقائي للبيانات الحقيقية كل ${ADMIN_CONFIG.refresh.interval} ثانية`);
-}
-
-        async function loadSheetsData() {
-            // نظراً لأن Google Sheets API يحتاج مفتاح API
-            // سنستخدم البيانات التجريبية حالياً
-            console.log('⚠️ Google Sheets API غير مكوّن - استخدام بيانات تجريبية');
-            
-            // هنا يمكن إضافة استدعاء حقيقي لـ Google Sheets API
-            // مع مفتاح API أو Apps Script
-            
-            return Promise.resolve();
-        }
-
-        function loadFallbackData() {
-            console.log('📋 تحميل بيانات تجريبية...');
-            
-            // بيانات تجريبية واقعية
-            sheetsData = {
-                messages: [
-                    {
-                        timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // منذ ساعتين
-                        name: 'أحمد محمد السعدي',
-                        email: 'ahmed.saadi@email.com',
-                        phone: '0501234567',
-                        service: 'الأنظمة الميكانيكية',
-                        message: 'مرحباً، أريد عرض سعر لنظام إطفاء حريق لمطعم مساحة 200 متر مربع في الرياض...'
-                    },
-                    {
-                        timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000), // منذ 5 ساعات
-                        name: 'سارة عبدالله العتيبي',
-                        email: 'sara.otaibi@email.com',
-                        phone: '0559876543',
-                        service: 'مشروع متكامل',
-                        message: 'السلام عليكم، لدي مشروع سكني (فيلا) ويحتاج أنظمة كاملة للسلامة والحماية من الحريق...'
-                    },
-                    {
-                        timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // أمس
-                        name: 'خالد سلمان الدوسري',
-                        email: 'khalid.dosari@email.com',
-                        phone: '0567891234',
-                        service: 'استشارة فنية',
-                        message: 'أريد استشارة فنية حول أفضل أنواع أبواب الطوارئ للمباني التجارية...'
+            try {
+                // إرسال طلب للحصول على البيانات
+                const response = await fetch(`${GOOGLE_SHEETS_CONFIG.scriptUrl}?action=getDashboardData&timestamp=${Date.now()}`, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Cache-Control': 'no-cache'
                     }
-                ],
-                stats: {
-                    totalMessages: 45,
-                    todayMessages: 3,
-                    conversionRate: '67%',
-                    visitors: 1240
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
+                
+                const result = await response.json();
+                
+                if (result.success && result.data) {
+                    console.log('✅ تم تحميل البيانات الحقيقية بنجاح:', result.data);
+                    
+                    realData = result.data;
+                    updateConnectionStatus('connected', 'متصل بـ Google Sheets - البيانات محدثة');
+                    
+                    // تحديث الواجهة بالبيانات الحقيقية
+                    updateRealStatistics();
+                    updateRealMessages();
+                    
+                } else {
+                    throw new Error(result.error || 'خطأ في هيكل البيانات المستلمة');
+                }
+                
+            } catch (error) {
+                console.error('❌ خطأ في تحميل البيانات الحقيقية:', error);
+                updateConnectionStatus('disconnected', `خطأ في الاتصال: ${error.message}`);
+                
+                // عرض رسالة خطأ مفصلة
+                showErrorInDashboard(error.message);
+                
+                // محاولة استخدام البيانات المحفوظة محلياً كحل احتياطي
+                loadFallbackData();
+            }
+        }
+
+        // تحديث حالة الاتصال
+        function updateConnectionStatus(status, message) {
+            const statusElement = document.getElementById('connectionStatus');
+            const textElement = document.getElementById('connectionText');
+            
+            statusElement.className = `connection-status ${status}`;
+            textElement.textContent = message;
+            
+            const icons = {
+                'connected': 'fas fa-check-circle',
+                'disconnected': 'fas fa-exclamation-triangle',
+                'loading': 'fas fa-spinner fa-spin'
             };
             
-            updateStatistics();
-            updateMessagesDisplay();
+            const icon = statusElement.querySelector('i');
+            icon.className = icons[status] || 'fas fa-wifi';
         }
 
-        function updateStatistics() {
-            const stats = sheetsData.stats;
+        // تحديث الإحصائيات الحقيقية
+        function updateRealStatistics() {
+            const stats = realData.stats;
             
             // تحديث الأرقام مع أنيميشن
-            animateNumber('visitorsCount', stats.visitors);
-            animateNumber('messagesCount', stats.totalMessages);
-            animateNumber('todayMessages', stats.todayMessages);
+            animateNumber('messagesCount', stats.totalMessages || 0);
+            animateNumber('todayMessages', stats.todayMessages || 0);
+            animateNumber('weekMessages', stats.thisWeekMessages || 0);
             
-            // معدل التحويل
-            document.getElementById('conversionRate').textContent = stats.conversionRate;
+            // معدل الاستجابة
+            document.getElementById('conversionRate').textContent = stats.responseRate || '0%';
+            
+            console.log('📈 تم تحديث الإحصائيات الحقيقية:', stats);
         }
 
-        function updateMessagesDisplay() {
+        // تحديث الرسائل الحقيقية
+        function updateRealMessages() {
             const messagesContainer = document.getElementById('recentMessages');
-            const messages = sheetsData.messages;
+            const messages = realData.messages || [];
             
             if (!messages || messages.length === 0) {
                 messagesContainer.innerHTML = `
                     <div class="no-data">
                         <i class="fas fa-inbox"></i>
-                        <p>لا توجد رسائل حالياً</p>
+                        <p>لا توجد رسائل في Google Sheets حالياً</p>
+                        <small>عندما يرسل العملاء رسائل من الموقع ستظهر هنا تلقائياً</small>
                     </div>
                 `;
                 return;
             }
             
             let messagesHTML = '';
-            messages.forEach(msg => {
+            messages.forEach((msg, index) => {
                 const timeAgo = getTimeAgo(msg.timestamp);
+                const serviceNames = {
+                    'mechanical': 'الأنظمة الميكانيكية',
+                    'electrical': 'الأنظمة الكهربائية', 
+                    'doors': 'أبواب الطوارئ',
+                    'maintenance': 'الصيانة والدعم',
+                    'consultation': 'استشارة فنية',
+                    'complete': 'مشروع متكامل'
+                };
                 
                 messagesHTML += `
-                    <div class="message-item">
+                    <div class="message-item" style="animation-delay: ${index * 0.1}s;">
                         <div class="message-header">
-                            <span class="message-name">${msg.name}</span>
+                            <span class="message-name">${msg.name || 'غير محدد'}</span>
                             <span class="message-time">${timeAgo}</span>
                         </div>
                         <div class="message-contact">
-                            📧 ${msg.email} | 📱 ${msg.phone}
+                            📧 ${msg.email || 'غير محدد'} | 📱 ${msg.phone || 'غير محدد'}
                         </div>
                         <div style="margin-bottom: 8px;">
-                            <span class="message-service">${msg.service}</span>
+                            <span class="message-service">${serviceNames[msg.service] || msg.service || 'غير محدد'}</span>
+                            <span class="message-time" style="margin-right: 10px;">🕒 ${msg.timestamp || 'غير محدد'}</span>
                         </div>
-                        <div class="message-content">${msg.message}</div>
+                        <div class="message-content">${msg.message || 'لا يوجد نص للرسالة'}</div>
                     </div>
                 `;
             });
             
             messagesContainer.innerHTML = messagesHTML;
+            console.log(`📨 تم عرض ${messages.length} رسالة حقيقية من Google Sheets`);
         }
 
-        function getTimeAgo(timestamp) {
-            const now = new Date();
-            const diffMs = now - new Date(timestamp);
-            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-            const diffDays = Math.floor(diffHours / 24);
+        // عرض خطأ في الداشبورد
+        function showErrorInDashboard(errorMessage) {
+            const messagesContainer = document.getElementById('recentMessages');
+            messagesContainer.innerHTML = `
+                <div class="no-data">
+                    <i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>
+                    <p style="color: #dc3545;">خطأ في تحميل البيانات الحقيقية</p>
+                    <small style="color: #666;">${errorMessage}</small>
+                    <br><br>
+                    <button onclick="loadRealDataFromSheets()" class="btn btn-primary" style="margin-top: 10px;">
+                        <i class="fas fa-sync-alt"></i> إعادة المحاولة
+                    </button>
+                </div>
+            `;
+        }
+
+        // بيانات احتياطية في حالة فشل الاتصال
+        function loadFallbackData() {
+            console.log('⚠️ استخدام البيانات الاحتياطية بسبب فشل الاتصال');
             
-            if (diffDays > 0) {
-                return `منذ ${diffDays} يوم`;
-            } else if (diffHours > 0) {
-                return `منذ ${diffHours} ساعة`;
-            } else {
-                const diffMinutes = Math.floor(diffMs / (1000 * 60));
-                return `منذ ${diffMinutes} دقيقة`;
+            // بيانات احتياطية بسيطة
+            realData = {
+                messages: [
+                    {
+                        timestamp: new Date().toISOString(),
+                        name: 'اختبار الاتصال',
+                        email: 'test@example.com',
+                        phone: '0500000000',
+                        service: 'consultation',
+                        message: 'هذه رسالة احتياطية تظهر عند فشل الاتصال بـ Google Sheets. يرجى التحقق من الاتصال وإعادة المحاولة.'
+                    }
+                ],
+                stats: {
+                    totalMessages: 0,
+                    todayMessages: 0,
+                    thisWeekMessages: 0,
+                    responseRate: '0%'
+                }
+            };
+            
+            updateRealStatistics();
+            updateRealMessages();
+        }
+
+        // تحديث البيانات الحقيقية
+        function refreshRealData() {
+            const refreshBtn = event.target;
+            const icon = refreshBtn.querySelector('i');
+            
+            icon.classList.add('fa-spin');
+            refreshBtn.disabled = true;
+            
+            console.log('🔄 تحديث البيانات الحقيقية يدوياً...');
+            
+            loadRealDataFromSheets().then(() => {
+                updateLastUpdate();
+                showMessage('تم تحديث البيانات الحقيقية بنجاح', 'success');
+            }).catch((error) => {
+                console.error('خطأ في التحديث اليدوي:', error);
+                showMessage('حدث خطأ في تحديث البيانات الحقيقية', 'error');
+            }).finally(() => {
+                icon.classList.remove('fa-spin');
+                refreshBtn.disabled = false;
+            });
+        }
+
+        // التحديث التلقائي للبيانات الحقيقية
+        function startRealAutoRefresh() {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+            }
+            
+            // تحديث كل 5 دقائق (300 ثانية)
+            refreshInterval = setInterval(() => {
+                console.log('🔄 تحديث تلقائي للبيانات الحقيقية...');
+                loadRealDataFromSheets();
+            }, 5 * 60 * 1000);
+            
+            console.log('✅ تم تفعيل التحديث التلقائي للبيانات الحقيقية كل 5 دقائق');
+        }
+
+        // حساب الوقت المنقضي
+        function getTimeAgo(timestamp) {
+            if (!timestamp) return 'غير محدد';
+            
+            try {
+                const now = new Date();
+                const messageTime = new Date(timestamp);
+                const diffMs = now - messageTime;
+                const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+                const diffDays = Math.floor(diffHours / 24);
+                
+                if (diffDays > 0) {
+                    return `منذ ${diffDays} يوم`;
+                } else if (diffHours > 0) {
+                    return `منذ ${diffHours} ساعة`;
+                } else {
+                    const diffMinutes = Math.floor(diffMs / (1000 * 60));
+                    return `منذ ${diffMinutes} دقيقة`;
+                }
+            } catch (error) {
+                console.error('خطأ في حساب الوقت:', error);
+                return 'غير محدد';
             }
         }
 
+        // أنيميشن الأرقام
         function animateNumber(elementId, targetNumber) {
             const element = document.getElementById(elementId);
+            if (!element) return;
+            
             const startNumber = 0;
             const duration = 2000;
             const startTime = Date.now();
@@ -1240,103 +1129,98 @@ function startAutoRefresh() {
             update();
         }
 
-        function refreshData() {
-            const refreshBtn = event.target;
-            const icon = refreshBtn.querySelector('i');
+        // تحديث وقت آخر تحديث
+        function updateLastUpdate() {
+            const now = new Date();
+            const timeString = now.toLocaleString('ar-SA', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            const lastUpdateElement = document.getElementById('lastUpdate');
+            if (lastUpdateElement) {
+                lastUpdateElement.textContent = `آخر تحديث: ${timeString}`;
+            }
+        }
+
+        // نظام الرسائل
+        function showMessage(message, type = 'info') {
+            const alert = document.createElement('div');
+            alert.className = `custom-alert alert-${type}`;
+            alert.innerHTML = `
+                <div class="alert-content">
+                    <i class="fas fa-${getAlertIcon(type)}"></i>
+                    <span>${message}</span>
+                    <button class="alert-close">&times;</button>
+                </div>
+            `;
             
-            // أنيميشن التحديث
-            icon.classList.add('fa-spin');
-            refreshBtn.disabled = true;
+            alert.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: ${getAlertColor(type)};
+                color: white;
+                padding: 1rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                max-width: 400px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                font-family: 'Cairo', sans-serif;
+            `;
             
-            console.log('🔄 تحديث البيانات...');
+            document.body.appendChild(alert);
             
             setTimeout(() => {
-                loadDashboardData();
-                updateLastUpdate();
-                
-                // إنهاء الأنيميشن
-                icon.classList.remove('fa-spin');
-                refreshBtn.disabled = false;
-                
-                showMessage('تم تحديث البيانات بنجاح', 'success');
-            }, 1000);
-        }
-
-        function startAutoRefresh() {
-            if (refreshInterval) {
-                clearInterval(refreshInterval);
-            }
+                alert.style.transform = 'translateX(0)';
+            }, 100);
             
-            refreshInterval = setInterval(() => {
-                console.log('🔄 تحديث تلقائي للبيانات...');
-                loadDashboardData();
-                updateLastUpdate();
-            }, ADMIN_CONFIG.refresh.interval * 1000);
+            setTimeout(() => {
+                hideAlert(alert);
+            }, 5000);
             
-            console.log(`✅ تم تفعيل التحديث التلقائي كل ${ADMIN_CONFIG.refresh.interval} ثانية`);
-        }
-
-        // ===============================
-        // وظائف Google Analytics
-        // ===============================
-
-        function initializeAnalytics() {
-            if (!ADMIN_CONFIG.analytics.enabled) {
-                console.log('⏸️ Google Analytics معطل في الإعدادات');
-                return;
-            }
-            
-            // إعداد Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('config', ADMIN_CONFIG.analytics.measurementId, {
-                    page_title: 'Dashboard - ناض للمقاولات',
-                    page_location: window.location.href,
-                    content_group1: 'لوحة التحكم'
-                });
-                
-                console.log('✅ تم تكوين Google Analytics');
-                
-                // تتبع دخول Dashboard
-                gtag('event', 'admin_login', {
-                    event_category: 'admin',
-                    event_label: 'dashboard_access'
-                });
-            }
-        }
-
-        // ===============================
-        // وظائف المساعدة
-        // ===============================
-
-        function showMessage(message, type = 'info') {
-            // إخفاء الرسائل السابقة
-            document.querySelectorAll('.error-message, .success-message').forEach(el => {
-                el.classList.add('hidden');
+            alert.querySelector('.alert-close').addEventListener('click', () => {
+                hideAlert(alert);
             });
-            
-            let targetElement;
-            if (type === 'error') {
-                targetElement = document.getElementById('errorMessage');
-            } else {
-                targetElement = document.getElementById('successMessage');
-            }
-            
-            if (targetElement) {
-                targetElement.textContent = message;
-                targetElement.classList.remove('hidden');
-                
-                // إخفاء الرسالة بعد 5 ثوان
-                setTimeout(() => {
-                    targetElement.classList.add('hidden');
-                }, 5000);
-            }
-            
-            console.log(`${type === 'error' ? '❌' : '✅'} ${message}`);
+        }
+
+        function getAlertIcon(type) {
+            const icons = {
+                'success': 'check-circle',
+                'error': 'exclamation-circle',
+                'warning': 'exclamation-triangle',
+                'info': 'info-circle'
+            };
+            return icons[type] || 'info-circle';
+        }
+
+        function getAlertColor(type) {
+            const colors = {
+                'success': '#10B981',
+                'error': '#EF4444', 
+                'warning': '#F59E0B',
+                'info': '#3B82F6'
+            };
+            return colors[type] || '#3B82F6';
+        }
+
+        function hideAlert(alert) {
+            alert.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (alert.parentNode) {
+                    alert.parentNode.removeChild(alert);
+                }
+            }, 300);
         }
 
         // معالجة أخطاء JavaScript
         window.addEventListener('error', function(e) {
-            console.error('خطأ في JavaScript:', e.error);
+            console.error('خطأ في JavaScript للوحة التحكم:', e.error);
+            updateConnectionStatus('disconnected', 'خطأ في تشغيل اللوحة');
         });
 
         // تنظيف الموارد عند إغلاق الصفحة
@@ -1346,7 +1230,10 @@ function startAutoRefresh() {
             }
         });
 
-        console.log('✅ تم تحميل نظام Dashboard المحدث والآمن');
+        // جعل الوظائف متاحة عالمياً
+        window.refreshRealData = refreshRealData;
+        window.loadRealDataFromSheets = loadRealDataFromSheets;
+
     </script>
 </body>
 </html>
