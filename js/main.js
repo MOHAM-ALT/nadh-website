@@ -136,26 +136,47 @@ async function submitToGoogleSheets(event) {
         
         const formData = new FormData(form);
         
-        // إرسال مباشر كـ URL parameters
-        const params = new URLSearchParams();
-        params.append('name', formData.get('name'));
-        params.append('email', formData.get('email'));
-        params.append('phone', formData.get('phone'));
-        params.append('service', formData.get('service'));
-        params.append('message', formData.get('message'));
+        // إنشاء نموذج مخفي يرسل لـ Google Form
+        const hiddenForm = document.createElement('form');
+        hiddenForm.method = 'POST';
+        hiddenForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdJNmss3lSaJqW9pppPXresyLUoCMU79Xuz0czOEZ4XN7qhHw/viewform?usp=sharing&ouid=114506188133046481957';
+        hiddenForm.target = 'hidden_iframe';
+        hiddenForm.style.display = 'none';
         
-        const response = await fetch('https://script.google.com/macros/s/AKfycbyURfrvrukFWczWEfFefENe9qGgNfxZKZCNvHpIrBZxPJtHiUXd_uRQWp4ze6XowK-b0A/exec', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: params
+        // إضافة الحقول (ستحتاج entry IDs من Google Form)
+        const fields = {
+            'entry.XXXXXX': formData.get('name'),
+            'entry.YYYYYY': formData.get('email'),
+            'entry.ZZZZZZ': formData.get('phone'),
+            'entry.WWWWWW': formData.get('service'),
+            'entry.QQQQQQ': formData.get('message')
+        };
+        
+        Object.keys(fields).forEach(key => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = fields[key];
+            hiddenForm.appendChild(input);
         });
         
-        const result = await response.text();
-        console.log('النتيجة:', result);
+        // إنشاء iframe مخفي
+        const iframe = document.createElement('iframe');
+        iframe.name = 'hidden_iframe';
+        iframe.style.display = 'none';
         
-        showAlert('✅ تم إرسال رسالتك بنجاح!', 'success');
+        document.body.appendChild(iframe);
+        document.body.appendChild(hiddenForm);
+        
+        hiddenForm.submit();
+        
+        // تنظيف بعد الإرسال
+        setTimeout(() => {
+            document.body.removeChild(hiddenForm);
+            document.body.removeChild(iframe);
+        }, 2000);
+        
+        showAlert('✅ تم إرسال رسالتك بنجاح! سنتواصل معك خلال 24 ساعة.', 'success');
         form.reset();
         
     } catch (error) {
