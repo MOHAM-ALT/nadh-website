@@ -139,7 +139,7 @@ async function submitToGoogleSheets(event) {
         // إنشاء نموذج مخفي يرسل لـ Google Form
         const hiddenForm = document.createElement('form');
         hiddenForm.method = 'POST';
-        hiddenForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdJNmss3lSaJqW9pppPXresyLUoCMU79Xuz0czOEZ4XN7qhHw/viewform?usp=sharing&ouid=114506188133046481957';
+        hiddenForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdJNmss3lSaJqW9pppPXresyLUoCMU79Xuz0czOEZ4XN7qhHw/formResponse';
         hiddenForm.target = 'hidden_iframe';
         hiddenForm.style.display = 'none';
         
