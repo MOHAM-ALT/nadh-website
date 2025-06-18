@@ -1031,73 +1031,115 @@
             `;
         }
 
-        // بيانات احتياطية واقعية بدلاً من الفارغة
-        function loadFallbackData() {
-            console.log('⚠️ استخدام البيانات الاحتياطية الواقعية بسبب فشل الاتصال');
+        // تحديث الروابط
+        function updateRealLinks() {
+            document.getElementById('sheetsLink').href = GOOGLE_SHEETS_CONFIG.sheetsUrl;
+            document.getElementById('quickSheetsLink').href = GOOGLE_SHEETS_CONFIG.sheetsUrl;
+        }
+
+        // عرض خطأ مع تفاصيل أكثر
+        function showErrorInDashboard(errorMessage) {
+            const messagesContainer = document.getElementById('recentMessages');
+            messagesContainer.innerHTML = `
+                <div class="no-data">
+                    <i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>
+                    <p style="color: #dc3545; margin: 15px 0;"><strong>خطأ في تحميل البيانات الحقيقية</strong></p>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; text-align: right;">
+                        <small style="color: #666; font-family: monospace;">${errorMessage}</small>
+                    </div>
+                    <div style="margin: 20px 0;">
+                        <h4 style="color: #666; margin-bottom: 10px;">خطوات الحل:</h4>
+                        <ul style="text-align: right; color: #666; font-size: 14px; line-height: 1.6;">
+                            <li>تأكد من أن Apps Script مُنشر كـ Web App</li>
+                            <li>تحقق من أن الصلاحيات مُفعلة "Anyone can access"</li>
+                            <li>تأكد من أن اسم الشيت هو "رسائل التواصل"</li>
+                            <li>تحقق من أن البيانات موجودة في الشيت</li>
+                        </ul>
+                    </div>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                        <button onclick="loadRealDataFromSheets()" class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i> إعادة المحاولة
+                        </button>
+                        <a href="${GOOGLE_SHEETS_CONFIG.sheetsUrl}" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-external-link-alt"></i> فتح Google Sheets
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // تحديث الرسائل الحقيقية مع تحسينات
+        function updateRealMessages() {
+            const messagesContainer = document.getElementById('recentMessages');
+            const messages = realData.messages || [];
             
-            // بيانات احتياطية واقعية لأغراض العرض
-            realData = {
-                messages: [
-                    {
-                        timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(), // منذ ساعتين
-                        name: 'أحمد محمد السعدي',
-                        email: 'ahmed.saadi@email.com',
-                        phone: '0501234567',
-                        service: 'mechanical',
-                        message: 'مرحباً، أريد عرض سعر لنظام إطفاء حريق لمطعم مساحة 200 متر مربع في الرياض. المطعم يقع في حي العليا ويحتاج نظام رش آلي ومضخة حريق.'
-                    },
-                    {
-                        timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(), // منذ 5 ساعات
-                        name: 'سارة عبدالله العتيبي',
-                        email: 'sara.otaibi@email.com',
-                        phone: '0559876543',
-                        service: 'complete',
-                        message: 'السلام عليكم، لدي مشروع سكني (فيلا) في حي الصحافة ويحتاج أنظمة كاملة للسلامة والحماية من الحريق. أريد استشارة شاملة عن الأنظمة المطلوبة.'
-                    },
-                    {
-                        timestamp: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(), // منذ 8 ساعات
-                        name: 'خالد سلمان الدوسري',
-                        email: 'khalid.dosari@email.com',
-                        phone: '0567891234',
-                        service: 'consultation',
-                        message: 'أريد استشارة فنية حول أفضل أنواع أبواب الطوارئ للمباني التجارية. المبنى مؤلف من 4 طوابق ويحتاج اشتراطات الدفاع المدني.'
-                    },
-                    {
-                        timestamp: new Date(Date.now() - 12 * 60 * 60 * 1000).toISOString(), // منذ 12 ساعة
-                        name: 'فاطمة أحمد الغامدي',
-                        email: 'fatimah.alghamdi@email.com',
-                        phone: '0554567890',
-                        service: 'electrical',
-                        message: 'نحتاج تركيب كاميرات مراقبة لمحل تجاري في جدة مع نظام إنذار حريق. المحل مساحته 150 متر مربع.'
-                    },
-                    {
-                        timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(), // أمس
-                        name: 'محمد عبدالرحمن القحطاني',
-                        email: 'mohammed.alqahtani@email.com',
-                        phone: '0503456789',
-                        service: 'maintenance',
-                        message: 'عندي مضخة حريق في المستودع لا تعمل بشكل صحيح. نحتاج فحص وصيانة عاجلة لأن الدفاع المدني سيزور الموقع الأسبوع القادم.'
-                    },
-                    {
-                        timestamp: new Date(Date.now() - 1.5 * 24 * 60 * 60 * 1000).toISOString(), // أمس
-                        name: 'نورا سعد المطيري',
-                        email: 'nora.almutairi@email.com',
-                        phone: '0558765432',
-                        service: 'doors',
-                        message: 'نحتاج تركيب أبواب طوارئ معتمدة لمستشفى خاص في الدمام. نريد أبواب مقاومة للحريق لمدة ساعة كاملة.'
-                    }
-                ],
-                stats: {
-                    totalMessages: 47,
-                    todayMessages: 3,
-                    thisWeekMessages: 12,
-                    responseRate: '89%'
-                }
-            };
+            if (!messages || messages.length === 0) {
+                messagesContainer.innerHTML = `
+                    <div class="no-data">
+                        <i class="fas fa-inbox"></i>
+                        <p><strong>لا توجد رسائل في Google Sheets حالياً</strong></p>
+                        <small style="color: #666;">
+                            عندما يرسل العملاء رسائل من الموقع ستظهر هنا تلقائياً<br>
+                            تأكد من أن النماذج تعمل وأن البيانات تُحفظ في "رسائل التواصل"
+                        </small>
+                        <div style="margin-top: 15px;">
+                            <a href="${GOOGLE_SHEETS_CONFIG.sheetsUrl}" target="_blank" class="btn btn-secondary" style="font-size: 12px; padding: 8px 15px;">
+                                <i class="fas fa-external-link-alt"></i> تحقق من Google Sheets
+                            </a>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
             
-            updateConnectionStatus('disconnected', 'عرض البيانات الاحتياطية - يرجى إعادة المحاولة');
-            updateRealStatistics();
-            updateRealMessages();
+            let messagesHTML = '';
+            messages.forEach((msg, index) => {
+                const serviceNames = {
+                    'mechanical': 'الأنظمة الميكانيكية',
+                    'electrical': 'الأنظمة الكهربائية', 
+                    'doors': 'أبواب الطوارئ',
+                    'maintenance': 'الصيانة والدعم',
+                    'consultation': 'استشارة فنية',
+                    'complete': 'مشروع متكامل'
+                };
+                
+                const statusColors = {
+                    'جديد': '#ff6b6b',
+                    'تم الرد': '#51cf66',
+                    'قيد المتابعة': '#ffd43b',
+                    'مكتمل': '#69db7c'
+                };
+                
+                messagesHTML += `
+                    <div class="message-item" style="animation-delay: ${index * 0.1}s;">
+                        <div class="message-header">
+                            <span class="message-name">👤 ${msg.name || 'غير محدد'}</span>
+                            <span class="message-time">🕒 ${msg.timestamp || 'غير محدد'}</span>
+                        </div>
+                        <div class="message-contact">
+                            📧 ${msg.email || 'غير محدد'} | 📱 ${msg.phone || 'غير محدد'}
+                        </div>
+                        <div style="margin-bottom: 8px; display: flex; gap: 8px; align-items: center;">
+                            <span class="message-service">${serviceNames[msg.service] || msg.service || 'غير محدد'}</span>
+                            ${msg.status ? `<span style="
+                                background: ${statusColors[msg.status] || '#6c757d'};
+                                color: white;
+                                padding: 2px 8px;
+                                border-radius: 12px;
+                                font-size: 11px;
+                                font-weight: 600;
+                            ">${msg.status}</span>` : ''}
+                        </div>
+                        <div class="message-content">${msg.message || 'لا يوجد نص للرسالة'}</div>
+                        ${msg.notes ? `<div style="margin-top: 8px; padding: 8px; background: rgba(78, 205, 196, 0.1); border-radius: 6px; font-size: 12px; color: #666;">
+                            📝 <strong>ملاحظات:</strong> ${msg.notes}
+                        </div>` : ''}
+                    </div>
+                `;
+            });
+            
+            messagesContainer.innerHTML = messagesHTML;
+            console.log(`📨 تم عرض ${messages.length} رسالة حقيقية من Google Sheets`);
         }
 
         // تحديث البيانات الحقيقية
