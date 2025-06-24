@@ -1,0 +1,47 @@
+# إعدادات GitHub Pages لموقع ناض
+title: "شركة ناض للمقاولات العامة"
+description: "شركة رائدة في الأنظمة الميكانيكية والكهربائية وأبواب الطوارئ في المملكة العربية السعودية"
+url: "https://nadh.com.sa"
+baseurl: ""
+
+# إعدادات SEO
+lang: ar
+locale: ar_SA
+
+# إعدادات GitHub Pages
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# منع معالجة Jekyll للملفات التالية
+exclude:
+  - README.md
+  - node_modules/
+  - .gitignore
+  - .github/
+  - admin.html
+
+# إعدادات Markdown
+markdown: kramdown
+highlighter: rouge
+
+# إعدادات Jekyll
+safe: true
+incremental: false
+
+# إعدادات الموقع
+timezone: Asia/Riyadh
+encoding: utf-8
+
+# منع Jekyll من معالجة ملفات معينة
+keep_files:
+  - .nojekyll
+
+# تحسين الأداء
+sass:
+  style: compressed
+
+# إعدادات إضافية
+future: false
+unpublished: false
