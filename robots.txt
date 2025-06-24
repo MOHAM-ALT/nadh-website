@@ -3,13 +3,27 @@ Allow: /
 Disallow: /admin.html
 Disallow: /downloads/
 
-# السماح للملفات المهمة
-Allow: /css/
-Allow: /js/
+# Allow important files only
+Allow: /css/style.css
+Allow: /js/main.js
 Allow: /images/
-Allow: /themes/
+Allow: /manifest.json
+Allow: /sitemap.xml
 
-# منع بعض البوتات المؤذية
+# Block additional theme files to prevent duplicate content
+Disallow: /themes/
+Disallow: /theme2.html
+Disallow: /theme3.html
+Disallow: /theme4.html
+Disallow: /theme5.html
+Disallow: /css/theme2.css
+Disallow: /css/theme3.css
+Disallow: /css/theme4.css
+Disallow: /css/theme5.css
+Disallow: /js/theme2.js
+Disallow: /js/theme3.js
+
+# Block harmful bots
 User-agent: SemrushBot
 Disallow: /
 
@@ -22,11 +36,17 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-# تحسين السرعة
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# Performance optimization
 Crawl-delay: 1
 
-# خريطة الموقع
+# Sitemap
 Sitemap: https://nadh.com.sa/sitemap.xml
 
-# Host المفضل (يساعد في منع إعادة التوجيه)
+# Preferred host (helps prevent redirect issues)
 Host: nadh.com.sa
